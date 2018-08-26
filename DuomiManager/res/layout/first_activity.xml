@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="68dp"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical" >
+
+        <Button
+            android:id="@+id/btnQueryTimes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="#FFFFFF"
+            android:onClick="toQueryStartTimes"
+            android:text="查询启动次数"
+            android:textColor="#5bb64c"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvQueryTimes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text=""
+            android:textColor="#5bb64c"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="68dp"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical" >
+
+        <Button
+            android:id="@+id/btnQueryPhoneNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="#FFFFFF"
+            android:onClick="toQueryStartTimes"
+            android:text="查询启动手机数"
+            android:textColor="#5bb64c"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvQueryPhoneNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text=""
+            android:textColor="#5bb64c"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="68dp"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical" >
+
+        <Button
+            android:id="@+id/btnQueryUserNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="#FFFFFF"
+            android:onClick="toQueryUserNum"
+            android:text="查询用户数"
+            android:textColor="#5bb64c"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvQueryUserNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text=""
+            android:textColor="#5bb64c"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="68dp"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical" >
+
+        <Button
+            android:id="@+id/btnQueryOrderNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="#FFFFFF"
+            android:onClick="toQueryOrderNum"
+            android:text="查询订单数"
+            android:textColor="#5bb64c"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvQueryOrderNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text=""
+            android:textColor="#5bb64c"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="68dp"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical" >
+
+        <Button
+            android:id="@+id/btnQueryOrder1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="#FFFFFF"
+            android:onClick="toQueryAllOrder"
+            android:text="查询所有订单>>"
+            android:textColor="#5bb64c"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="68dp"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical" >
+
+        <Button
+            android:id="@+id/btnQueryOrderByUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="#FFFFFF"
+            android:onClick="toQueryOrderByUser"
+            android:text="查询用户订单>>"
+            android:textColor="#5bb64c"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/etMobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:hint="输入用户手机"
+            android:textColor="#5bb64c"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="68dp"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical" >
+
+        <Button
+            android:id="@+id/btnQueryProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="#FFFFFF"
+            android:onClick="toQueryProduct"
+            android:text="查询产品>>"
+            android:textColor="#5bb64c"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/etQueryProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:hint="输入产品ID"
+            android:textColor="#5bb64c"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>
