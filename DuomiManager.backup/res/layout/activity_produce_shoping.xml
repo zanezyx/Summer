@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#C0C0C0" >
+
+    <RelativeLayout
+        android:id="@+id/topinfo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp" >
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="购物车"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/shoppingcarlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topinfo" >
+    </ListView>
+
+    <RelativeLayout
+        android:id="@+id/tab_rg_menu"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/backgroup"
+        android:orientation="horizontal" >
+
+        <CheckBox
+            android:id="@+id/dui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#E0E0E0"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/dui"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/totaltext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="总计："
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/totaltext"
+                android:layout_toRightOf="@id/totaltext"
+                android:textSize="20sp"
+                android:textColor="#FF0000" />
+
+            <TextView
+                android:id="@+id/moneytext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/totaltext"
+                android:layout_below="@id/totaltext"
+                android:text="商品金额："
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/producemoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/moneytext"
+                android:layout_toRightOf="@id/moneytext"
+                android:textSize="20sp"
+                android:textColor="#FF0000" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/countbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/jiesuan"
+            android:text="结算"
+            android:textColor="#FFFFFF" />
+    </RelativeLayout>
+
+</RelativeLayout>

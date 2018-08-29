@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#f7f7f7"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#ffffff" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:onClick="toBack"
+            android:src="@drawable/back" >
+        </ImageView>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="新增收货地址"
+            android:textColor="#5bb64c"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/addsubmit"
+            android:layout_width="40dp"
+            android:layout_height="27dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
+            android:text="保存"
+            android:textColor="#ffffff"
+            android:background="@drawable/login_button"
+            android:visibility="invisible" >
+        </Button>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="#ffffff" >
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="收货人姓名"
+            android:textColor="#000000"
+            android:textSize="16sp" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/reveiverName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tvName"
+            android:background="#ffffff"
+            android:hint="请输入收货人姓名"
+            android:paddingLeft="10dp"
+            android:text=""
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:textCursorDrawable="@null" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="1dp"
+        android:background="#ffffff"
+        android:onClick="toSelectArea" >
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="区域选择"
+            android:textColor="#000000"
+            android:textSize="16sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvArea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/tv1"
+            android:text=""
+            android:textColor="#888888"
+            android:textSize="14sp" >
+        </TextView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:src="@drawable/right_arrow" >
+        </ImageView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="1dp"
+        android:background="#ffffff" >
+
+        <TextView
+            android:id="@+id/tvAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="详细地址"
+            android:textColor="#000000"
+            android:textSize="16sp" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/addressDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tvAddress"
+            android:background="#ffffff"
+            android:hint="请输入详细地址"
+            android:paddingLeft="10dp"
+            android:text=""
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:textCursorDrawable="@null" >
+        </EditText>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl3"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="1dp"
+        android:background="#ffffff" >
+
+        <TextView
+            android:id="@+id/tvPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="联系电话"
+            android:textColor="#000000"
+            android:textSize="16sp" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tvPhone"
+            android:background="#ffffff"
+            android:hint="请输入联系电话"
+            android:paddingLeft="10dp"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textCursorDrawable="@null" >
+        </EditText>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/setDefault"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:visibility="gone"
+        android:background="#ffffff" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="设为常用地址"
+            android:textColor="#000000"
+            android:textSize="16sp" >
+        </TextView>
+
+        <CheckBox
+            android:id="@+id/cbSetDefault"
+            style="@style/AddressCheckboxTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50dp"
+            android:onClick="toSetDefault" >
+        </CheckBox>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/btn_sign_out_bg"
+        android:onClick="toSubmit"
+        android:text="保存"
+        android:textColor="#ffffff" >
+    </Button>
+
+</LinearLayout>

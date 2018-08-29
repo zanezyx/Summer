@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp" >
+
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tvTotalMoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvProductName"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:text=""
+        android:textColor="#FF0000"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTotalMoney"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:text=""
+        android:textColor="#777777"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tvMobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvName"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:text=""
+        android:textColor="#777777"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tvReceiverName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvMobile"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:text=""
+        android:textColor="#777777"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tvReceiverMobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvReceiverName"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:text=""
+        android:textColor="#777777"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tvReceiverAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvReceiverMobile"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:text=""
+        android:textColor="#777777"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tvDeliveryState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvReceiverAddress"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:text=""
+        android:textColor="#777777"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tvPaymentType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvDeliveryState"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:text=""
+        android:textColor="#777777"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tvorderDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvPaymentType"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:text=""
+        android:textColor="#777777"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tvViewDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvorderDate"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:background="#fb792b"
+        android:padding="5dp"
+        android:text="查看订单详情>>"
+        android:textColor="#ffffff"
+        android:textSize="13sp" />
+
+    <Button
+        android:id="@+id/btnPay"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/tvViewDetail"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/order_btn_bg1"
+        android:text="立即付款"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvViewDetail"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/order_btn_bg1"
+        android:text="取消订单"
+        android:textColor="#ffffff"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="#f7f7f7" />
+
+</RelativeLayout>

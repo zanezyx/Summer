@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#C0C0C0" >
+
+    <RelativeLayout
+        android:id="@+id/topinfo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp" >
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="快捷支付"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/payment_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topinfo"
+        android:src="@drawable/payment_line" >
+    </ImageView>
+
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/payment_line"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/totaltext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="付费金额："
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/totalmoney"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/totaltext"
+            android:layout_toRightOf="@id/totaltext"
+            android:textColor="#000000" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/payment_xuline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/content"
+        android:src="@drawable/payment_xuline" >
+    </ImageView>
+
+    <Button
+        android:id="@+id/countbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/payment_button"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>
