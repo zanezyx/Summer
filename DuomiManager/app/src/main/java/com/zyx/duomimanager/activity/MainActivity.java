@@ -683,7 +683,7 @@ public class MainActivity extends BaseActivity {
 				}
 			});
 		} catch (Exception e) {
-			Log.e("PersonCenterActivity error!",
+			Log.e("data",
 					"PersonCenterActivity onload error!");
 		}
 	}
@@ -691,7 +691,7 @@ public class MainActivity extends BaseActivity {
 	
 //用于服务器记录启动次数
 	void countTimes() {
-		String IMEI = AppUtil.getIMEI(this);
+		String IMEI = null;//AppUtil.getIMEI(this);
 		if(IMEI==null)
 			return;
 		StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
