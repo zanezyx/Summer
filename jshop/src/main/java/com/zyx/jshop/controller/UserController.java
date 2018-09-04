@@ -5,6 +5,7 @@ package com.zyx.jshop.controller;
 import com.zyx.jshop.entity.JsonResult;
 import com.zyx.jshop.entity.User;
 import com.zyx.jshop.service.UserService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -144,5 +145,28 @@ public class UserController {
         }
         return ResponseEntity.ok(r);
     }
+
+    /**
+     * 用户登录
+     * @param  /{mobile}/{password}
+     * @return
+     */
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+//    public ResponseEntity<JsonResult> login (@PathVariable(value = "mobile") String mobile,
+//                                             @PathVariable(value = "password") String password){
+    public ResponseEntity<JsonResult> login (@RequestParam("mobile") String mobile, @RequestParam("password") String password){
+        JsonResult r = new JsonResult();
+        try {
+            User user = userService.getUserByMobileAndPwd("13603021940", "123456");
+            r.setResult(user);
+            r.setStatus("ok");
+        } catch (Exception e) {
+            r.setResult(e.getClass().getName() + ":" + e.getMessage());
+            r.setStatus("error");
+            e.printStackTrace();
+        }
+        return ResponseEntity.ok(r);
+    }
+
 
 }

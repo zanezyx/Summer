@@ -4,7 +4,10 @@ import java.util.Date;
 
 public class User {
     private int id;
-    private String username;
+    private String name;
+    private String mobile;
+    private String password;
+    private int score;
     private int age;
     private Date ctm;
 
@@ -12,7 +15,7 @@ public class User {
     }
 
     public User(String username, int age) {
-        this.username = username;
+        this.name = username;
         this.age = age;
         this.ctm = new Date();
     }
@@ -26,12 +29,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.name = username;
     }
 
     public int getAge() {
@@ -48,5 +51,33 @@ public class User {
 
     public void setCtm(Date ctm) {
         this.ctm = ctm;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }

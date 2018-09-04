@@ -14,6 +14,8 @@ public interface UserService {
 
     User getUserById(Integer id);
 
+    User getUserByMobileAndPwd(String mobile, String password);
+
     public List<User> getUserList();
 
     public int add(User user);

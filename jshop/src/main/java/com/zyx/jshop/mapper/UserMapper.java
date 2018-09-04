@@ -16,6 +16,9 @@ public interface UserMapper {
     @Select("SELECT * FROM tb_user WHERE id = #{id}")
     User getUserById(Integer id);
 
+    @Select("SELECT * FROM tb_user WHERE mobile = #{mobile} AND password = #{password}")
+    User getUserByMobileAndPwd(@Param("mobile") String mobile, @Param("password") String password);
+
     @Select("SELECT * FROM tb_user")
     public List<User> getUserList();
 
