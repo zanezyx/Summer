@@ -22,7 +22,7 @@ public interface UserMapper {
     @Select("SELECT * FROM tb_user")
     public List<User> getUserList();
 
-    @Insert("insert into tb_user(username, age, ctm) values(#{username}, #{age}, now())")
+    @Insert("insert into tb_user(mobile, password) values(#{mobile}, #{password})")
     public int add(User user);
 
     @Update("UPDATE tb_user SET username = #{user.username} , age = #{user.age} WHERE id = #{id}")

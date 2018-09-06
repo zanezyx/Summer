@@ -147,7 +147,7 @@ public class UserController {
     }
 
     /**
-     * 用户登录
+     * user login
      * @param  /{mobile}/{password}
      * @return
      */
@@ -168,5 +168,33 @@ public class UserController {
         return ResponseEntity.ok(r);
     }
 
+    /**
+     * user register
+     * @param  /{mobile}/{password}
+     * @return
+     */
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public ResponseEntity<JsonResult> register (@RequestParam("mobile") String mobile, @RequestParam("password") String password){
+        JsonResult r = new JsonResult();
+        User existUser  = userService.getUserByMobileAndPwd(mobile, password);
+        if(existUser!=null){
+            r.setStatus("exist");
+            r.setResult(null);
+        }else{
+            try {
+                User user = new User();
+                user.setMobile(mobile);
+                user.setPassword(password);
+                userService.add(user);
+                r.setStatus("ok");
+                r.setResult(null);
+            } catch (Exception e) {
+                r.setResult(e.getClass().getName() + ":" + e.getMessage());
+                r.setStatus("error");
+                e.printStackTrace();
+            }
+        }
+        return ResponseEntity.ok(r);
+    }
 
 }
