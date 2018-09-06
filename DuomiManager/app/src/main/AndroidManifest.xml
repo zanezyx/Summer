@@ -42,7 +42,7 @@
         android:label="@string/app_name"
         android:windowSoftInputMode="adjustPan" >
         <activity
-            android:name="com.zyx.duomimanager.activity.RegisterActivity"
+            android:name="com.zyx.duomimanager.activity.MainActivity"
             android:windowSoftInputMode="adjustPan" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -98,7 +98,7 @@
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.RegisterActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan" >
         </activity>

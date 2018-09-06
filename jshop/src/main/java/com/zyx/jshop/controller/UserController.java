@@ -157,7 +157,7 @@ public class UserController {
     public ResponseEntity<JsonResult> login (@RequestParam("mobile") String mobile, @RequestParam("password") String password){
         JsonResult r = new JsonResult();
         try {
-            User user = userService.getUserByMobileAndPwd("13603021940", "123456");
+            User user = userService.getUserByMobileAndPwd(mobile, password);
             r.setResult(user);
             r.setStatus("ok");
         } catch (Exception e) {
@@ -193,6 +193,23 @@ public class UserController {
                 r.setStatus("error");
                 e.printStackTrace();
             }
+        }
+        return ResponseEntity.ok(r);
+    }
+
+
+    /**
+     * update password
+     * @param
+     * @return
+     */
+    @RequestMapping(value = "/updatepwd", method = RequestMethod.GET)
+    public ResponseEntity<JsonResult> updatePassword (@RequestParam("id") Integer id, @RequestParam("pwdnew") String pwdNew){
+        JsonResult r = new JsonResult();
+        int res = userService.updatePassword(id, pwdNew);
+        if(res>0){
+            r.setStatus("ok");
+            r.setResult(null);
         }
         return ResponseEntity.ok(r);
     }

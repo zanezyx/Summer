@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.zyx.duomimanager.R;
+import com.zyx.duomimanager.application.DmConstant;
 import com.zyx.duomimanager.application.UserInfo;
 import com.zyx.duomimanager.bean.request.ChangePasswordRequest;
 import com.zyx.duomimanager.bean.response.ChangePasswordResponse;
@@ -139,7 +140,7 @@ public class ChangePasswordActivity extends Activity {
 
 			@Override
 			public void onFailed(Exception ex, BaseResponse response) {
-				Log.i("ezyx", ">>>onFailed  修改密码失败");
+				Log.i(DmConstant.TAG, "ChangePasswordActivity>>>onFailed");
 				AppUtil.showInfoShort(ChangePasswordActivity.this, "修改密码失败");
 			}
 

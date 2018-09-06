@@ -23,4 +23,6 @@ public interface UserService {
     public int update(Integer id, User user);
 
     public int delete(Integer id);
+
+    public int updatePassword(Integer id, String password);
 }

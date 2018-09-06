@@ -5,21 +5,20 @@ import com.zyx.duomimanager.commication.BaseRequest;
 /**
  * 
  * @author zyx
- * @anotion 修改密码
+ * @anotion update password
  */
 public class ChangePasswordRequest extends BaseRequest {
 
 	private int  id;
 	private String password;
-	private String password1;
+	private String pwdnew;
 
-	public ChangePasswordRequest(int id, String password, String password1) {
+	public ChangePasswordRequest(int id, String password, String pwdNew) {
 		super(REQUESTTYPE.GET, REQUESTSHOWTYPE.DISPLAY);
 		this.id = id;
 		this.password = password;
-		this.password1 = password1;
+		this.pwdnew = pwdNew;
 	}
-
 
 
 	public String getPassword() {
@@ -35,7 +34,9 @@ public class ChangePasswordRequest extends BaseRequest {
 		return getSERVIER_URL() + getPath() + toParams();
 	}
 
-
+	public String getPath(){
+		return "/updatepwd";
+	}
 
 	public int getId() {
 		return id;
@@ -47,16 +48,11 @@ public class ChangePasswordRequest extends BaseRequest {
 		this.id = id;
 	}
 
-
-
-	public String getPassword1() {
-		return password1;
+	public String getPwdnew() {
+		return pwdnew;
 	}
 
-
-
-	public void setPassword1(String password1) {
-		this.password1 = password1;
+	public void setPwdnew(String pwdnew) {
+		this.pwdnew = pwdnew;
 	}
-
 }

@@ -23,30 +23,20 @@ public class ChangePasswordResponse extends BaseResponse {
 	{
 		if(resString!=null)
 		{
-//			JSONObject result;
-//			try {
-//				custom = Custom.getInstance();
-//				result = new JSONObject(resString);
-//				Integer temp = (Integer)result.get("customId");
-//				custom.setId(temp);
-//				String s = (String)result.get("result");
-//				if(s.equals("success"))
-//				{
-//					custom.isLogined =true;
-//				}else{
-//					custom.isLogined =false;
-//				}
-//				
-//			} catch (JSONException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} 
-			if(resString.contains("0"))
-			{
-				isSuccess = true;
-			}else
-			{
-				isSuccess = false;
+			JSONObject result;
+			try {
+				result = new JSONObject(resString);
+				String s = (String)result.get("status");
+				if(s.equals("ok"))
+				{
+					isSuccess = true;
+				}else{
+					isSuccess = false;
+				}
+
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 	}

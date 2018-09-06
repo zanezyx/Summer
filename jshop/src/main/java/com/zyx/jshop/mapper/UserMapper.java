@@ -28,6 +28,11 @@ public interface UserMapper {
     @Update("UPDATE tb_user SET username = #{user.username} , age = #{user.age} WHERE id = #{id}")
     public int update(@Param("id") Integer id, @Param("user") User user);
 
+
+    @Update("UPDATE tb_user SET password = #{pwdnew}  WHERE id = #{id}")
+    public int updatePassword(@Param("id") Integer id, @Param("pwdnew") String pwdnew);
+
+
     @Delete("DELETE from tb_user where id = #{id} ")
     public int delete(Integer id);
 }
