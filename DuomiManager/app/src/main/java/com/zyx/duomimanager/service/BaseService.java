@@ -252,6 +252,7 @@ public abstract class BaseService<REQUEST extends BaseRequest, RESPOND extends B
 			ClientProtocolException, InterruptedIOException {
 		String content = "";
 		String url = request.getUrl();
+
 		if (application.isCmwap()) {
 			content = HttpClient.getViaCmwap(url);
 		} 

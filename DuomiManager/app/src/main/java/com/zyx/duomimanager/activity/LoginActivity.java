@@ -192,6 +192,7 @@ public class LoginActivity extends Activity {
 					if (res == null)
 						return;
 					res.parseResString();
+					Log.i("ezyx", "login success>>>");
 					if (UserInfo.getInstance().isLogin) {
 						finish();
 						Log.i("ezyx", "login success user id = "

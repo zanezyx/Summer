@@ -1,6 +1,7 @@
 package com.zyx.duomimanager.bean.request;
 
 import com.zyx.duomimanager.commication.BaseRequest;
+import com.zyx.duomimanager.util.PropertiesUtils;
 
 /**
  * 
@@ -23,6 +24,10 @@ public class LoginRequest extends BaseRequest {
 		return mobile;
 	}
 
+	public String getPath() {
+		String path = "/login";
+		return path;
+	}
 
 	public void setMobile(String mobile) {
 		this.mobile = mobile;

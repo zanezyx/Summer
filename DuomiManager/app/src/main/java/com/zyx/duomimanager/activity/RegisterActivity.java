@@ -169,7 +169,7 @@ public class RegisterActivity extends BaseActivity {
 
 				@Override
 				public void onLoadSuccess(BaseResponse response) {
-					if(response.resString.contains("0"))
+					if(response.resString.contains("ok"))
 					{
 						AppUtil.showInfoShort(mContext, "注册成功！");
 						UserInfo.getInstance().moblile = mobile;
@@ -180,7 +180,7 @@ public class RegisterActivity extends BaseActivity {
 						Intent intent = new Intent();
 						intent.setClass(RegisterActivity.this, LoginActivity.class);
 						startActivity(intent);
-					}else if(response.resString.contains("1")){
+					}else if(response.resString.contains("exist")){
 						AppUtil.showInfoShort(mContext, "账号已被注册");
 					}else{
 						AppUtil.showInfoShort(mContext, "注册失败");

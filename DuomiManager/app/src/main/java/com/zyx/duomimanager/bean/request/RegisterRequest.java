@@ -43,7 +43,9 @@ public class RegisterRequest extends BaseRequest {
 		this.isAgree = "1";
 	}
 
-
+	public  String getPath(){
+		return "/register";
+	}
 	public String getMobile() {
 		return mobile;
 	}

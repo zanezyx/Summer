@@ -144,7 +144,8 @@ public abstract class BaseRequest {
 	 * @return the sERVIER_URL
 	 */
 	public String getSERVIER_URL() {
-		String URL = PropertiesUtils.getProperties().getProperty("Service_URL");
+		//String URL = PropertiesUtils.getProperties().getProperty("Service_URL");
+		String URL = "http://192.168.1.104:8080";
 		return URL;
 	}
 
