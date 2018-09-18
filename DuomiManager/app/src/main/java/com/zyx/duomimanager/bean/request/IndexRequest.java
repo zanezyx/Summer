@@ -19,4 +19,10 @@ public class IndexRequest extends BaseRequest {
 		return getSERVIER_URL() + getPath() + toParams();
 	}
 
+	public String getPath() {
+		String path = "/index";
+		return path;
+	}
+
+
 }

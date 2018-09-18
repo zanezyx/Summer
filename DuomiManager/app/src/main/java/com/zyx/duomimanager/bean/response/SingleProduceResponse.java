@@ -49,24 +49,27 @@ public class SingleProduceResponse extends BaseResponse {
 				JSONObject jobj = jProduct;
 
 				try {
-					p.attentionCount = Integer.valueOf((String)jobj.get("attentionCount"));
-					p.browseCount = Integer.valueOf((String)jobj.get("browseCount"));
+					p.attentionCount = (Integer)jobj.get("attentionCount");
+					p.browseCount = (Integer)jobj.get("browseCount");
 					p.code = (String)jobj.get("code");
 					p.description = (String)jobj.get("description");
-					p.discountPrice = Integer.valueOf((String)jobj.get("discountPrice"));
-					p.freezeStore = Integer.valueOf((String)jobj.get("freezeStore"));
-					p.id = Integer.valueOf((String)jobj.get("id"));
-					p.isMarketable = Integer.valueOf((String)jobj.get("isMarketable"));
+					try {
+						p.discountPrice = (Double) jobj.get("discountPrice");
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+					p.freezeStore = (Integer)jobj.get("freezeStore");
+					p.id = (Integer) jobj.get("id");
+					p.isMarketable = (Integer)jobj.get("isMarketable");
 					p.logo = (String)jobj.get("logo");
 					p.logoUrl = (String)jobj.get("logoUrl");
-					p.marketPrice = Integer.valueOf((String)jobj.get("marketPrice"));
+					p.marketPrice = (Double) jobj.get("marketPrice");
 					p.metaKeywords = (String)jobj.get("metaKeywords");
 					p.name = (String)jobj.get("name");
-					p.norm = (String)jobj.get("norm");
-					p.productType = Integer.valueOf((String)jobj.get("productType"));
-					p.saleCount = Integer.valueOf((String)jobj.get("saleCount"));
-					p.store = Integer.valueOf((String)jobj.get("store"));
-					p.imageCount = Integer.valueOf((String)jobj.get("imageCount"));
+					p.productType = (String)jobj.get("productType");
+					p.saleCount = (Integer)jobj.get("saleCount");
+					p.store = (Integer)jobj.get("store");
+					p.imageCount = (Integer)jobj.get("imageCount");
 				} catch (Exception e) {
 					// TODO: handle exception
 					e.printStackTrace();

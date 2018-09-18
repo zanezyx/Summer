@@ -4,21 +4,24 @@ spring:
     active: dev
 
 #公共配置与profiles选择无关
-mybatis:
-  typeAliasesPackage: com.zyx.jshop.entity
-  mapperLocations: classpath:mapper/*.xml
+  mybatis:
+    typeAliasesPackage: com.zyx.jshop.entity
+    mapperLocations: classpath:mapper/*.xml
 
 
----
 
 #开发配置
-spring:
-  profiles: dev
+
 
   datasource:
-    url: jdbc:mysql://localhost:3306/jshop
+    url: jdbc:mysql://localhost:3306/db_person
     username: root
     password: 12345678
     driver-class-name: com.mysql.jdbc.Driver
     # 使用druid数据源
     #type: com.alibaba.druid.pool.DruidDataSource
+
+  mvc:
+      static-path-pattern: /**
+  resources:
+      static-locations: classpath:/META-INF/resources/,classpath:/resources/, classpath:/static/, classpath:/public/

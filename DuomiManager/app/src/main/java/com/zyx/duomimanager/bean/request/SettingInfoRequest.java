@@ -18,4 +18,8 @@ public class SettingInfoRequest extends BaseRequest {
 		return getSERVIER_URL() + getPath() + toParams();
 	}
 
+	@Override
+	public String getPath() {
+		return "/settings";
+	}
 }

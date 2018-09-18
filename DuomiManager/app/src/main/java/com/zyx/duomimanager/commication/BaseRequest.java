@@ -17,6 +17,7 @@ import java.util.Map;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.zyx.duomimanager.application.DmConstant;
 import com.zyx.duomimanager.util.PropertiesUtils;
 import com.zyx.duomimanager.util.SharePreferenceManager;
 
@@ -145,7 +146,7 @@ public abstract class BaseRequest {
 	 */
 	public String getSERVIER_URL() {
 		//String URL = PropertiesUtils.getProperties().getProperty("Service_URL");
-		String URL = "http://192.168.1.104:8080";
+		String URL = DmConstant.SERVIER_URL;
 		return URL;
 	}
 

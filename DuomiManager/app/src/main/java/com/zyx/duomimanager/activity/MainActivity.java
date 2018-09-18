@@ -37,6 +37,7 @@ import android.widget.TextView;
 import android.view.LayoutInflater;
 
 import com.zyx.duomimanager.R;
+import com.zyx.duomimanager.application.DmConstant;
 import com.zyx.duomimanager.application.UserInfo;
 import com.zyx.duomimanager.bean.request.CountTimesRequest;
 import com.zyx.duomimanager.bean.request.IndexRequest;
@@ -165,8 +166,9 @@ public class MainActivity extends BaseActivity {
 		viewPager.setOnPageChangeListener(new MyPageChangeListener());
 		for(int i=0;i<maxSize;i++)
 		{
-			String URL = PropertiesUtils.getProperties().getProperty("Service_URL");
+			String URL = DmConstant.SERVIER_URL;
 			String url = URL + productList.get(i).logoUrl+1+".jpg";
+			Log.i("ezyx", "showImagePageView>>>url:"+url);
 			loadImageUtil.showImageAsyn(imageViews.get(i), url, 0);
 			mMap.put(url, productList.get(i).id);
 		}	
@@ -370,8 +372,9 @@ public class MainActivity extends BaseActivity {
 					TextView tv1 = (TextView) layout.findViewById(R.id.name1);
 					TextView tv2 = (TextView) layout.findViewById(R.id.price1);
 //					TextView tv3 = (TextView) layout.findViewById(R.id.description);
-					String URL = PropertiesUtils.getProperties().getProperty("Service_URL");
-					String url = URL + p.logoUrl+"/"+1+".jpg";
+					String URL = DmConstant.SERVIER_URL;
+					String url = URL + p.logoUrl+1+".jpg";
+					Log.i("ezyx","loadRecommendProductViews>>>url:"+url);
 					loadImageUtil.showImageAsyn(iv, url, 0);
 					tv2.setText("￥" + p.marketPrice);
 					tv1.setText("" + p.name);
@@ -404,8 +407,8 @@ public class MainActivity extends BaseActivity {
 					TextView tv11 = (TextView) layout.findViewById(R.id.name2);
 					TextView tv12 = (TextView) layout.findViewById(R.id.price2);
 //					TextView tv3 = (TextView) layout.findViewById(R.id.description);
-					String URL = PropertiesUtils.getProperties().getProperty("Service_URL");
-					String url1 = URL + p.logoUrl+"/"+1+".jpg";
+					String URL = DmConstant.SERVIER_URL;
+					String url1 = URL + p.logoUrl+1+".jpg";
 					loadImageUtil.showImageAsyn(iv1, url1, 0);
 					tv12.setText("￥" + p.marketPrice);
 					tv11.setText("" + p.name);

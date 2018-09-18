@@ -14,7 +14,7 @@ public class Product implements java.io.Serializable {
 	public String name;
 	public String description;
 	public String metaKeywords;
-	public Integer productType;
+	public String productType;
 	public Integer store;
 	public Integer freezeStore;
 	public Integer isMarketable;
@@ -22,14 +22,14 @@ public class Product implements java.io.Serializable {
 	public String logo;
 	public String logoUrl;
 	public String norm;
-	public Integer marketPrice;
+	public Double marketPrice;
 	public Integer vipPrice;
 	public Integer beansPrice;
 	public Integer saleCount;
 	public Integer browseCount;
 	public Integer attentionCount;
 	public String unit;
-	public Integer discountPrice;
+	public Double discountPrice;
 	public Integer discountBean;
 	public Integer imageCount;
 	public Integer gender;
@@ -41,12 +41,12 @@ public class Product implements java.io.Serializable {
 
 	/** full constructor */
 	public Product(String code, String name, String description,
-			String metaKeywords, Integer productType, Integer store,
+			String metaKeywords, String productType, Integer store,
 			Integer freezeStore, Integer isMarketable, String brand,
-			String logo, String logoUrl, String norm, Integer marketPrice,
+			String logo, String logoUrl, String norm, Double marketPrice,
 			Integer vipPrice, Integer beansPrice, Integer saleCount,
 			Integer browseCount, Integer attentionCount, String unit,
-			Integer discountPrice, Integer discountBean) {
+			Double discountPrice, Integer discountBean) {
 		this.code = code;
 		this.name = name;
 		this.description = description;
@@ -111,11 +111,11 @@ public class Product implements java.io.Serializable {
 		this.metaKeywords = metaKeywords;
 	}
 
-	public Integer getProductType() {
+	public String getProductType() {
 		return this.productType;
 	}
 
-	public void setProductType(Integer productType) {
+	public void setProductType(String productType) {
 		this.productType = productType;
 	}
 
@@ -175,11 +175,11 @@ public class Product implements java.io.Serializable {
 		this.norm = norm;
 	}
 
-	public double getMarketPrice() {
+	public Double getMarketPrice() {
 		return this.marketPrice;
 	}
 
-	public void setMarketPrice(Integer marketPrice) {
+	public void setMarketPrice(Double marketPrice) {
 		this.marketPrice = marketPrice;
 	}
 
@@ -231,11 +231,11 @@ public class Product implements java.io.Serializable {
 		this.unit = unit;
 	}
 
-	public double getDiscountPrice() {
+	public Double getDiscountPrice() {
 		return this.discountPrice;
 	}
 
-	public void setDiscountPrice(Integer discountPrice) {
+	public void setDiscountPrice(Double discountPrice) {
 		this.discountPrice = discountPrice;
 	}
 
