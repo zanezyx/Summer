@@ -28,4 +28,8 @@ public class SearchProductRequest extends BaseRequest {
 		return getSERVIER_URL() + getPath() + toParams();
 	}
 
+	public String getPath(){
+		return "/productsearch";
+	}
+
 }

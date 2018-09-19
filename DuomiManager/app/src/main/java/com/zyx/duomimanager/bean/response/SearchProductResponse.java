@@ -32,37 +32,17 @@ public class SearchProductResponse extends BaseResponse {
 			JSONObject result;
 			try {
 				result = new JSONObject(resString);
-				JSONArray jProductList = (JSONArray)result.get("productList");
+				JSONArray jProductList = (JSONArray)result.get("result");
 				productList = Products.getInstance().productList;
 				productList.clear();
 				for(int i=0;i<jProductList.length();i++)
 				{
-					Product p = new Product();
 					JSONObject jobj = (JSONObject)jProductList.get(i);
-					p.attentionCount = (Integer)jobj.get("attentionCount");
-					p.browseCount = (Integer)jobj.get("browseCount");
-					p.code = (String)jobj.get("code");
-					p.description = (String)jobj.get("description");
-					try {
-						p.discountPrice = (Double) jobj.get("discountPrice");
-					} catch (Exception e) {
-						// TODO: handle exception
+					if(jobj!=null){
+						Product p = Product.parseJson(jobj);
+						productList.add(p);
 					}
-					p.freezeStore = (Integer)jobj.get("freezeStore");
-					p.id = (Integer) jobj.get("id");
-					p.isMarketable = (Integer)jobj.get("isMarketable");
-					p.logo = (String)jobj.get("logo");
-					p.logoUrl = (String)jobj.get("logoUrl");
-					p.marketPrice = (Double) jobj.get("marketPrice");
-					p.metaKeywords = (String)jobj.get("metaKeywords");
-					p.name = (String)jobj.get("name");
-					p.productType = (String)jobj.get("productType");
-					p.saleCount = (Integer)jobj.get("saleCount");
-					p.store = (Integer)jobj.get("store");
-					p.imageCount = (Integer)jobj.get("imageCount");
-					productList.add(p);
 				}
-
 				Log.i("ezyx", "parse main product list success");
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
@@ -74,8 +54,6 @@ public class SearchProductResponse extends BaseResponse {
 	}
 }
 
-//05-11 13:26:03.774: I/ezyx(18894): >>>net request  resString ={"result":"没有更多数据","message":"没有更多数据",
-//		"productList":["白糯米","荞麦米"]}
 
 
 

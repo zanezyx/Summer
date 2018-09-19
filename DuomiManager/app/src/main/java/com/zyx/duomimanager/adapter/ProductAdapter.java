@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.zyx.duomimanager.R;
 import com.zyx.duomimanager.activity.ProductDetailActivity;
+import com.zyx.duomimanager.application.DmConstant;
 import com.zyx.duomimanager.holder.ProduceHolder;
 import com.zyx.duomimanager.tools.LoadImageUtil;
 import com.zyx.duomimanager.util.PropertiesUtils;
@@ -119,8 +120,8 @@ public class ProductAdapter extends BaseAdapter{
     
 	void showImage(int position, ImageView iv) {
 
-		String URL = PropertiesUtils.getProperties().getProperty("Service_URL");
-		String url = URL + mData.get(position).get("imgURl") + (1) + ".jpg";
+		String URL = DmConstant.SERVIER_URL;
+		String url = URL + mData.get(position).get("imgURl") + 1 + ".jpg";
 		//ImageView iv = (ImageView) mData.get(position).get("imageView");
 		if (url != null && iv != null) {
 			loadImageUtil.showImageAsyn(iv, url, 0);

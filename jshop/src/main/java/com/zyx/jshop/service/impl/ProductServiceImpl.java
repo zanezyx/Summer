@@ -32,4 +32,16 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getProductOfHotSales() {
         return productMapper.getProductOfHotSales();
     }
+
+    @Override
+    public Product getProductDetail(int id) {
+        return productMapper.getProductById(id);
+    }
+
+    @Override
+    public List<Product> searchProducts(String metaKeywords) {
+        return productMapper.searchProducts(metaKeywords);
+    }
+
+
 }

@@ -25,20 +25,24 @@ public class LoginResponse extends BaseResponse {
 				result = new JSONObject(resString);
 				JSONObject jobj = (JSONObject) result.get("result");
 				UserInfo p = UserInfo.getInstance();
-
-				try {
-					p.customId = (Integer)jobj.get("id");
-					p.moblile = (String)jobj.get("mobile");
-					p.password = (String)jobj.get("password");
-					p.name = (String)jobj.get("name");
-					p.score = (Integer) jobj.get("score");
-					p.isLogin = true;
-					Log.i("ezyx","parse user success");
-				} catch (Exception e) {
-					// TODO: handle exception
-					Log.i("ezyx","parse user failed 1 e:"+e.toString());
+				if(jobj==null){
+					Log.i("ezyx","login fail");
 					UserInfo.getInstance().isLogin = false;
-					e.printStackTrace();
+				}else{
+					try {
+						p.customId = (Integer)jobj.get("id");
+						p.moblile = (String)jobj.get("mobile");
+						p.password = (String)jobj.get("password");
+						p.name = (String)jobj.get("name");
+						p.score = (Integer) jobj.get("score");
+						p.isLogin = true;
+						Log.i("ezyx","parse user success");
+					} catch (Exception e) {
+						// TODO: handle exception
+						Log.i("ezyx","parse user failed 1 e:"+e.toString());
+						UserInfo.getInstance().isLogin = false;
+						e.printStackTrace();
+					}
 				}
 
 			} catch (Exception e) {

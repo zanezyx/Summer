@@ -4,23 +4,37 @@ import java.util.ArrayList;
 
 public class SettingInfo {
 
-	private static SettingInfo settingInfo;
 	public String serviceMobile;
 	public String latestVersionCode;
 	public String latestVersionURL;
 	
-	SettingInfo()
+	public SettingInfo()
 	{
 	}
 	
-	
-	public static SettingInfo getInstance()
-	{
-		if(settingInfo==null)
-		{
-			settingInfo = new SettingInfo();
-		}	
-		return settingInfo;
+
+
+	public String getServiceMobile() {
+		return serviceMobile;
 	}
-	
+
+	public void setServiceMobile(String serviceMobile) {
+		this.serviceMobile = serviceMobile;
+	}
+
+	public String getLatestVersionCode() {
+		return latestVersionCode;
+	}
+
+	public void setLatestVersionCode(String latestVersionCode) {
+		this.latestVersionCode = latestVersionCode;
+	}
+
+	public String getLatestVersionURL() {
+		return latestVersionURL;
+	}
+
+	public void setLatestVersionURL(String latestVersionURL) {
+		this.latestVersionURL = latestVersionURL;
+	}
 }

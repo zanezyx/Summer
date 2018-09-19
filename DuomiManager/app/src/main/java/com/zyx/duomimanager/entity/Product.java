@@ -1,6 +1,10 @@
 package com.zyx.duomimanager.entity;
 
 
+import android.util.Log;
+
+import org.json.JSONObject;
+
 public class Product implements java.io.Serializable {
 
 	// Fields
@@ -246,5 +250,55 @@ public class Product implements java.io.Serializable {
 	public void setDiscountBean(Integer discountBean) {
 		this.discountBean = discountBean;
 	}
+
+	public static Product parseJson(JSONObject jobj){
+		if(jobj==null)
+			return null;
+		Product p = null;
+		try {
+			p = new Product();
+			p.attentionCount = (Integer)jobj.get("attentionCount");
+			p.browseCount = (Integer)jobj.get("browseCount");
+			p.code = (String)jobj.get("code");
+			p.description = (String)jobj.get("description");
+			p.discountPrice = (Double) jobj.get("discountPrice");
+			p.freezeStore = (Integer)jobj.get("freezeStore");
+			p.id = (Integer) jobj.get("id");
+			p.isMarketable = (Integer)jobj.get("isMarketable");
+			try {
+				Object logo = jobj.get("logo");
+				if(logo!=null){
+					p.logo = (String)logo;
+				}
+				Object logoUrl = jobj.get("logoUrl");
+				if(logoUrl!=null){
+					p.logoUrl = (String)logoUrl;
+				}
+
+			} catch (Exception e) {
+				// TODO: handle exception
+				Log.i("ezyx", "parse news list 1 failed e:"+e.toString());
+				e.printStackTrace();
+			}
+			if(p.logoUrl==null || p.logoUrl.equals("")||p.logoUrl.equalsIgnoreCase("null")){
+				p.logoUrl= "/images/product/"+p.id+"/";
+				Log.i("ezyx", "parseResString>>>p.logoUrl:"+p.logoUrl);
+			}
+			p.marketPrice = (Double) jobj.get("marketPrice");
+			p.metaKeywords = (String)jobj.get("metaKeywords");
+			p.name = (String)jobj.get("name");
+			//p.productType = (String)jobj.get("productType");
+			//p.saleCount = (Integer)jobj.get("saleCount");
+			p.store = (Integer)jobj.get("store");
+			p.imageCount = (Integer)jobj.get("imageCount");
+		}catch (Exception e){
+			Log.i("ezyx", "parse news list and recommend product list failed e:"+e.toString());
+			e.printStackTrace();
+			p = null;
+		}
+		return p;
+	}
+
+
 
 }

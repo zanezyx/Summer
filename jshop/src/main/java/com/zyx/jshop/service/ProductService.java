@@ -14,5 +14,7 @@ public interface ProductService {
 
     List<Product> getProductOfNews();
     List<Product> getProductOfHotSales();
+    Product getProductDetail(int id);
+    List<Product> searchProducts(String metaKeywords);
 
 }

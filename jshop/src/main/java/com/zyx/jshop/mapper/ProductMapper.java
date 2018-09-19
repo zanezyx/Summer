@@ -11,7 +11,7 @@ import java.util.List;
 public interface ProductMapper {
 
     @Select("SELECT * FROM product WHERE id = #{id}")
-    public User getProductById(Integer id);
+    public Product getProductById(Integer id);
 
 
     @Select("SELECT * FROM product")
@@ -22,4 +22,9 @@ public interface ProductMapper {
 
     @Select("SELECT * FROM product WHERE hotSales>0")
     public List<Product> getProductOfHotSales();
+
+
+    @Select("select * from product where metaKeywords like '%${metaKeywords}%'")
+    public List<Product> searchProducts(@Param("metaKeywords") String metaKeywords);
+
 }

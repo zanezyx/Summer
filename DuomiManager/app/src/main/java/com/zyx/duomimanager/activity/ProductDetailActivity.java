@@ -23,6 +23,7 @@ import android.widget.ImageView.ScaleType;
 import android.widget.TextView;
 
 import com.zyx.duomimanager.R;
+import com.zyx.duomimanager.application.DmConstant;
 import com.zyx.duomimanager.application.UserInfo;
 import com.zyx.duomimanager.bean.request.AddShoppingCarRequest;
 import com.zyx.duomimanager.bean.request.SingleProduceRequest;
@@ -198,8 +199,9 @@ public class ProductDetailActivity extends Activity {
 		@Override
 		public Object instantiateItem(View arg0, int arg1) {
 			((ViewPager) arg0).addView(imageViews.get(arg1));
-			String URL = PropertiesUtils.getProperties().getProperty("Service_URL");
+			String URL = DmConstant.SERVIER_URL;
 			String url = URL + product.logoUrl+(arg1+1)+".jpg";
+			Log.i(DmConstant.TAG, "MyAdapter>>>instantiateItem>>>url:"+url);
 			if(imageViews.get(arg1)!=null && url!=null)
 			{
 				loadImageUtil.showImageAsyn(imageViews.get(arg1), url, 0);

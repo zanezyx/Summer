@@ -158,8 +158,13 @@ public class UserController {
         JsonResult r = new JsonResult();
         try {
             User user = userService.getUserByMobileAndPwd(mobile, password);
-            r.setResult(user);
-            r.setStatus("ok");
+            if(user==null){
+                r.setResult(null);
+                r.setStatus("error");
+            }else{
+                r.setResult(user);
+                r.setStatus("ok");
+            }
         } catch (Exception e) {
             r.setResult(e.getClass().getName() + ":" + e.getMessage());
             r.setStatus("error");

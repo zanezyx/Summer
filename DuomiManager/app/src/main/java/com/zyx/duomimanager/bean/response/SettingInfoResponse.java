@@ -26,7 +26,7 @@ public class SettingInfoResponse extends BaseResponse {
 			JSONObject result;
 			try {
 				result = new JSONObject(resString);
-				JSONObject jSettingInfo = (JSONObject) result.get("settingInfo");
+				JSONObject jSettingInfo = (JSONObject) result.get("result");
 				SettingInfo p = SettingInfo.getInstance();
 
 				try {

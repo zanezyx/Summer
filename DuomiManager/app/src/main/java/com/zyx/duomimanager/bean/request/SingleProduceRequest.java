@@ -20,6 +20,12 @@ public class SingleProduceRequest extends BaseRequest {
 		return getSERVIER_URL() + getPath() + toParams();
 	}
 
+
+	@Override
+	public String getPath() {
+		return "/productdetail";
+	}
+
 	public int getId() {
 		return id;
 	}

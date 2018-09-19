@@ -45,5 +45,35 @@ public class ProductController {
         return ResponseEntity.ok(r);
     }
 
+    @RequestMapping(value = "productdetail", method = RequestMethod.GET)
+    public ResponseEntity<JsonResult> getProductDetail(@RequestParam("id") int id){
+        JsonResult r = new JsonResult();
+        try {
+            Product p = productService.getProductDetail(id);
+            r.setResult(p);
+            r.setStatus("ok");
+        } catch (Exception e) {
+            r.setResult(null);
+            r.setStatus("error");
+            e.printStackTrace();
+        }
+        return ResponseEntity.ok(r);
+    }
+
+
+    @RequestMapping(value = "productsearch", method = RequestMethod.GET)
+    public ResponseEntity<JsonResult> getSearchProducts(@RequestParam("metaKeywords") String metaKeywords){
+        JsonResult r = new JsonResult();
+        try {
+            List<Product> p = productService.searchProducts(metaKeywords);
+            r.setResult(p);
+            r.setStatus("ok");
+        } catch (Exception e) {
+            r.setResult(null);
+            r.setStatus("error");
+            e.printStackTrace();
+        }
+        return ResponseEntity.ok(r);
+    }
 
 }

@@ -42,43 +42,11 @@ public class IndexResponse extends BaseResponse {
 				
 				for(int i=0;i<jIndexNewList.length();i++)
 				{
-					Product p = new Product();
 					JSONObject jobj = (JSONObject)jIndexNewList.get(i);
-					p.attentionCount = (Integer)jobj.get("attentionCount");
-					p.browseCount = (Integer)jobj.get("browseCount");
-					p.code = (String)jobj.get("code");
-					p.description = (String)jobj.get("description");
-					p.discountPrice = (Double) jobj.get("discountPrice");
-					p.freezeStore = (Integer)jobj.get("freezeStore");
-					p.id = (Integer) jobj.get("id");
-					p.isMarketable = (Integer)jobj.get("isMarketable");
-					try {
-						Object logo = jobj.get("logo");
-						if(logo!=null){
-							p.logo = (String)logo;
-						}
-						Object logoUrl = jobj.get("logoUrl");
-						if(logoUrl!=null){
-							p.logoUrl = (String)logoUrl;
-						}
-
-					} catch (Exception e) {
-						// TODO: handle exception
-						Log.i("ezyx", "parse news list 1 failed e:"+e.toString());
-						e.printStackTrace();
+					Product p = Product.parseJson(jobj);
+					if(p!=null){
+						recommendProducts.newList.add(p);
 					}
-					if(p.logoUrl==null || p.logoUrl.equals("")||p.logoUrl.equalsIgnoreCase("null")){
-						p.logoUrl= "/images/product/"+p.id+"/";
-						Log.i("ezyx", "parseResString>>>p.logoUrl:"+p.logoUrl);
-					}
-					p.marketPrice = (Double) jobj.get("marketPrice");
-					p.metaKeywords = (String)jobj.get("metaKeywords");
-					p.name = (String)jobj.get("name");
-					//p.productType = (String)jobj.get("productType");
-					//p.saleCount = (Integer)jobj.get("saleCount");
-					p.store = (Integer)jobj.get("store");
-					p.imageCount = (Integer)jobj.get("imageCount");
-					recommendProducts.newList.add(p);
 				}
 
 				if(recommendProducts.hotSalesList!=null){
@@ -87,42 +55,11 @@ public class IndexResponse extends BaseResponse {
 				
 				for(int i=0;i<arrayProduct.length();i++)
 				{
-					Product p = new Product();
 					JSONObject jobj = (JSONObject)arrayProduct.get(i);
-					p.attentionCount = (Integer)jobj.get("attentionCount");
-					p.browseCount = (Integer)jobj.get("browseCount");
-					p.code = (String)jobj.get("code");
-					p.description = (String)jobj.get("description");
-					p.discountPrice = (Double) jobj.get("discountPrice");
-					p.freezeStore = (Integer)jobj.get("freezeStore");
-					p.id = (Integer) jobj.get("id");
-					p.isMarketable = (Integer)jobj.get("isMarketable");
-					try {
-						Object logo = jobj.get("logo");
-						if(logo!=null){
-							p.logo = (String)logo;
-						}
-						Object logoUrl = jobj.get("logoUrl");
-						if(logoUrl!=null){
-							p.logoUrl = (String)logoUrl;
-						}
-					} catch (Exception e) {
-						// TODO: handle exception
-						Log.i("ezyx", "parse news list 1 failed e:"+e.toString());
-						e.printStackTrace();
+					Product p = Product.parseJson(jobj);
+					if(p!=null){
+						recommendProducts.hotSalesList.add(p);
 					}
-					if(p.logoUrl==null || p.logoUrl.equals("")||p.logoUrl.equalsIgnoreCase("null")){
-						p.logoUrl= "/images/product/"+p.id+"/";
-						Log.i("ezyx", "parseResString>>>p.logoUrl:"+p.logoUrl);
-					}
-					p.marketPrice = (Double) jobj.get("marketPrice");
-					p.metaKeywords = (String)jobj.get("metaKeywords");
-					p.name = (String)jobj.get("name");
-					//p.productType = (String)jobj.get("productType");
-					//p.saleCount = (Integer)jobj.get("saleCount");
-					p.store = (Integer)jobj.get("store");
-					p.imageCount = (Integer)jobj.get("imageCount");
-					recommendProducts.hotSalesList.add(p);
 				}
 				Log.i("ezyx", "parse news list and recommend product list success");
 			} catch (Exception e) {
