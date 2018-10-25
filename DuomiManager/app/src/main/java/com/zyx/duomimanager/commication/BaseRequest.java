@@ -16,6 +16,7 @@ import java.util.Map;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.zyx.duomimanager.application.DmConstant;
 import com.zyx.duomimanager.util.PropertiesUtils;
@@ -256,6 +257,7 @@ public abstract class BaseRequest {
 		Field[] fileds = this.getClass().getDeclaredFields();
 		Method method;
 		try {
+			int count = 0;
 			for (Field field : fileds) {
 				if (field.getName().equals("path")
 						|| field.getName().contains("FINAL")) {
@@ -267,7 +269,12 @@ public abstract class BaseRequest {
 				method = this.getClass().getMethod("get" + nameBuilder);
 				// if (method.invoke(this) != null) {
 				try {
-					builder.append("&"
+					String temp = "";
+					if(count==0)
+						temp = "?";
+					else
+						temp = "&";
+					builder.append(temp
 							+ field.getName()
 							+ "="
 							+ URLEncoder.encode(method.invoke(this).toString(),
@@ -277,12 +284,14 @@ public abstract class BaseRequest {
 							+ method.invoke(this));
 					e.printStackTrace();
 				}
+				count++;
 				// }
 			}
-
-			if(!"".equals(builder.toString())){
-				builder.replace(0, 1, "?");
-			}
+//			Log.i("BaseRequest", "BaseRequest>>>toParams 1:"+builder.toString());
+//			if(!"".equals(builder.toString())){
+//				builder.replace(0, 1, "?");
+//			}
+			Log.i("BaseRequest", "BaseRequest>>>toParams 2:"+builder.toString());
 			// builder.deleteCharAt(0);
 		} catch (NoSuchMethodException e) {
 			e.printStackTrace();
