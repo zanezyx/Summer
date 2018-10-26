@@ -7,161 +7,16 @@
     android:background="#F7F7F7"
     android:orientation="vertical" >
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="68dp"
-        android:background="#FFFFFF"
-        android:gravity="center_vertical" >
-
-        <TextView
-            android:id="@+id/logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_weight="1"
-            android:text="@string/app_name"
-            android:textColor="#5bb64c"
-            android:textSize="26sp" />
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="68dp"
-            android:layout_weight="3" >
-
-            <EditText
-                android:id="@+id/etMetaKeyWord"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="5dp"
-                android:background="#00000000"
-                android:cursorVisible="true"
-                android:hint="搜索你想要找的商品"
-                android:text=""
-                android:textColor="#000000"
-                android:textColorHint="#777777"
-                android:textCursorDrawable="@null"
-                android:textSize="13sp" />
-
-            <ImageView
-                android:id="@+id/iv1"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/etMetaKeyWord"
-                android:layout_alignLeft="@id/etMetaKeyWord"
-                android:onClick="toSearch"
-                android:scaleType="fitCenter"
-                android:src="@drawable/sousuo_line" />
-
-            <ImageView
-                android:id="@+id/search"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/iv1"
-                android:onClick="toSearch"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:src="@drawable/sousuo" />
-        </RelativeLayout>
-    </LinearLayout>
-
-    <FrameLayout
-        android:layout_width="fill_parent"
-        android:layout_height="140dp"
-        android:layout_marginTop="1dp"
-        android:background="#FFFFFF" >
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/vp"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" 
-            android:layout_marginBottom="10dp"/>
-
-        <TextView
-            android:id="@+id/jptj"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="精品推荐"
-            android:textColor="#fb792b" />
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="#00000000"
-            android:gravity="center"
-            android:orientation="vertical" >
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:layout_marginBottom="3dp"
-                android:gravity="center" >
-
-                <View
-                    android:id="@+id/v_dot0"
-                    style="@style/dot_style"
-                    android:background="@drawable/dot_focused" />
-
-                <View
-                    android:id="@+id/v_dot1"
-                    style="@style/dot_style" />
-
-                <View
-                    android:id="@+id/v_dot2"
-                    style="@style/dot_style" />
-
-                <View
-                    android:id="@+id/v_dot3"
-                    style="@style/dot_style" />
-
-                <View
-                    android:id="@+id/v_dot4"
-                    style="@style/dot_style" />
-            </LinearLayout>
-        </LinearLayout>
-    </FrameLayout>
-
-    <ScrollView
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="1dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="1dp"
-        android:layout_weight="2"
-        android:background="#FFFFFF" >
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/rqrm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="人气热卖"
-                android:textColor="#fb792b" />
-
-            <LinearLayout
-                android:id="@+id/llProducts"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical" >
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+        android:layout_weight="1" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:background="?android:attr/windowBackground"
         app:itemBackground="@null"
@@ -169,4 +24,5 @@
         app:itemTextColor="@drawable/bottom_navigation_selector"
         android:theme="@style/Theme.AppCompat"
         app:menu="@menu/navigation" />
+
 </LinearLayout>

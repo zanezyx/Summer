@@ -19,6 +19,7 @@ import android.os.Parcelable;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -78,6 +79,7 @@ public class MainActivity extends BaseActivity {
 
 	private BottomNavigationView bottomNavigationView;
 	private MenuItem menuItem;
+	private ViewPagerAdapter viewPagerAdapter;
 	private ViewPager viewPager; // android-support-v4中的滑动组件
 	private List<ImageView> imageViews; // 滑动的图片集合
 	private EditText etMetaKeyWord;
@@ -112,6 +114,36 @@ public class MainActivity extends BaseActivity {
 		bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
 		bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 		BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+		viewPager = (ViewPager) findViewById(R.id.vp);
+		viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+			@Override
+			public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+			}
+
+			@Override
+			public void onPageSelected(int position) {
+//				if (menuItem != null) {
+//					menuItem.setChecked(false);
+//				} else {
+//					bottomNavigationView.getMenu().getItem(0).setChecked(false);
+//				}
+//				menuItem = bottomNavigationView.getMenu().getItem(position);
+//				menuItem.setChecked(true);
+			}
+
+			@Override
+			public void onPageScrollStateChanged(int state) {
+
+			}
+		});
+		viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+		viewPager.setAdapter(viewPagerAdapter);
+		List<Fragment> list = new ArrayList<>();
+		list.add(HomeFragment.newInstance("首页"));
+		list.add(HomeFragment.newInstance("钱包"));
+		list.add(HomeFragment.newInstance("卡片"));
+		viewPagerAdapter.setList(list);
 		requestInfo();
 		if(!UserInfo.getInstance().isLogin)
 		{
@@ -133,13 +165,13 @@ public class MainActivity extends BaseActivity {
 			menuItem = item;
 			switch (item.getItemId()) {
 				case R.id.navigation_index:
-
+					viewPager.setCurrentItem(1);
 					return true;
 				case R.id.navigation_dev:
-
+					viewPager.setCurrentItem(0);
 					return true;
 				case R.id.navigation_my:
-					//viewPager.setCurrentItem(2);
+					viewPager.setCurrentItem(2);
 					return true;
 			}
 			return false;
