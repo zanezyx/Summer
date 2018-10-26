@@ -4,5 +4,6 @@
     <color name="greencolor">#ff5bb64c</color>
     <color name="transparent">#9000</color>
     <color name="province_line_border">#C7C7C7</color>
-
+    <color name="tab_checked">#ED6A2C</color>
+    <color name="tab_unchecked">#757575</color>
 </resources>

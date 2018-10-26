@@ -17,12 +17,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.os.StrictMode;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -72,7 +75,9 @@ import com.zyx.duomimanager.util.UpdateManager;
  * 
  */
 public class MainActivity extends BaseActivity {
-	
+
+	private BottomNavigationView bottomNavigationView;
+	private MenuItem menuItem;
 	private ViewPager viewPager; // android-support-v4中的滑动组件
 	private List<ImageView> imageViews; // 滑动的图片集合
 	private EditText etMetaKeyWord;
@@ -104,6 +109,9 @@ public class MainActivity extends BaseActivity {
 		loadImageUtil.mInSampleSize = 2;
 		mMap = new HashMap<String, Object>();
 		etMetaKeyWord = (EditText)findViewById(R.id.etMetaKeyWord);
+		bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
+		bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+		BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 		requestInfo();
 		if(!UserInfo.getInstance().isLogin)
 		{
@@ -115,6 +123,28 @@ public class MainActivity extends BaseActivity {
 
 		
 	}
+
+
+	private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+			= new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+		@Override
+		public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+			menuItem = item;
+			switch (item.getItemId()) {
+				case R.id.navigation_index:
+
+					return true;
+				case R.id.navigation_dev:
+
+					return true;
+				case R.id.navigation_my:
+					//viewPager.setCurrentItem(2);
+					return true;
+			}
+			return false;
+		}
+	};
 
 	void showImagePageView(ArrayList<Product> productList)
 	{

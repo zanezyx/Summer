@@ -4031,6 +4031,9 @@
 
     <string name="title_alert">提示信息</string>
     <string name="ok">确定</string>
-    <string name="cancel">取消</string>
+    <string name="tab_dev">分类</string>
+    <string name="tab_index">首页</string>
+    <string name="tab_my">我的</string>
+
 
 </resources>
