@@ -1,29 +1,22 @@
 package com.zyx.duomimanager.activity;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Toast;
 
 import com.zyx.duomimanager.R;
 import com.zyx.duomimanager.application.UserInfo;
@@ -57,7 +50,7 @@ public class PersonInfoCenterActivity extends BaseActivity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);// 无标题栏
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);// 不能横屏
 		mContext = this;
-		setContentView(R.layout.personinfocenter_activity);
+		setContentView(R.layout.fragment_myinfo);
 		linearLayout1 = (LinearLayout)findViewById(R.id.linearLayout1);
 		relativeLayout2 = (RelativeLayout)findViewById(R.id.relativeLayout2);
 		tvUserId = (TextView) this.findViewById(R.id.tvUserId);

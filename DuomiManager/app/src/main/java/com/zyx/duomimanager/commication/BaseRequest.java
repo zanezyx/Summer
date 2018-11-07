@@ -279,7 +279,7 @@ public abstract class BaseRequest {
 							+ "="
 							+ URLEncoder.encode(method.invoke(this).toString(),
 									"utf-8"));
-				} catch (UnsupportedEncodingException e) {
+				} catch (Exception e) {
 					builder.append("&" + field.getName() + "="
 							+ method.invoke(this));
 					e.printStackTrace();

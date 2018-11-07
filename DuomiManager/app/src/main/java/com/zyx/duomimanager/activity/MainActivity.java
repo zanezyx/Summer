@@ -115,6 +115,7 @@ public class MainActivity extends BaseActivity {
 		bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 		BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 		viewPager = (ViewPager) findViewById(R.id.vp);
+
 		viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 			@Override
 			public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -140,9 +141,9 @@ public class MainActivity extends BaseActivity {
 		viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 		viewPager.setAdapter(viewPagerAdapter);
 		List<Fragment> list = new ArrayList<>();
-		list.add(HomeFragment.newInstance("首页"));
-		list.add(HomeFragment.newInstance("钱包"));
-		list.add(HomeFragment.newInstance("卡片"));
+		list.add(BaseInfoFragment.newInstance());
+		list.add(ParentInfoFragment.newInstance());
+		list.add(ChildrenInfoFragment.newInstance());
 		viewPagerAdapter.setList(list);
 		requestInfo();
 		if(!UserInfo.getInstance().isLogin)
@@ -261,9 +262,9 @@ public class MainActivity extends BaseActivity {
 
 	/**
 	 * 换行切换任务
-	 * 
+	 *
 	 * @author Administrator
-	 * 
+	 *
 	 */
 	private class ScrollTask implements Runnable {
 
@@ -279,9 +280,9 @@ public class MainActivity extends BaseActivity {
 
 	/**
 	 * 当ViewPager中页面的状态发生改变时调用
-	 * 
+	 *
 	 * @author Administrator
-	 * 
+	 *
 	 */
 	private class MyPageChangeListener implements OnPageChangeListener {
 		private int oldPosition = 0;
@@ -311,9 +312,9 @@ public class MainActivity extends BaseActivity {
 
 	/**
 	 * 填充ViewPager页面的适配器
-	 * 
+	 *
 	 * @author Administrator
-	 * 
+	 *
 	 */
 	private class MyAdapter extends PagerAdapter {
 
