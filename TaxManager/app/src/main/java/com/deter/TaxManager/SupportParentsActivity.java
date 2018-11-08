@@ -1,4 +1,4 @@
-package com.zyx.duomimanager.activity;
+package com.deter.TaxManager;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

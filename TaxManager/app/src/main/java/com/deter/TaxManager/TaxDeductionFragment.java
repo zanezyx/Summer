@@ -21,6 +21,7 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.SupportActivity;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -66,29 +67,7 @@ import static com.deter.TaxManager.network.BuzokuFuction.DETER_DIR_NAME;
 public class TaxDeductionFragment extends PreferenceFragment implements Preference
         .OnPreferenceChangeListener {
 
-    private final String KEY_SOFTWARE_VERION = "software_version";
-    private Dialog confirmCancelDialog;
-    ProgressDialog progressDialog;
-    BasePopupWindow oprResultPopupWindow;
     DataManager dataManager;
-
-    private void showConfirmDialog(String prompt) {
-        dismissConfirmDialog();
-        confirmCancelDialog = DialogUtils.showConfirmDialog(getActivity(), prompt, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                confirmCancelDialog.dismiss();
-            }
-        });
-    }
-
-
-    private void dismissConfirmDialog() {
-        if (null != confirmCancelDialog && confirmCancelDialog.isShowing()) {
-            confirmCancelDialog.dismiss();
-            confirmCancelDialog = null;
-        }
-    }
 
 
     public TaxDeductionFragment() {
@@ -107,37 +86,13 @@ public class TaxDeductionFragment extends PreferenceFragment implements Preferen
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
-        ((TextView) v.findViewById(R.id.title)).setText(R.string.my_profile);
+        ((TextView) v.findViewById(R.id.title)).setText(R.string.tax_deduction);
         return v;
     }
 
 
     private void init() {
-//
-//        SwitchPreference debugPreference = (SwitchPreference) getPreferenceManager().findPreference("debug_mode");
-//        SwitchPreference scanPreference = (SwitchPreference) getPreferenceManager().findPreference("orienteer_scan");
-//        boolean isCheck = scanPreference.isChecked();
-//
-//
-//        scanPreference.setOnPreferenceChangeListener(this);
-//        debugPreference.setOnPreferenceChangeListener(this);
-//
-//        PackageManager packageManager = getActivity().getPackageManager();
-//        try {
-//            PackageInfo packageInfo = packageManager.getPackageInfo(getActivity().getPackageName(), 0);
-//            android.util.Log.d("xiaolu", "packageInfo name =" + packageInfo.versionName);
-//            ((WifiMonitorPreference) findPreference(KEY_SOFTWARE_VERION)).setMoreInfo(packageInfo.versionName);
-//
-//            String defaultStr = APPUtils.getStringValueFromSharePreference(TaxDeductionFragment.this.getActivity(), "network_outage_distance");
-//            if (TextUtils.isEmpty(defaultStr)) {
-//                defaultStr = APPConstans.CONSTANT_NETWORK_OUTAGE_DISTANCE;
-//                APPUtils.saveValueToSharePreference(TaxDeductionFragment.this.getActivity(), "network_outage_distance", defaultStr);
-//            }
-//
-//
-//        } catch (PackageManager.NameNotFoundException e) {
-//            e.printStackTrace();
-//        }
+
     }
 
 
@@ -162,24 +117,35 @@ public class TaxDeductionFragment extends PreferenceFragment implements Preferen
 
         switch (preference.getKey()) {
 
-            case "star_map_list":
-                Intent starMapIntent = new Intent(getActivity(), StarMapTaskListActivity.class);
-                starMapIntent.putExtra(APPConstans.KEY_DETAIL_TYPE, APPConstans.DETAIL_START_MAP_TASK_LIST);
-                startActivity(starMapIntent);
-                break;
-
-            case "export_all_data":
-
-                break;
-
-            case "warning_tone":
-                Intent intent = new Intent(getActivity(), WarningToneActivity.class);
+            case "support_parents":
+                Intent intent = new Intent(getActivity(), SupportParentsActivity.class);
+                //intent.putExtra(APPConstans.KEY_DETAIL_TYPE, APPConstans.DETAIL_START_MAP_TASK_LIST);
                 startActivity(intent);
                 break;
 
-            case "network_outage_distance":
+            case "raise_children":
+//                Intent starMapIntent1 = new Intent(getActivity(), StarMapTaskListActivity.class);
+//                starMapIntent1.putExtra(APPConstans.KEY_DETAIL_TYPE, APPConstans.DETAIL_START_MAP_TASK_LIST);
+//                startActivity(starMapIntent1);
+                break;
+
+            case "interest_of_loans":
 
                 break;
+
+            case "treatment_of_diseases":
+
+                break;
+            case "xljy":
+
+                break;
+            case "zyzgjy":
+
+                break;
+            case "fzba":
+
+                break;
+
 
         }
 

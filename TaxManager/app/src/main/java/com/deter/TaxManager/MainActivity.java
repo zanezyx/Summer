@@ -28,13 +28,13 @@ public class MainActivity extends AppCompatActivity {
             .drawable.around_unselected, R.drawable.analysis_unselected, R.drawable
             .profile_unselected};
 
-    private static final int TAB_WIFI_STAR_MAP = 0;
+    private static final int TAB_MY_INFO = 0;
 
-    private static final int TAB_AROUND = 1;
+    private static final int TAB_TAX_DEDUCTION = 1;
 
-    private static final int TAB_ANALYSIS = 2;
+    private static final int TAB_TAX_MANAGER = 2;
 
-    private static final int TAB_PROFILE = 3;
+    private static final int TAB_SETTING = 3;
 
     private boolean isBackPressed = false;
 
@@ -143,16 +143,16 @@ public class MainActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             Fragment fragment;
             switch (position) {
-                case TAB_WIFI_STAR_MAP:
+                case TAB_MY_INFO:
                     fragment = new InfoFragment();
                     break;
-                case TAB_ANALYSIS:
+                case TAB_TAX_DEDUCTION:
                     fragment = new TaxDeductionFragment();
                     break;
-                case TAB_AROUND:
+                case TAB_TAX_MANAGER:
                     fragment = new TaxManagerFragment();
                     break;
-                case TAB_PROFILE:
+                case TAB_SETTING:
                     fragment = new ProfileFragment();
                     break;
                 default:
@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (TAB_ANALYSIS == mViewPager.getCurrentItem() && null != onkeyBackDownListener) {
+            if (TAB_TAX_MANAGER == mViewPager.getCurrentItem() && null != onkeyBackDownListener) {
                 boolean isDeleteMode = onkeyBackDownListener.onBackClick();
                 if (isDeleteMode) {
                     return false;

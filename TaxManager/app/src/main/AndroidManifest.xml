@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.MOUNT_FORMAT_FILESYSTEMS"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+
     <application
         android:name="com.deter.TaxManager.WifimonitorApplication"
         android:allowBackup="true"
@@ -165,6 +166,11 @@
 
         <activity
             android:name="com.deter.TaxManager.TaskDetailActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.deter.TaxManager.SupportParentsActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait">
         </activity>

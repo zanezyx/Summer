@@ -318,9 +318,10 @@
     <string name="qtywfyrgj">其它义务抚养人共计：</string>
     <string name="Alimony_of_second">第二个子女赡养</string>
     <string name="upload_custody_agreement">抚养协议上传</string>
+    <string name="raise_children">抚养子女</string>
     <string name="interest_of_loans">房贷利息</string>
     <string name="loans">购房贷款</string>
-    <string name="treatment_of_major_diseases">大病治疗</string>
+    <string name="treatment_of_diseases">大病治疗</string>
     <string name="note_1">注意：当个会计年底的大病治疗的费用中只能抵扣15000至75000元部分</string>
     <string name="add_pay_doc">新增支出单据</string>
     <string name="djh">单据号</string>

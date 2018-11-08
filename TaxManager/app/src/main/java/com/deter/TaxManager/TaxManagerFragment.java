@@ -66,31 +66,6 @@ import static com.deter.TaxManager.network.BuzokuFuction.DETER_DIR_NAME;
 public class TaxManagerFragment extends PreferenceFragment implements Preference
         .OnPreferenceChangeListener {
 
-    private final String KEY_SOFTWARE_VERION = "software_version";
-    private Dialog confirmCancelDialog;
-    ProgressDialog progressDialog;
-    BasePopupWindow oprResultPopupWindow;
-    DataManager dataManager;
-
-    private void showConfirmDialog(String prompt) {
-        dismissConfirmDialog();
-        confirmCancelDialog = DialogUtils.showConfirmDialog(getActivity(), prompt, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                confirmCancelDialog.dismiss();
-            }
-        });
-    }
-
-
-    private void dismissConfirmDialog() {
-        if (null != confirmCancelDialog && confirmCancelDialog.isShowing()) {
-            confirmCancelDialog.dismiss();
-            confirmCancelDialog = null;
-        }
-    }
-
-
     public TaxManagerFragment() {
         // Required empty public constructor
     }
@@ -107,37 +82,12 @@ public class TaxManagerFragment extends PreferenceFragment implements Preference
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
-        ((TextView) v.findViewById(R.id.title)).setText(R.string.my_profile);
+        ((TextView) v.findViewById(R.id.title)).setText(R.string.tax_manager);
         return v;
     }
 
 
     private void init() {
-
-//        SwitchPreference debugPreference = (SwitchPreference) getPreferenceManager().findPreference("debug_mode");
-//        SwitchPreference scanPreference = (SwitchPreference) getPreferenceManager().findPreference("orienteer_scan");
-//        boolean isCheck = scanPreference.isChecked();
-
-
-//        scanPreference.setOnPreferenceChangeListener(this);
-//        debugPreference.setOnPreferenceChangeListener(this);
-
-//        PackageManager packageManager = getActivity().getPackageManager();
-//        try {
-//            PackageInfo packageInfo = packageManager.getPackageInfo(getActivity().getPackageName(), 0);
-//            android.util.Log.d("xiaolu", "packageInfo name =" + packageInfo.versionName);
-//            ((WifiMonitorPreference) findPreference(KEY_SOFTWARE_VERION)).setMoreInfo(packageInfo.versionName);
-//
-//            String defaultStr = APPUtils.getStringValueFromSharePreference(TaxManagerFragment.this.getActivity(), "network_outage_distance");
-//            if (TextUtils.isEmpty(defaultStr)) {
-//                defaultStr = APPConstans.CONSTANT_NETWORK_OUTAGE_DISTANCE;
-//                APPUtils.saveValueToSharePreference(TaxManagerFragment.this.getActivity(), "network_outage_distance", defaultStr);
-//            }
-//
-//
-//        } catch (PackageManager.NameNotFoundException e) {
-//            e.printStackTrace();
-//        }
     }
 
 
