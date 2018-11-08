@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <CheckBox
+        android:id="@+id/ischecked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:button="@drawable/checkbox_button"
+        android:clickable="false"
+        android:paddingEnd="@dimen/around_item_margin"
+        android:visibility="gone"/>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/ripperbackground">
+
+        <LinearLayout
+            android:id="@+id/station_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/double_line"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/station_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/station_mac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/double_line"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/mitm_ap_info"
+            android:orientation="vertical"
+            android:paddingEnd="@dimen/around_item_margin"
+            android:paddingStart="@dimen/around_item_margin">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@drawable/connected_to_ap_line"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:layout_marginTop="4px"
+                android:background="@drawable/connected_to_ap_line"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mitm_ap_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:gravity="end"
+            android:minWidth="100dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ap_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"/>
+
+            <TextView
+                android:id="@+id/ip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text=""/>
+
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

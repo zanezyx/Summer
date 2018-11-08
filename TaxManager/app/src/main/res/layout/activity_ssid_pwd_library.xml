@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.deter.TaxManager.SsidPwdLibraryActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/tabs_layout_toolbar" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/fragment_around_background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/title_ssid_pwd_library_manager_margin"
+                android:text="@string/title_ssid_pwd_library_manager"
+                android:textColor="@color/ssid_pwd_library_text_color"
+                android:textSize="@dimen/title_ssid_pwd_library_manager_size" />
+
+            <RelativeLayout
+                android:id="@+id/give_ssid_history_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/item_ssid_pwd_library_common_left_right_padding"
+                android:layout_marginRight="@dimen/item_ssid_pwd_library_common_left_right_padding"
+                android:background="@drawable/layout_ssid_pwd_library_item_background">
+
+                <ImageView
+                    android:id="@+id/ssid_pwd_item_history_icon_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/item_ssid_pwd_library_common_padding"
+                    android:src="@drawable/ssid_pwd_item_history_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/ssid_pwd_item_history_icon_iv"
+                    android:padding="@dimen/item_ssid_pwd_library_common_padding"
+                    android:text="@string/give_ssid_pwd_library_history"
+                    android:textColor="@color/ssid_pwd_library_text_color"
+                    android:textSize="@dimen/item_ssid_pwd_library_common_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/item_ssid_pwd_library_common_padding"
+                    android:src="@drawable/ssid_pwd_item_right_icon" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/import_ssid_file_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/item_ssid_pwd_library_common_left_right_padding"
+                android:layout_marginRight="@dimen/item_ssid_pwd_library_common_left_right_padding"
+                android:layout_marginTop="@dimen/item_ssid_pwd_library_top_common_padding"
+                android:background="@drawable/layout_ssid_pwd_library_item_background">
+
+                <ImageView
+                    android:id="@+id/ssid_pwd_item_import_icon_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/item_ssid_pwd_library_common_padding"
+                    android:src="@drawable/ssid_pwd_item_import_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/ssid_pwd_item_import_icon_iv"
+                    android:padding="@dimen/item_ssid_pwd_library_common_padding"
+                    android:text="@string/import_ssid_pwd_library_file"
+                    android:textColor="@color/ssid_pwd_library_text_color"
+                    android:textSize="@dimen/item_ssid_pwd_library_common_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/item_ssid_pwd_library_common_padding"
+                    android:src="@drawable/ssid_pwd_item_right_icon" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/export_ssid_file_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/item_ssid_pwd_library_common_left_right_padding"
+                android:layout_marginRight="@dimen/item_ssid_pwd_library_common_left_right_padding"
+                android:layout_marginTop="@dimen/item_ssid_pwd_library_common_padding"
+                android:background="@drawable/layout_ssid_pwd_library_item_background">
+
+                <ImageView
+                    android:id="@+id/ssid_pwd_item_export_icon_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/item_ssid_pwd_library_common_padding"
+                    android:src="@drawable/ssid_pwd_item_export_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/ssid_pwd_item_export_icon_iv"
+                    android:padding="@dimen/item_ssid_pwd_library_common_padding"
+                    android:text="@string/export_ssid_pwd_library_file"
+                    android:textColor="@color/ssid_pwd_library_text_color"
+                    android:textSize="@dimen/item_ssid_pwd_library_common_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/item_ssid_pwd_library_common_padding"
+                    android:src="@drawable/ssid_pwd_item_right_icon" />
+
+            </RelativeLayout>
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/title_ssid_pwd_library_manager_margin"
+                android:text="@string/manual_input_str"
+                android:textColor="@color/ssid_pwd_library_text_color"
+                android:textSize="@dimen/title_ssid_pwd_library_manager_size" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/item_ssid_pwd_library_common_left_right_padding"
+                android:layout_marginRight="@dimen/item_ssid_pwd_library_common_left_right_padding"
+                android:background="@drawable/layout_ssid_pwd_library_item_background">
+
+                <TextView
+                    android:id="@+id/ssid_input_title_str"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/item_ssid_pwd_library_common_padding"
+                    android:text="@string/ssid_str"
+                    android:textColor="@color/ssid_pwd_library_text_color"
+                    android:textSize="@dimen/item_ssid_pwd_library_common_size" />
+
+                <EditText
+                    android:id="@+id/input_ssid_account_et"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/item_ssid_pwd_library_common_padding"
+                    android:layout_toRightOf="@id/ssid_input_title_str"
+                    android:background="@null"
+                    android:maxLength="20"
+                    android:layout_alignBottom="@id/ssid_input_title_str"
+                    android:layout_alignTop="@id/ssid_input_title_str"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:hint="@string/ssid_input_hint" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_ssid_pwd_library_common_padding"
+                android:layout_marginLeft="@dimen/item_ssid_pwd_library_common_left_right_padding"
+                android:layout_marginRight="@dimen/item_ssid_pwd_library_common_left_right_padding"
+                android:background="@drawable/layout_ssid_pwd_library_item_background">
+
+                <TextView
+                    android:id="@+id/ssid_input_pwd_type_str"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/item_ssid_pwd_library_common_padding"
+                    android:text="@string/ssid_pwd_type_str"
+                    android:textColor="@color/ssid_pwd_library_text_color"
+                    android:textSize="@dimen/item_ssid_pwd_library_common_size" />
+
+<!--                <TextView
+                    android:id="@+id/ssid_input_pwd_type_str"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ssid_pwd_item_spinner__icon"
+                    android:padding="@dimen/item_ssid_pwd_library_common_padding"
+                    android:text="@string/ssid_pwd_type_str"
+                    android:textColor="@color/ssid_pwd_library_text_color"
+                    android:textSize="@dimen/item_ssid_pwd_library_common_size" />-->
+
+                <EditText
+                    android:id="@+id/input_ssid_pwd_et"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/item_ssid_pwd_library_common_padding"
+                    android:layout_toRightOf="@id/ssid_input_pwd_type_str"
+                    android:background="@null"
+                    android:singleLine="true"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:layout_alignBottom="@id/ssid_input_pwd_type_str"
+                    android:layout_alignTop="@id/ssid_input_pwd_type_str"
+                    android:hint="@string/ssid_pwd_type_hiht_str" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/submit_ssid_info_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/item_ssid_pwd_library_common_left_right_padding"
+                android:layout_marginRight="@dimen/item_ssid_pwd_library_common_left_right_padding"
+                android:layout_marginTop="@dimen/item_ssid_pwd_library_common_padding"
+                android:background="@drawable/layout_ssid_pwd_library_item_background"
+                android:padding="@dimen/item_ssid_pwd_library_common_padding"
+                android:text="@string/ssid_manager_btn_str"
+                android:layout_marginBottom="30dp"
+                android:textColor="@color/ssid_pwd_library_text_color"
+                android:textSize="@dimen/item_ssid_pwd_library_common_size" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

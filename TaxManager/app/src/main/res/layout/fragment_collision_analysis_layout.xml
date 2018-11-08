@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fragment_around_background"
+    tools:context="com.deter.TaxManager.CollisionFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/start_analysis_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/start_analysis_btn_height"
+            android:layout_margin="@dimen/start_analysis_btn_margin"
+            android:background="@drawable/bottom_start_analysis_selector"
+            android:text="@string/analys_str"
+            android:textColor="@color/color_FFFFFF" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_choice_view"
+            android:layout_below="@+id/start_analysis_btn"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/analysis_listview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:divider="@null"
+                android:listSelector="@color/color_00000000" />
+
+            <include
+                android:id="@+id/analysis_emptyView"
+                layout="@layout/analysis_empty_layout" />
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/bottom_choice_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:visibility="visible">
+
+
+            <include layout="@layout/bottom_edit_layout" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</FrameLayout>

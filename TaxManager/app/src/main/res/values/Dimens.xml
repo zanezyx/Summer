@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tab_selected_underline_height">2dp</dimen>
+    <!-- Size of text in tabs. -->
+    <dimen name="tab_text_size">24sp</dimen>
+    <dimen name="tab_elevation">2dp</dimen>
+    <dimen name="star_map_notes_text_size">15sp</dimen>
+    <dimen name="custom_action_bar_height">56dp</dimen>
+    <dimen name="around_item_height">73dp</dimen>
+    <dimen name="around_item_margin">10dp</dimen>
+    <dimen name="around_item_width">167dp</dimen>
+    <dimen name="star_map_size">1000px</dimen>
+    <dimen name="bottom_tabs_height">70dp</dimen>
+    <dimen name="wifi_map_button_width">120dp</dimen>
+    <dimen name="wifi_map_button_marginTop">12dp</dimen>
+    <dimen name="wifi_map_note_padding">45dp</dimen>
+    <dimen name="title_ssid_pwd_library_manager_margin">15dp</dimen>
+    <dimen name="title_ssid_pwd_library_manager_size">14sp</dimen>
+    <dimen name="item_ssid_pwd_library_common_size">18sp</dimen>
+    <dimen name="item_ssid_pwd_library_common_padding">15dp</dimen>
+    <dimen name="item_ssid_pwd_library_top_common_padding">20dp</dimen>
+    <dimen name="item_ssid_pwd_library_common_left_right_padding">10dp</dimen>
+    <dimen name="detail_item_divider_padding">8dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="bottom_edit_checkbox_choice_text_size">18sp</dimen>
+    <dimen name="bottom_edit_checkbox_choice_padding">10dp</dimen>
+    <dimen name="bottom_edit_comfirm_btn_width">110dp</dimen>
+    <dimen name="bottom_edit_comfirm_btn_height">50dp</dimen>
+    <dimen name="folders_path_title_padding">5dp</dimen>
+    <dimen name="listview_common_top_bottom_margin">8dp</dimen>
+    <dimen name="listview_common_right_left_margin">12dp</dimen>
+    <dimen name="add_white_black_btn_text_size">16sp</dimen>
+    <dimen name="virtual_id_item_width">100dp</dimen>
+    <dimen name="web_query_list_child_item_padding">10dp</dimen>
+    <dimen name="web_query_list_child_date_tv">10sp</dimen>
+    <dimen name="web_query_list_child_listview_margin">8dp</dimen>
+    <dimen name="web_query_list_item_time_margin_top_bottom">10dp</dimen>
+    <dimen name="web_query_list_item_time_margin_left">20dp</dimen>
+    <dimen name="dialog_network_outage_distance_padding">15dp</dimen>
+    <dimen name="dialog_network_outage_distance_text_size">18sp</dimen>
+    <dimen name="dialog_network_outage_distance_text_pic_size">12sp</dimen>
+
+    <!-- 提示dialog -->
+    <dimen name="dialog_reminder_title_height">15dp</dimen>
+    <dimen name="dialog_reminder_content_min_height">80dp</dimen>
+    <dimen name="dialog_reminder_content_magin">15dp</dimen>
+    <dimen name="dialog_remind_buttom_layout_height">45dp</dimen>
+    <dimen name="base_line_height_3px">1dp</dimen>
+    <dimen name="not_data_prompt_str_size">22sp</dimen>
+
+    <dimen name="start_analysis_btn_height">40dp</dimen>
+    <dimen name="start_analysis_btn_margin">10dp</dimen>
+    <dimen name="empty_analys_str_margin">10dp</dimen>
+    <dimen name="empty_analys_str_size">16sp</dimen>
+
+</resources>

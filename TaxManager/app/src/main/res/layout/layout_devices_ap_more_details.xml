@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ripperbackground"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/around_item_height"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/ap_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TP Link"/>
+
+        <TextView
+            android:id="@+id/ap_mac"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ap_name"
+            android:textIsSelectable="true"	    
+            android:text="12:45:35:23"/>
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/ap_name"
+            android:layout_alignParentEnd="true"
+            android:text="2017.8.2 15:30"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:background="@color/fragment_around_background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minHeight="@dimen/around_item_height"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/network_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2.4G" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_info_network_hint"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="3px"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:paddingBottom="@dimen/detail_item_divider_padding"
+            android:paddingTop="@dimen/detail_item_divider_padding"
+            android:src="@color/fragment_around_background"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="48.2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_info_distance_meter"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="3px"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:paddingBottom="@dimen/detail_item_divider_padding"
+            android:paddingTop="@dimen/detail_item_divider_padding"
+            android:src="@color/fragment_around_background"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/channel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_info_channel"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:background="@color/fragment_around_background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minHeight="@dimen/around_item_height"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/deauch_info"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/around_devices_item_background"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.deter.TaxManager.view.ProgressImgView
+                android:id="@+id/deauch_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/action_wifi_connected" />
+
+            <TextView
+                android:id="@+id/deauch_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Material.Small"
+                android:text="@string/detail_action_force_disconnected" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="3px"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:paddingBottom="@dimen/detail_item_divider_padding"
+            android:paddingTop="@dimen/detail_item_divider_padding"
+            android:src="@color/fragment_around_background"/>
+
+        <LinearLayout
+
+            android:id="@+id/station_info"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/around_devices_item_background"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_weight="3"
+                android:id="@+id/station_number"
+                android:layout_width="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Material.Large"
+                android:layout_height="0dp"
+                android:gravity="bottom" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:text="@string/detail_info_station_number"
+                android:textAppearance="@android:style/TextAppearance.Material.Small"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="3px"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:paddingBottom="@dimen/detail_item_divider_padding"
+            android:paddingTop="@dimen/detail_item_divider_padding"
+            android:src="@color/fragment_around_background"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</LinearLayout>

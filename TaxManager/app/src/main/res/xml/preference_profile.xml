@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <PreferenceCategory
+        android:layout="@layout/layout_preference_category"
+        android:title="@string/settings">
+
+        <Preference
+            android:icon="@drawable/settings_alarm"
+            android:key="warning_tone"
+            android:layout="@layout/layout_preference"
+            android:title="@string/settings_alarm"
+            android:widgetLayout="@layout/preference_widget" />
+
+        <!--<SwitchPreference-->
+        <!--android:icon="@drawable/settings_location"-->
+        <!--android:layout="@layout/layout_preference"-->
+        <!--android:title="@string/settings_location" />-->
+
+        <com.deter.TaxManager.view.WifiMonitorPreference
+            android:icon="@drawable/settings_distance"
+            android:key="network_outage_distance"
+            android:title="@string/settings_force_disconnected_distance"
+            android:widgetLayout="@layout/preference_widget" />
+
+        <SwitchPreference
+            android:icon="@drawable/settings_orienteer_scan"
+            android:key="orienteer_scan"
+            android:layout="@layout/layout_preference"
+            android:defaultValue="false"
+            android:title="@string/settings_orienteer_scan" />
+        <Preference
+            android:icon="@drawable/settings_reboot"
+            android:key="device_reboot"
+            android:layout="@layout/layout_preference"
+            android:title="@string/settings_device_reboot"
+            android:widgetLayout="@layout/preference_widget" />
+        <Preference
+            android:icon="@drawable/settings_sd_expand"
+            android:key="sd_expand"
+            android:layout="@layout/layout_preference"
+            android:title="@string/settings_sd_expand"
+            android:widgetLayout="@layout/preference_widget" />
+        <SwitchPreference
+            android:icon="@drawable/settings_reboot"
+            android:key="debug_mode"
+            android:layout="@layout/layout_preference"
+            android:defaultValue="false"
+            android:title="@string/debug_mode" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:layout="@layout/layout_preference_category"
+        android:title="@string/softeware_about">
+        <com.deter.TaxManager.view.WifiMonitorPreference
+            android:icon="@drawable/settings_upgrade"
+            android:key="software_version"
+            android:title="@string/settings_online_upgrade"
+            android:widgetLayout="@layout/preference_widget" >
+            <intent
+                android:targetPackage="com.deter.wifimonitor"
+                android:targetClass="com.deter.wifimonitor.PackageUpdateActivity"/>
+        </com.deter.TaxManager.view.WifiMonitorPreference>
+
+        <Preference
+            android:icon="@drawable/settings_version"
+            android:key="firmware_update"
+            android:layout="@layout/layout_preference"
+            android:title="@string/settings_firmware_version"
+            android:widgetLayout="@layout/preference_widget" >
+        </Preference>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

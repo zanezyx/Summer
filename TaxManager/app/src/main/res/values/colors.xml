@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="tabs_selected">#14ADC4</color>
+    <color name="tabs_unselected">#214D95</color>
+    <color name="tab_ripple_color">@color/tab_accent_color</color>
+    <color name="tab_accent_color">@color/tabs_selected</color>
+    <color name="tab_selected_underline_color">@color/tab_accent_color</color>
+    <color name="actionbar_icon_color">#ffffff</color>
+    <color name="actionbar_background_color">@android:color/transparent</color>
+    <color name="tab_text_color">@color/tabs_unselected</color>
+    <color name="fragment_around_background">#f3f3f3</color>
+    <color name="ssid_pwd_library_text_color">#4f4f4f</color>
+    <color name="bottom_line_color">#D4D4D4</color>
+    <color name="color_DCDCDC">#DCDCDC</color>
+    <color name="color_FF0000">#FF0000</color>
+    <color name="color_AA0000">#AA0000</color>
+    <color name="color_00000000">#00000000</color>
+    <color name="color_F5F5F5">#F5F5F5</color>
+    <color name="color_28C891">#28C891</color>
+    <color name="color_333333">#333333</color>
+    <color name="color_E6E6E6">#E6E6E6</color>
+    <color name="color_f2f2f2">#f2f2f2</color>
+    <color name="color_CCCCCC">#CCCCCC</color>
+    <color name="white">#00ffffff</color>
+    <color name="btn_update_default_color">@color/tabs_selected</color>
+    <color name="btn_update_pressed_color">#2b797d</color>
+    <color name="color_FFFFFF">#ffffff</color>
+    <color name="color_128B9D">#128B9D</color>
+    <color name="color_f3f3f3">#f3f3f3</color>
+    <color name="color_F4F4F4">#F4F4F4</color>
+    <color name="color_EBEBEB">#EBEBEB</color>
+    <color name="color_14ADC4">#14ADC4</color>
+</resources>

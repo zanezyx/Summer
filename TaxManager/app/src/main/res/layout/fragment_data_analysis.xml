@@ -1,0 +1,30 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.deter.TaxManager.DataAnalysisFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.deter.TaxManager.view.ViewPagerTabs
+            android:id="@+id/lists_pager_header"
+            style="@style/TabTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/custom_action_bar_height"
+            android:layout_gravity="top"
+            android:elevation="@dimen/tab_elevation"
+            android:orientation="horizontal"
+            android:textAllCaps="true" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/analys_pager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lists_pager_header" />
+
+    </RelativeLayout>
+
+</FrameLayout>

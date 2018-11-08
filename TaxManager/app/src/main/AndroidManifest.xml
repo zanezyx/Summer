@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.deter.TaxManager">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
+    <uses-permission android:name="android.permission.MOUNT_FORMAT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="com.deter.TaxManager.WifimonitorApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.deter.TaxManager.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="Z2Fa6VM5XQdH757HSUikxyIUI2nNpyHF" />
+
+        <activity
+            android:name="com.deter.TaxManager.MainActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.deter.TaxManager.activity.DeviceDbActivity"
+            android:label="@string/title_activity_around_detail"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.deter.TaxManager.AroundActivity"
+            android:label="@string/title_activity_around_detail"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.deter.TaxManager.DeviceDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deter.TaxManager.SearchActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deter.TaxManager.SsidPwdLibraryActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.deter.TaxManager.FoldersManageActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deter.TaxManager.BlackWhiteListActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.deter.TaxManager.SSIDHistoryActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <!--<service-->
+            <!--android:name="com.deter.TaxManager.BackgroundService"-->
+            <!--android:enabled="true"-->
+            <!--android:exported="true" />-->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+        <service
+            android:name="com.deter.TaxManager.network.TcpMsgService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name="com.deter.TaxManager.VirtualIdActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deter.TaxManager.WebQueryActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.deter.TaxManager.WarningToneActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.deter.TaxManager.StarMapTaskListActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deter.TaxManager.AnalysisTaskActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.deter.TaxManager.CollisionAnalysisResultActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.deter.TaxManager.AccompanyAnalysisResultActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <!--<receiver android:name="com.deter.TaxManager.USBChangeBroadcastReceiver">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.hardware.usb.action.USB_STATE" />-->
+                <!--<action android:name="android.net.conn.TETHER_STATE_CHANGED"/>-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+
+        <activity
+            android:name="com.deter.TaxManager.PackageUpdateActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
+        <service
+            android:name="com.deter.TaxManager.DownloadService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+
+        <activity
+            android:name="com.deter.TaxManager.FirmwareUpdateActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name="com.deter.TaxManager.TaskDetailActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+        </activity>
+    </application>
+
+</manifest>

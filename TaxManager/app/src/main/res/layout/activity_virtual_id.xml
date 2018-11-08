@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.deter.TaxManager.VirtualIdActivity">
+
+    <include
+        layout="@layout/tabs_layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/fragment_around_background"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/no_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/not_data_prompt_str"
+            android:textSize="@dimen/not_data_prompt_str_size"
+            android:visibility="gone"
+            android:gravity="center"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/type_messaging"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="@string/virtual_id_messaging" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/virtual_id_messaging"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/virtual_id_background"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:overScrollMode="never" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/type_social"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="@string/virtual_id_social" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/virtual_id_social"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/virtual_id_background"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:overScrollMode="never" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/type_others"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="@string/virtual_id_others" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/virtual_id_others"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/virtual_id_background"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:overScrollMode="never" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+</LinearLayout>

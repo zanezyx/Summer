@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        android:icon="@drawable/settings_start_map_icon"
+        android:key="star_map_list"
+        android:layout="@layout/layout_preference"
+        android:title="@string/settings_star_map_list"
+        android:widgetLayout="@layout/preference_widget" />
+
+
+
+
+</PreferenceScreen>

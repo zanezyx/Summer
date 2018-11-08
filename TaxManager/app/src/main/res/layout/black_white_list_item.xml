@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/black_white_choice_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/listview_common_right_left_margin" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/listview_common_top_bottom_margin"
+        android:layout_marginLeft="@dimen/listview_common_right_left_margin"
+        android:layout_marginRight="@dimen/listview_common_right_left_margin"
+        android:layout_marginTop="@dimen/listview_common_top_bottom_margin"
+        android:background="@drawable/ripperbackground"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/black_white_ssid_item_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textAppearance="@android:style/TextAppearance.Material.Small"
+            android:textColor="@color/ssid_pwd_library_text_color" />
+
+        <!--android:ellipsize="marquee"-->
+        <!--android:marqueeRepeatLimit="marquee_forever"-->
+        <!--android:scrollHorizontally="true"-->
+        <!--android:singleLine="true"-->
+
+        <ImageView
+            android:id="@+id/black_online_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/listview_common_top_bottom_margin"
+            android:layout_marginRight="@dimen/listview_common_top_bottom_margin"
+            android:src="@drawable/station_blacklist"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/black_white_ssid_mac_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:paddingLeft="@dimen/listview_common_right_left_margin"
+            android:textAppearance="@android:style/TextAppearance.Material.Small"
+            android:textColor="@color/ssid_pwd_library_text_color" />
+    </LinearLayout>
+
+</LinearLayout>

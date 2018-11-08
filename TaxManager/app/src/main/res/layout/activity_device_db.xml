@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_demo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.deter.TaxManager.activity.DeviceDbActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/fuction1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction1" />
+
+        <Button
+            android:id="@+id/fuction2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction2" />
+
+        <Button
+            android:id="@+id/fuction3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction3" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/fuction4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction4" />
+
+        <Button
+            android:id="@+id/fuction5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction5" />
+
+        <Button
+            android:id="@+id/fuction6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction6" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/fuction7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction7" />
+
+        <Button
+            android:id="@+id/fuction8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction8" />
+
+        <Button
+            android:id="@+id/fuction9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction6" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/fuction10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction10" />
+
+        <Button
+            android:id="@+id/fuction11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction11" />
+
+        <Button
+            android:id="@+id/fuction12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction12" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/fuction13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction13" />
+
+        <Button
+            android:id="@+id/fuction14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction14" />
+
+        <Button
+            android:id="@+id/fuction15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction15" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/fuction16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction16" />
+
+        <Button
+            android:id="@+id/fuction17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction17" />
+
+        <Button
+            android:id="@+id/fuction18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction18" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/fuction19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction19" />
+
+        <Button
+            android:id="@+id/fuction20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction20" />
+
+        <Button
+            android:id="@+id/fuction21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction21" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/fuction22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction19" />
+
+        <Button
+            android:id="@+id/fuction23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuction20" />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tvReceive"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#FFFFFF" />
+
+
+</LinearLayout>

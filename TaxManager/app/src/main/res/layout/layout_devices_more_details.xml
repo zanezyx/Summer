@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ripperbackground"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/around_item_height"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/station_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HUA WEI" />
+
+            <TextView
+                android:id="@+id/station_mac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"		
+                android:text="12:45:35:23" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2017.8.2 15:30" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ap_info"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/double_line"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:background="@drawable/connected_to_ap_line" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="4px"
+                    android:background="@drawable/connected_to_ap_line" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:gravity="center|end"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ap_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/devices_mitm_no_data"
+
+                    android:textColor="@color/tabs_selected" />
+
+                <TextView
+                    android:id="@+id/ap_ip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/devices_mitm_no_data"
+                    android:textColor="@color/tabs_selected" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:background="@color/fragment_around_background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minHeight="@dimen/around_item_height"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/network_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2.4G" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_info_network_hint" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="3px"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:src="@color/fragment_around_background"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ssid_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/encryption_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="3px"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:paddingBottom="@dimen/detail_item_divider_padding"
+            android:paddingTop="@dimen/detail_item_divider_padding"
+            android:src="@color/fragment_around_background"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_info_distance_meter" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:background="@color/fragment_around_background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minHeight="@dimen/around_item_height"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/mitm_info"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/around_devices_item_background"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.deter.TaxManager.view.ProgressImgView
+                android:id="@+id/mitm_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/action_wifi_connected" />
+
+            <TextView
+                android:id="@+id/mitm_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_action_force_connected" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="3px"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:paddingBottom="@dimen/detail_item_divider_padding"
+            android:paddingTop="@dimen/detail_item_divider_padding"
+            android:src="@color/fragment_around_background"/>
+
+        <LinearLayout
+            android:id="@+id/blacklist_info"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/around_devices_item_background"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/blacklist_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/action_blacklist_unadded" />
+
+            <TextView
+                android:id="@+id/blacklist_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_action_blacklist" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="3px"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:paddingBottom="@dimen/detail_item_divider_padding"
+            android:paddingTop="@dimen/detail_item_divider_padding"
+            android:src="@color/fragment_around_background"/>
+
+        <LinearLayout
+            android:id="@+id/whitelist_info"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/around_devices_item_background"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/whitelist_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/action_whitelist_unadded" />
+
+            <TextView
+                android:id="@+id/whitelist_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_action_whitelist" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:background="@color/fragment_around_background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minHeight="@dimen/around_item_height"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/deauch_info"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/around_devices_item_background"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.deter.TaxManager.view.ProgressImgView
+                android:id="@+id/deauch_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/action_wifi_connected" />
+
+            <TextView
+                android:id="@+id/deauch_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_action_force_disconnected" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="3px"
+            android:layout_height="@dimen/around_item_height"
+            android:background="@color/fragment_around_background"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/alerm_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/alerm_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/alerm" />
+
+            <TextView
+                android:id="@+id/alerm_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="3px"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:paddingBottom="@dimen/detail_item_divider_padding"
+            android:paddingTop="@dimen/detail_item_divider_padding"
+            android:src="@color/fragment_around_background"/>
+
+        <LinearLayout
+            android:id="@+id/virtual_id_info"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/around_devices_item_background"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/virtual_id_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/action_virtual_id_none" />
+
+            <TextView
+                android:id="@+id/virtual_id_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_info_virtual_id" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="3px"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:paddingBottom="@dimen/detail_item_divider_padding"
+            android:paddingTop="@dimen/detail_item_divider_padding"
+            android:src="@color/fragment_around_background"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.deter.TaxManager.ProfileFragment">
+
+    <include layout="@layout/tabs_layout_toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/fragment_around_background">
+
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/fragment_around_background"
+            android:listSelector="@color/fragment_around_background"
+            android:divider="@color/fragment_around_background"
+            android:dividerHeight="2dp"
+            android:padding="10dp"
+            android:scrollbars="none" />
+    </LinearLayout>
+</LinearLayout>

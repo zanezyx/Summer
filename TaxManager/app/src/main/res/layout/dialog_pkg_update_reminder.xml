@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ripperbackground"
+    android:orientation="vertical"
+    android:padding="@dimen/around_item_margin"
+    android:paddingEnd="20dp"
+    android:paddingStart="20dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/around_item_margin"
+        android:text="@string/settings_online_upgrade_dialog_title"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/button_opt"
+        android:layout_below="@+id/title"
+        android:scrollbars="none"
+        >
+        <TextView
+            android:id="@+id/version_releasenote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/around_item_margin"
+            android:text="本次更新修复以下问题：\n* 性能优化 \n* 强连问题\n* 压制问题"
+            android:textAppearance="@android:style/TextAppearance.Material.Small"/>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/button_opt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/btn_update_cancle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="@dimen/around_item_margin"
+            android:layout_toStartOf="@+id/btn_update_confirm"
+            android:background="@drawable/settings_online_update_dialog_btn_selector"
+            android:clickable="true"
+            android:padding="10dp"
+            android:text="@string/settings_online_upgrade_dialog_btn_cancel"/>
+
+        <TextView
+            android:id="@+id/btn_update_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/settings_online_update_dialog_btn_selector"
+            android:clickable="true"
+            android:padding="10dp"
+            android:text="@string/settings_online_upgrade_dialog_btn_ok"
+            android:textColor="@color/tabs_selected"/>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tab_selected_underline_height">2dp</dimen>
+    <!-- Size of text in tabs. -->
+    <dimen name="tab_text_size">18sp</dimen>
+    <dimen name="tab_elevation">2dp</dimen>
+    <dimen name="star_map_notes_text_size">12sp</dimen>
+    <dimen name="custom_action_bar_height">56dp</dimen>
+    <dimen name="around_item_height">62dp</dimen>
+    <dimen name="around_item_margin">5dp</dimen>
+    <dimen name="around_item_width">167dp</dimen>
+    <dimen name="star_map_size">667px</dimen>
+    <dimen name="star_map_margin">27px</dimen>
+    <dimen name="bottom_tabs_height">56dp</dimen>
+    <dimen name="dialog_network_outage_distance_text_pic_size">8sp</dimen>
+</resources>

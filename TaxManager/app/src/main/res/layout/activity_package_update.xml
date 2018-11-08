@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.deter.TaxManager.PackageUpdateActivity">
+
+    <include
+        layout="@layout/tabs_layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/fragment_around_background"
+        android:padding="@dimen/around_item_margin">
+
+        <LinearLayout
+            android:id="@+id/current_opt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ripperbackground"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/current_version_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/around_item_margin"
+                android:layout_marginTop="@dimen/around_item_margin"
+                android:text="@string/settings_online_upgrade_current_version_hint"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <ProgressBar
+                    android:id="@+id/check_version_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/check_version_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/around_item_margin"
+                    android:text="@string/settings_online_upgrade_check_new_version_hint"
+                    android:textAppearance="@android:style/TextAppearance.Material.Small"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/update_opt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ripperbackground"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/newversion_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/around_item_margin"
+                android:layout_marginTop="@dimen/around_item_margin"
+                android:text="@string/settings_online_upgrade_new_version_msg"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"/>
+
+            <TextView
+                android:id="@+id/btn_update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/around_item_margin"
+                android:background="@drawable/preference_background"
+                android:clickable="true"
+                android:gravity="center_horizontal"
+                android:text="@string/settings_online_upgrade_update_now"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/update_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/update_opt"
+            android:layout_margin="@dimen/around_item_margin"
+            android:text="App主要更新"
+            android:textAppearance="@android:style/TextAppearance.Material.Small"
+            android:visibility="gone"/>
+    </RelativeLayout>
+</LinearLayout>

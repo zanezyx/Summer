@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.deter.TaxManager.BlackWhiteListActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent"
+        android:navigationIcon="@drawable/back_icon"
+        app:navigationIcon="@drawable/back_icon"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAppearance="@style/TabTextStyle"
+            android:textColor="@color/tabs_selected" />
+
+        <ImageView
+            android:id="@+id/black_white_menu_more"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="20px"
+            android:src="@drawable/more" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/fragment_around_background">
+
+        <EditText
+            android:id="@+id/black_white_search_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/black_white_edit_background"
+            android:drawableLeft="@drawable/black_white_list_search_hiht_str"
+            android:drawablePadding="5dp"
+            android:singleLine="true"
+            android:hint="@string/black_white_list_search_hiht_str"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_choice_view"
+        android:layout_below="@+id/search_layout"
+        android:background="@color/fragment_around_background"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/black_white_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:listSelector="@color/color_00000000" />
+
+        <TextView
+            android:id="@+id/emptyView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/not_data_prompt_str"
+            android:textColor="@color/color_CCCCCC"
+            android:textSize="@dimen/not_data_prompt_str_size" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottom_choice_view"
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+
+        <include layout="@layout/bottom_edit_layout" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
