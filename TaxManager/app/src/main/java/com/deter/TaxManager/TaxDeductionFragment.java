@@ -124,26 +124,30 @@ public class TaxDeductionFragment extends PreferenceFragment implements Preferen
                 break;
 
             case "raise_children":
-//                Intent starMapIntent1 = new Intent(getActivity(), StarMapTaskListActivity.class);
-//                starMapIntent1.putExtra(APPConstans.KEY_DETAIL_TYPE, APPConstans.DETAIL_START_MAP_TASK_LIST);
-//                startActivity(starMapIntent1);
+                Intent intent1 = new Intent(getActivity(), RaiseChildrenActivity.class);
+                startActivity(intent1);
                 break;
 
             case "interest_of_loans":
-
+                Intent intent2 = new Intent(getActivity(), RoanInterestActivity.class);
+                startActivity(intent2);
                 break;
 
             case "treatment_of_diseases":
-
+                Intent intent3 = new Intent(getActivity(), TreatmentActivity.class);
+                startActivity(intent3);
                 break;
             case "xljy":
-
+                Intent intent4 = new Intent(getActivity(), EducationActivity.class);
+                startActivity(intent4);
                 break;
             case "zyzgjy":
-
+                Intent intent5 = new Intent(getActivity(), VocationActivity.class);
+                startActivity(intent5);
                 break;
             case "fzba":
-
+                Intent intent6 = new Intent(getActivity(), RentActivity.class);
+                startActivity(intent6);
                 break;
 
 

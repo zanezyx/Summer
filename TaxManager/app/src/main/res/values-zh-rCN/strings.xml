@@ -313,7 +313,7 @@
     <string name="children">子女</string>
     <string name="brother">大哥</string>
     <string name="sister">妹妹</string>
-    <string name="Alimony">赡养额</string>
+    <string name="Alimony">赡养额：</string>
     <string name="Alimony_of_first">第一个子女赡养</string>
     <string name="qtywfyrgj">其它义务抚养人共计：</string>
     <string name="Alimony_of_second">第二个子女赡养</string>
@@ -336,6 +336,7 @@
     <string name="xzdkfs">选择抵扣方式</string>
     <string name="qxzndhsydbz">请选择年度还是月度报账</string>
     <string name="scxljyzmfj">上传学历教育证明附件</string>
+    <string name="sczyjyzmfj">上传职业教育证明附件</string>
     <string name="zyzgjy">职业资格教育</string>
     <string name="fzba">房租备案</string>
     <string name="bsp">报送盘</string>
