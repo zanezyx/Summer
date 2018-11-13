@@ -3,6 +3,7 @@ package com.deter.TaxManager;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +16,7 @@ import android.widget.TextView;
  * @author zyx
  * 
  */
-public class EducationActivity extends Activity {
+public class EducationActivity extends BaseActivity {
 
 	private EditText etReveiverName, mobile, etAddressDetail;
 	private Button btnSubmit;
@@ -26,10 +27,24 @@ public class EducationActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);// 无标题栏
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);// 不能横屏
+	}
+
+	@Override
+	public void initView() {
 		setContentView(R.layout.activity_education);
-		init();
+		setTitleText(R.string.xljy);
+		setBackListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
+	}
+
+	@Override
+	public void initData() {
+
 	}
 
 	/**

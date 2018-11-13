@@ -58,6 +58,7 @@ public class InfoFragment extends Fragment{
         // Inflate the layout for this fragment
         Log.d(TAG,"onCreateView");
         View view = inflater.inflate(R.layout.fragment_my_info, container, false);
+        ((TextView) view.findViewById(R.id.title)).setText(R.string.my_info);
         mViewPager = (ViewPager) view.findViewById(R.id.map_pager);
         MyInfoPagerAdapter mapViewPagerAdapter = new MyInfoPagerAdapter(getActivity());
         mViewPager.setAdapter(mapViewPagerAdapter);

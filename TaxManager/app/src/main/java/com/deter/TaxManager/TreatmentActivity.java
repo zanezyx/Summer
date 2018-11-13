@@ -3,6 +3,7 @@ package com.deter.TaxManager;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +16,7 @@ import android.widget.TextView;
  * @author zyx
  * 
  */
-public class TreatmentActivity extends Activity {
+public class TreatmentActivity extends BaseActivity {
 
 	private EditText etReveiverName, mobile, etAddressDetail;
 	private Button btnSubmit;
@@ -26,9 +27,26 @@ public class TreatmentActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);// 无标题栏
+		//requestWindowFeature(Window.FEATURE_NO_TITLE);// 无标题栏
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);// 不能横屏
-		setContentView(R.layout.activity_raise_children);
+
+
+	}
+
+	@Override
+	public void initView() {
+		setContentView(R.layout.activity_treatment);
+		setTitleText(R.string.treatment_of_diseases);
+		setBackListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
+	}
+
+	@Override
+	public void initData() {
 		init();
 	}
 

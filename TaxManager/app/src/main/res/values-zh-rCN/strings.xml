@@ -24,6 +24,7 @@
     <string name="settings">设置</string>
     <string name="settings_alarm">提示音</string>
     <string name="settings_device_reboot">设备重启</string>
+    <string name="settings_software_version">软件版本</string>
     <string name="settings_firmware_version">固件版本</string>
     <string name="settings_force_disconnected_distance">断网距离</string>
     <string name="settings_location">定位GPS</string>

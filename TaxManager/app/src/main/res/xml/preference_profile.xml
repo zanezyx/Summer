@@ -6,23 +6,22 @@ zzz
     <PreferenceCategory
         android:layout="@layout/layout_preference_category"
         android:title="@string/softeware_about">
+        <Preference
+            android:icon="@drawable/settings_version"
+            android:key="software_version"
+            android:layout="@layout/layout_preference"
+            android:title="@string/settings_software_version"
+            android:widgetLayout="@layout/preference_widget" >
+        </Preference>
         <com.deter.TaxManager.view.WifiMonitorPreference
             android:icon="@drawable/settings_upgrade"
-            android:key="software_version"
+            android:key="software_upgrade"
             android:title="@string/settings_online_upgrade"
             android:widgetLayout="@layout/preference_widget" >
             <!--<intent-->
                 <!--android:targetPackage="com.deter.TaxManager"-->
                 <!--android:targetClass="com.deter.TaxManager.PackageUpdateActivity"/>-->
         </com.deter.TaxManager.view.WifiMonitorPreference>
-
-        <Preference
-            android:icon="@drawable/settings_version"
-            android:key="firmware_update"
-            android:layout="@layout/layout_preference"
-            android:title="@string/settings_firmware_version"
-            android:widgetLayout="@layout/preference_widget" >
-        </Preference>
 
     </PreferenceCategory>
 
