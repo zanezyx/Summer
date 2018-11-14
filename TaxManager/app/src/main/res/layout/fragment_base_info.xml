@@ -57,12 +57,13 @@
                     android:layout_height="wrap_content"
                     android:text="@string/borm_date"
                     android:textColor="#000000" />
-                <EditText
-                    android:id="@+id/etBornDate"
+                <Button
+                    android:id="@+id/tvChooseBornDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:ems="12"
+                    android:clickable="true"
+                    android:text="@string/please_set"
                     android:textColor="#000000" />
             </LinearLayout>
 

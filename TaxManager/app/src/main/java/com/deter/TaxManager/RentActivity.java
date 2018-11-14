@@ -3,6 +3,7 @@ package com.deter.TaxManager;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -19,16 +20,16 @@ import android.widget.TextView;
 public class RentActivity extends BaseActivity {
 
 	private EditText etReveiverName, mobile, etAddressDetail;
-	private Button btnSubmit;
+	private Button btBarqDate;
 	private TextView tvArea;
 	private TextView title;
-
+	private DatePickerUtil datePickerUtil;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);// 不能横屏
-
+		datePickerUtil = new DatePickerUtil(this);
 	}
 
 	@Override
@@ -39,6 +40,20 @@ public class RentActivity extends BaseActivity {
 			@Override
 			public void onClick(View v) {
 				finish();
+			}
+		});
+
+		btBarqDate = (Button)findViewById(R.id.btBarqDate);
+		btBarqDate.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				datePickerUtil.showDatePickDialog(new DatePickerUtil.OnDateSelectedListener() {
+					@Override
+					public void onDateSelected(int year, int monthOfYear, int dayOfMonth) {
+						Log.i("tax", "RentActivity>>>initView>>>onClick");
+						btBarqDate.setText(year+"."+monthOfYear+"."+dayOfMonth);
+					}
+				});
 			}
 		});
 	}

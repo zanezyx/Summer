@@ -379,4 +379,8 @@
     <string name="zyzgpx">职业资格培训（年度）</string>
     <string name="byzdkehj">本月总抵扣额合计：</string>
     <string name="dkek">抵扣额</string>
+    <string name="comfirm_btn_str">确定</string>
+    <string name="cancel_btn_str">取消</string>
+    <string name="set_date">设置日期</string>
+    <string name="please_set">请选择</string>
 </resources>

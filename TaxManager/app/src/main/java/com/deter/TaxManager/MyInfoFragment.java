@@ -4,9 +4,11 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -18,13 +20,8 @@ import android.widget.TextView;
 
 public class MyInfoFragment extends Fragment {
 
-    private Context mContext;
-    private TextView points, level, name, tvUserId;
-    private TextView tvNumber;
-    private TextView tvCount;
-    private TextView tvYouHuiQuan;
-    LinearLayout linearLayout1;
-    RelativeLayout relativeLayout2;
+    private DatePickerUtil datePickerUtil;
+    private Button tvChooseBornDate;
 
     public static MyInfoFragment newInstance() {
 
@@ -36,17 +33,30 @@ public class MyInfoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_base_info, container, false);
+        Log.i("tax", "MyInfoFragment>>>onCreateView>>>onClick 1");
         return view;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        tv = (TextView) view.findViewById(R.id.fragment_test_tv);
-//        linearLayout1 = (LinearLayout)view.findViewById(R.id.linearLayout1);
-//        relativeLayout2 = (RelativeLayout)view.findViewById(R.id.relativeLayout2);
-//        tvUserId = (TextView) view.findViewById(R.id.tvUserId);
-//        tvNumber = (TextView) view.findViewById(R.id.tvScore);
+        Log.i("tax", "MyInfoFragment>>>onViewCreated>>>onClick 1");
+        datePickerUtil = new DatePickerUtil(getActivity());
+        tvChooseBornDate = (Button) view.findViewById(R.id.tvChooseBornDate);
+        tvChooseBornDate.setClickable(true);
+        tvChooseBornDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("tax", "MyInfoFragment>>>onViewCreated>>>onClick 1");
+                datePickerUtil.showDatePickDialog(new DatePickerUtil.OnDateSelectedListener() {
+                    @Override
+                    public void onDateSelected(int year, int monthOfYear, int dayOfMonth) {
+                        Log.i("tax", "MyInfoFragment>>>onViewCreated>>>onClick 2");
+                        tvChooseBornDate.setText(year+"."+monthOfYear+"."+dayOfMonth);
+                    }
+                });
+            }
+        });
 
     }
 
