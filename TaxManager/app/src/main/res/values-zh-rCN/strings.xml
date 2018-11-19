@@ -353,6 +353,7 @@
     <string name="input">请填写</string>
     <string name="bzywny">报账业务年月</string>
     <string name="fszywkjr">发送至义务扣缴人</string>
+    <string name="gsbssj">勾选报送数据</string>
     <string name="export">导出</string>
     <string name="income">收入</string>
     <string name="income_before_tax">税前收入</string>
@@ -383,4 +384,5 @@
     <string name="cancel_btn_str">取消</string>
     <string name="set_date">设置日期</string>
     <string name="please_set">请选择</string>
+    <string name="zrnsrxm">自然纳税人姓名</string>
 </resources>

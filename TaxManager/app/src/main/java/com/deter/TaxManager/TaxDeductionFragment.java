@@ -149,7 +149,10 @@ public class TaxDeductionFragment extends PreferenceFragment implements Preferen
                 Intent intent6 = new Intent(getActivity(), RentActivity.class);
                 startActivity(intent6);
                 break;
-
+            case "bsp":
+                Intent intent7 = new Intent(getActivity(), BspActivity.class);
+                startActivity(intent7);
+                break;
 
         }
 

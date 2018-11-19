@@ -197,11 +197,18 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait">
         </activity>
+
         <activity
             android:name="com.deter.TaxManager.RentActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name="com.deter.TaxManager.BspActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+        </activity>
+
     </application>
 
 </manifest>

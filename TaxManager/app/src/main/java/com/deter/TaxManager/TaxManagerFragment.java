@@ -20,7 +20,6 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -63,8 +62,7 @@ import static com.deter.TaxManager.network.BuzokuFuction.DETER_DIR_NAME;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TaxManagerFragment extends PreferenceFragment implements Preference
-        .OnPreferenceChangeListener {
+public class TaxManagerFragment extends android.app.Fragment {
 
     public TaxManagerFragment() {
         // Required empty public constructor
@@ -73,7 +71,6 @@ public class TaxManagerFragment extends PreferenceFragment implements Preference
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.preference_tax_manager);
         init();
     }
 
@@ -81,7 +78,7 @@ public class TaxManagerFragment extends PreferenceFragment implements Preference
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_profile, container, false);
+        View v = inflater.inflate(R.layout.fragment_tax_manage, container, false);
         ((TextView) v.findViewById(R.id.title)).setText(R.string.tax_manager);
         return v;
     }
@@ -92,57 +89,9 @@ public class TaxManagerFragment extends PreferenceFragment implements Preference
 
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-
-        Boolean isOn = (Boolean) newValue;
-        String msg;
-        switch (preference.getKey()) {
-        }
-
-        return false;
-    }
-
-
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-
-        if (null == preference.getKey()) {
-            return false;
-        }
-
-        switch (preference.getKey()) {
-
-            case "star_map_list":
-                Intent starMapIntent = new Intent(getActivity(), StarMapTaskListActivity.class);
-                starMapIntent.putExtra(APPConstans.KEY_DETAIL_TYPE, APPConstans.DETAIL_START_MAP_TASK_LIST);
-                startActivity(starMapIntent);
-                break;
-
-            case "export_all_data":
-
-                break;
-
-            case "warning_tone":
-                Intent intent = new Intent(getActivity(), WarningToneActivity.class);
-                startActivity(intent);
-                break;
-
-            case "network_outage_distance":
-
-                break;
-
-        }
-
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
-    }
-
-
-    @Override
     public void onResume() {
         super.onResume();
-        ListView listView = ((ListView) getView().findViewById(android.R.id.list));
-        listView.setDivider(getResources().getDrawable(R.color.fragment_around_background));
-        listView.setDividerHeight(20);
+
     }
 
 
