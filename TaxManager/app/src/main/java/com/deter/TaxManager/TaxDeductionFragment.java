@@ -154,6 +154,12 @@ public class TaxDeductionFragment extends PreferenceFragment implements Preferen
                 startActivity(intent7);
                 break;
 
+            case "insurance":
+                Intent intent7 = new Intent(getActivity(), InsuranceActivity.class);
+                startActivity(intent7);
+                break;
+
+
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);

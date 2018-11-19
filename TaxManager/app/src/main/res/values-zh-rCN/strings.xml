@@ -347,7 +347,7 @@
     <string name="fwznqk">房屋租赁情况</string>
     <string name="fwdz">房屋地址</string>
     <string name="barq">备案日期：</string>
-    <string name="htznqzrq">合同租赁起止日期：</string>
+    <string name="htznqzrq">租赁起止日期：</string>
     <string name="myzj">每月租金：</string>
     <string name="select_date">请选择日期</string>
     <string name="input">请填写</string>
@@ -384,5 +384,13 @@
     <string name="cancel_btn_str">取消</string>
     <string name="set_date">设置日期</string>
     <string name="please_set">请选择</string>
-    <string name="zrnsrxm">自然纳税人姓名</string>
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
+
+    <string name="syjkbx">商业健康保险</string>
+    <string name="sybxsxqzrq">商业保险生效起止日期</string>
+    <string name="yjzce">月均支出额:</string>
+    <string name="yuan">元</string>
+    <string name="zhi">至</string>
 </resources>

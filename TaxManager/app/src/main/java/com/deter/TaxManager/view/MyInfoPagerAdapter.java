@@ -32,11 +32,17 @@ public class MyInfoPagerAdapter extends PagerAdapter {
     private Button btMotherBornDate;
     private Button btChildren1BornDate;
     private Button btChildren2BornDate;
+    private String strYear;
+    private String strMonth;
+    private String strDay;
 
     public MyInfoPagerAdapter(Activity context) {
         this.context = context;
         this.layoutInflater = LayoutInflater.from(context);
         datePickerUtil = new DatePickerUtil(context);
+        strYear = context.getResources().getString(R.string.year);
+        strMonth = context.getResources().getString(R.string.month);
+        strDay = context.getResources().getString(R.string.day);
     }
 
     @Override
@@ -88,7 +94,7 @@ public class MyInfoPagerAdapter extends PagerAdapter {
                     @Override
                     public void onDateSelected(int year, int monthOfYear, int dayOfMonth) {
                         Log.i("tax", "MyInfoFragment>>>onViewCreated>>>onClick 2");
-                        tvChooseBornDate.setText(year+"."+monthOfYear+"."+dayOfMonth);
+                        tvChooseBornDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
                     }
                 });
             }
@@ -104,7 +110,7 @@ public class MyInfoPagerAdapter extends PagerAdapter {
                 datePickerUtil.showDatePickDialog(new DatePickerUtil.OnDateSelectedListener() {
                     @Override
                     public void onDateSelected(int year, int monthOfYear, int dayOfMonth) {
-                        btFatherBornDate.setText(year+"."+monthOfYear+"."+dayOfMonth);
+                        btFatherBornDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
                     }
                 });
             }
@@ -117,7 +123,7 @@ public class MyInfoPagerAdapter extends PagerAdapter {
                 datePickerUtil.showDatePickDialog(new DatePickerUtil.OnDateSelectedListener() {
                     @Override
                     public void onDateSelected(int year, int monthOfYear, int dayOfMonth) {
-                        btMotherBornDate.setText(year+"."+monthOfYear+"."+dayOfMonth);
+                        btMotherBornDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
                     }
                 });
             }
@@ -133,7 +139,7 @@ public class MyInfoPagerAdapter extends PagerAdapter {
                 datePickerUtil.showDatePickDialog(new DatePickerUtil.OnDateSelectedListener() {
                     @Override
                     public void onDateSelected(int year, int monthOfYear, int dayOfMonth) {
-                        btChildren1BornDate.setText(year+"."+monthOfYear+"."+dayOfMonth);
+                        btChildren1BornDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
                     }
                 });
             }
@@ -146,7 +152,7 @@ public class MyInfoPagerAdapter extends PagerAdapter {
                 datePickerUtil.showDatePickDialog(new DatePickerUtil.OnDateSelectedListener() {
                     @Override
                     public void onDateSelected(int year, int monthOfYear, int dayOfMonth) {
-                        btChildren2BornDate.setText(year+"."+monthOfYear+"."+dayOfMonth);
+                        btChildren2BornDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
                     }
                 });
             }

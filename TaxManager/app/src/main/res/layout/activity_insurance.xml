@@ -24,59 +24,31 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:orientation="vertical" >
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/szzfht"
-                android:textColor="#000000" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="@string/fwznqk"
+                android:text="@string/sybxsxqzrq"
                 android:textColor="#000000" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal" >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/fwdz"
-                    android:textColor="#000000" />
-                <EditText
-                    android:id="@+id/etRentAddress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:ems="40"
-                    android:textColor="#000000" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal" >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/htznqzrq"
-                    android:textColor="#000000" />
                 <Button
-                    android:id="@+id/btRentStartDate"
+                    android:id="@+id/btStartDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/please_set"
                     android:textColor="#000000" />
                 <TextView
+                    android:id="@+id/etRentAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zhi"
                     android:textColor="#000000" />
                 <Button
-                    android:id="@+id/btRentEndDate"
+                    android:id="@+id/btEndDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/please_set"
@@ -90,32 +62,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/barq"
-                    android:textColor="#000000" />
-                <Button
-                    android:id="@+id/btBarqDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/please_set"
-                    android:textColor="#000000" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal" >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/myzj"
+                    android:text="@string/yjzce"
                     android:textColor="#000000" />
                 <EditText
-                    android:id="@+id/etRent"
+                    android:id="@+id/etRentTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ems="5"
+                    android:ems="8"
                     android:textColor="#000000" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -123,6 +76,7 @@
                     android:text="@string/yuan"
                     android:textColor="#000000" />
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

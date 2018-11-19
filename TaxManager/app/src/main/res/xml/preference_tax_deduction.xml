@@ -22,6 +22,12 @@
         android:title="@string/interest_of_loans"
         android:widgetLayout="@layout/preference_widget" />
     <Preference
+        android:icon="@drawable/settings_synchronize_data"
+        android:key="insurance"
+        android:layout="@layout/layout_preference"
+        android:title="@string/syjkbx"
+        android:widgetLayout="@layout/preference_widget" />
+    <Preference
         android:icon="@drawable/settings_start_map_icon"
         android:key="treatment_of_diseases"
         android:layout="@layout/layout_preference"

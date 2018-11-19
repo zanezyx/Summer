@@ -1,11 +1,9 @@
 package com.deter.TaxManager;
 
-import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,12 +15,11 @@ import android.widget.TextView;
  * @author zyx
  * 
  */
-public class RentActivity extends BaseActivity {
+public class InsuranceActivity extends BaseActivity {
 
 	private EditText etReveiverName, mobile, etAddressDetail;
-	private Button btBarqDate;
-	private Button btRentStartDate;
-	private Button btRentEndDate;
+	private Button btStartDate;
+	private Button btEndDate;
 	private TextView tvArea;
 	private TextView title;
 	private DatePickerUtil datePickerUtil;
@@ -39,7 +36,7 @@ public class RentActivity extends BaseActivity {
 
 	@Override
 	public void initView() {
-		setContentView(R.layout.activity_rent);
+		setContentView(R.layout.activity_insurance);
 		setTitleText(R.string.fzba);
 		setBackListener(new View.OnClickListener() {
 			@Override
@@ -50,44 +47,29 @@ public class RentActivity extends BaseActivity {
 		strYear = getResources().getString(R.string.year);
 		strMonth = getResources().getString(R.string.month);
 		strDay = getResources().getString(R.string.day);
-		btBarqDate = (Button)findViewById(R.id.btBarqDate);
-		btBarqDate.setOnClickListener(new View.OnClickListener() {
+		btStartDate = (Button)findViewById(R.id.btStartDate);
+		btStartDate.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				datePickerUtil.showDatePickDialog(new DatePickerUtil.OnDateSelectedListener() {
 					@Override
 					public void onDateSelected(int year, int monthOfYear, int dayOfMonth) {
 						Log.i("tax", "RentActivity>>>initView>>>onClick");
-						btBarqDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
+						btStartDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
 					}
 				});
 			}
 		});
 
-		btRentStartDate = (Button)findViewById(R.id.btRentStartDate);
-		btRentStartDate.setOnClickListener(new View.OnClickListener() {
+		btEndDate = (Button)findViewById(R.id.btEndDate);
+		btEndDate.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				datePickerUtil.showDatePickDialog(new DatePickerUtil.OnDateSelectedListener() {
 					@Override
 					public void onDateSelected(int year, int monthOfYear, int dayOfMonth) {
 						Log.i("tax", "RentActivity>>>initView>>>onClick");
-						btBarqDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
-					}
-				});
-			}
-		});
-
-
-		btRentEndDate = (Button)findViewById(R.id.btRentEndDate);
-		btRentEndDate.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				datePickerUtil.showDatePickDialog(new DatePickerUtil.OnDateSelectedListener() {
-					@Override
-					public void onDateSelected(int year, int monthOfYear, int dayOfMonth) {
-						Log.i("tax", "RentActivity>>>initView>>>onClick");
-						btBarqDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
+						btEndDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
 					}
 				});
 			}
