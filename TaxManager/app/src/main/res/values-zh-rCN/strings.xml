@@ -351,6 +351,7 @@
     <string name="myzj">每月租金：</string>
     <string name="select_date">请选择日期</string>
     <string name="input">请填写</string>
+    <string name="ylscdkzlb">预览生成抵扣总览表</string>
     <string name="bzywny">报账业务年月</string>
     <string name="fszywkjr">发送至义务扣缴人</string>
     <string name="gsbssj">勾选报送数据</string>
@@ -393,4 +394,18 @@
     <string name="yjzce">月均支出额:</string>
     <string name="yuan">元</string>
     <string name="zhi">至</string>
+    <string name="zrnsrxm">自然纳税人姓名</string>
+    <string name="xcsz">薪酬设置</string>
+    <string name="salary">工资：</string>
+    <string name="subsidy">补贴：</string>
+    <string name="endowment_insurance">养老保险：</string>
+    <string name="medical_insurance">医疗保险：</string>
+    <string name="unemployment_insurance">失业保险：</string>
+    <string name="gjj">公积金：</string>
+    <string name="ls_id">烈属证号：</string>
+    <string name="ggry">孤寡人员：</string>
+    <string-array name="deduction_spiner_array">
+        <item>月度</item>
+        <item>年度</item>
+    </string-array>
 </resources>

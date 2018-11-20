@@ -155,8 +155,8 @@ public class TaxDeductionFragment extends PreferenceFragment implements Preferen
                 break;
 
             case "insurance":
-                Intent intent7 = new Intent(getActivity(), InsuranceActivity.class);
-                startActivity(intent7);
+                Intent intent8 = new Intent(getActivity(), InsuranceActivity.class);
+                startActivity(intent8);
                 break;
 
 

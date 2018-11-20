@@ -213,6 +213,12 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name="com.deter.TaxManager.BspDataActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+        </activity>
+
     </application>
 
 </manifest>

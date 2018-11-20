@@ -34,6 +34,10 @@
                     android:layout_height="wrap_content"
                     android:text="@string/xzdkfs"
                     android:textColor="#000000" />
+                <Spinner
+                    android:id="@+id/Spinner01"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
             <Button
                 android:layout_width="wrap_content"

@@ -43,7 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:ems="12"
+                    android:ems="6"
                     android:textColor="#000000" />
             </LinearLayout>
 
@@ -129,6 +129,24 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/ls_id"
+                    android:textColor="#000000" />
+                <EditText
+                    android:id="@+id/etLsId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:ems="12"
+                    android:textColor="#000000" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/jh_id"
                     android:textColor="#000000" />
                 <EditText
@@ -149,12 +167,11 @@
                     android:layout_height="wrap_content"
                     android:text="@string/is_dszn"
                     android:textColor="#000000" />
-                <EditText
-                    android:id="@+id/etIsDszn"
+                <CheckBox
+                    android:id="@+id/cbIsDszn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:ems="12"
                     android:textColor="#000000" />
             </LinearLayout>
             <LinearLayout
@@ -211,7 +228,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:ems="6"
+                    android:ems="13"
                     android:textColor="#000000" />
             </LinearLayout>
         </LinearLayout>
