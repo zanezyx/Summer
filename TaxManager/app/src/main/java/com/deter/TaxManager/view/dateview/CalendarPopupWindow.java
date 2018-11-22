@@ -1,7 +1,7 @@
 package com.deter.TaxManager.view.dateview;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
+//import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -22,7 +22,7 @@ public class CalendarPopupWindow extends BasePopupWindow implements CalendarCard
     private ImageView btnPreMonth;
     private ImageView btnNextMonth;
     private TextView tvCurrentMonth;
-    private ViewPager mViewPager;
+//    private ViewPager mViewPager;
 
     private Button cancelSelectTimeBtn;
     private Button confirmSelectTimeBtn;
@@ -65,7 +65,7 @@ public class CalendarPopupWindow extends BasePopupWindow implements CalendarCard
         btnPreMonth = getViewById(R.id.btnPreMonth);
         btnNextMonth = getViewById(R.id.btnNextMonth);
         tvCurrentMonth = getViewById(R.id.tvCurrentMonth);
-        mViewPager = getViewById(R.id.vp_calendar);
+//        mViewPager = getViewById(R.id.vp_calendar);
         cancelSelectTimeBtn = getViewById(R.id.cancel_select_time_btn);
         confirmSelectTimeBtn = getViewById(R.id.confirm_select_time_btn);
         btnPreMonth.setOnClickListener(this);
@@ -110,37 +110,37 @@ public class CalendarPopupWindow extends BasePopupWindow implements CalendarCard
 
 
     private void setViewPager() {
-        mViewPager.setAdapter(adapter);
-        mViewPager.setCurrentItem(498);
-        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
-            @Override
-            public void onPageSelected(int position) {
-                measureDirection(position);
-                updateCalendarView(position);
-            }
-
-            @Override
-            public void onPageScrolled(int arg0, float arg1, int arg2) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int arg0) {
-
-            }
-        });
+//        mViewPager.setAdapter(adapter);
+//        mViewPager.setCurrentItem(498);
+//        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//                measureDirection(position);
+//                updateCalendarView(position);
+//            }
+//
+//            @Override
+//            public void onPageScrolled(int arg0, float arg1, int arg2) {
+//
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int arg0) {
+//
+//            }
+//        });
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnPreMonth:
-                mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1);
+//                mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1);
                 break;
 
             case R.id.btnNextMonth:
-                mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
+//                mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
                 break;
 
             case R.id.confirm_select_time_btn:
@@ -211,10 +211,10 @@ public class CalendarPopupWindow extends BasePopupWindow implements CalendarCard
         StringBuilder stringBuilder = new StringBuilder();
         if (!isEn) {
             if (null == yearStr) {
-                yearStr = getResourceString(R.string.year_str);
+                yearStr = getResourceString(R.string.year);
             }
             if (null == monthStr) {
-                monthStr = getResourceString(R.string.month_str);
+                monthStr = getResourceString(R.string.year);
             }
             stringBuilder.append(date.getYear());
             stringBuilder.append(yearStr);

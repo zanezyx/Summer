@@ -1670,7 +1670,7 @@ public class DataManager {
 
         File file = new File(FileUtils.getSDPath() + FILE_EXPORT_DIR);
         FileUtils.makeDir(file);
-        String workbookName = context.getResources().getString(R.string.workbook_name_white_topaplist_list);
+        String workbookName = "";//context.getResources().getString(R.string.workbook_name_white_topaplist_list);
         ExcelUtils.initExcel(file.toString() + FILE_TOPAP, workbookName, title);
 
         if (topAPList != null) {
