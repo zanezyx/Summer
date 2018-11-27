@@ -102,6 +102,16 @@ public class ProfileFragment extends PreferenceFragment{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.preference_profile);
+        PackageManager packageManager = getActivity().getPackageManager();
+        PackageInfo packageInfo = null;
+        try {
+            packageInfo = packageManager.getPackageInfo(getActivity().getPackageName(), 0);
+            android.util.Log.d("zyx", "packageInfo name =" + packageInfo.versionName);
+            ((WifiMonitorPreference) findPreference(KEY_SOFTWARE_VERION)).setMoreInfo(packageInfo
+                    .versionName);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -154,10 +164,9 @@ public class ProfileFragment extends PreferenceFragment{
 
         switch (preference.getKey()) {
 
-            case "star_map_list":
-                Intent starMapIntent = new Intent(getActivity(), StarMapTaskListActivity.class);
-                starMapIntent.putExtra(APPConstans.KEY_DETAIL_TYPE, APPConstans.DETAIL_START_MAP_TASK_LIST);
-                startActivity(starMapIntent);
+            case "software_upgrade":
+                String msg = getActivity().getResources().getString(R.string.settings_online_upgrade_version_is_updated);
+                ToastUtils.showShort(ProfileFragment.this.getActivity(), msg);
                 break;
 
             case "export_all_data":

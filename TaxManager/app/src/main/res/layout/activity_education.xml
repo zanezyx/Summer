@@ -25,7 +25,7 @@
             android:focusableInTouchMode="true"
             android:orientation="vertical" >
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal" >
@@ -35,13 +35,16 @@
                     android:text="@string/xzdkfs"
                     android:textColor="#000000" />
                 <Spinner
-                    android:id="@+id/Spinner01"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"/>
+                    android:id="@+id/spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#F7F7F7"/>
             </LinearLayout>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:onClick="uploadEducationDoc"
                 android:text="@string/scxljyzmfj"
                 android:textColor="#000000" />
         </LinearLayout>

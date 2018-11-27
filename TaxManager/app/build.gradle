@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
 
-    compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    compileSdkVersion 26
+    buildToolsVersion '28.0.2'
     defaultConfig {
         applicationId "com.deter.wifimonitor"
         minSdkVersion 22
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 20
-        versionName "2.0"
+        versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -23,6 +23,11 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -32,9 +37,9 @@ dependencies {
     })
     provided files('libs/ormlite-android-5.0.jar')
     provided files('libs/ormlite-core-5.0.jar')
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support:support-v13:25.3.1'
-    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.android.support:support-v13:26.1.0'
+    compile 'com.android.support:design:26.1.0'
     compile 'com.squareup.okhttp3:okhttp:3.7.0'
     compile 'com.google.code.gson:gson:2.8.0'
     ///testCompile 'junit:junit:4.12'

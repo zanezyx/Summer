@@ -1,13 +1,16 @@
 package com.deter.TaxManager;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -50,14 +53,39 @@ public class RoanInterestActivity extends BaseActivity {
 		init();
 	}
 
-	/**
-	 * 初始化界面
-	 */
+
 	public void init() {
 
 	}
 
-    
+
+	public void uploadRoanContract(View view){
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("*/*");
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        startActivityForResult(intent, 1);
+
+    }
+
+    public void uploadRoanPaymentCredentials(View view){
+
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("*/*");
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        startActivityForResult(intent, 2);
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK) {
+            Uri uri = data.getData();
+            String path = uri.getPath();
+            Toast.makeText(this,path+requestCode,Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
 }
 
 

@@ -24,17 +24,10 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:orientation="vertical" >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/interest_of_loans"
-                android:textColor="#000000" />
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal" >
                 <TextView
                     android:layout_width="wrap_content"
@@ -46,11 +39,28 @@
                     android:id="@+id/etAlimony"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:ems="12"
+                    android:ems="6"
+                    android:textColor="#000000" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/yuan"
                     android:textColor="#000000" />
             </LinearLayout>
-
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:onClick="uploadRoanContract"
+                android:text="@string/scfwdkht1"
+                android:textColor="#000000" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:onClick="uploadRoanPaymentCredentials"
+                android:text="@string/scfwdkjcpj"
+                android:textColor="#000000" />
 
         </LinearLayout>
     </ScrollView>

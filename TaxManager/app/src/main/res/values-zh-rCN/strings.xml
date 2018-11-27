@@ -334,7 +334,7 @@
     <string name="total">合计：</string>
     <string name="dkdqkjndze">抵扣当前会计年度总额：</string>
     <string name="xljy">学历教育</string>
-    <string name="xzdkfs">选择抵扣方式</string>
+    <string name="xzdkfs">选择抵扣方式:</string>
     <string name="qxzndhsydbz">请选择年度还是月度报账</string>
     <string name="scxljyzmfj">上传学历教育证明附件</string>
     <string name="sczyjyzmfj">上传职业教育证明附件</string>
@@ -344,6 +344,8 @@
     <string name="bsyl">报送的预览生成界面</string>
     <string name="ywkjrsybf">义务扣缴人使用部分</string>
     <string name="szzfht">上传租房合同</string>
+    <string name="scfwdkht1">上传房屋贷款合同</string>
+    <string name="scfwdkjcpj">上传房屋贷款支出凭据</string>
     <string name="fwznqk">房屋租赁情况</string>
     <string name="fwdz">房屋地址</string>
     <string name="barq">备案日期：</string>

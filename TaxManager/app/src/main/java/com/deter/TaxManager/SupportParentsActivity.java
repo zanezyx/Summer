@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.deter.TaxManager.R;
 
@@ -35,8 +37,8 @@ public class SupportParentsActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-//		requestWindowFeature(Window.FEATURE_NO_TITLE);// 无标题栏
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);// 不能横屏
+//		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 	}
 
 	@Override
@@ -56,14 +58,37 @@ public class SupportParentsActivity extends BaseActivity {
 		init();
 	}
 
-	/**
-	 * 初始化界面
-	 */
 	public void init() {
 
 	}
 
-    
+	public void uploadSupportDoc(View view){
+
+		Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+		intent.setType("*/*");
+		intent.addCategory(Intent.CATEGORY_OPENABLE);
+		startActivityForResult(intent, 1);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (resultCode == Activity.RESULT_OK) {
+			Uri uri = data.getData();
+//			if ("file".equalsIgnoreCase(uri.getScheme())){
+//				path = uri.getPath();
+//				tv.setText(path);
+//				Toast.makeText(this,path+"11111",Toast.LENGTH_SHORT).show();
+//				return;
+//			}
+			String path = uri.getPath();
+			//String path = getRealPathFromURI(this, uri);
+			//tv.setText(path);
+			Toast.makeText(this,path,Toast.LENGTH_SHORT).show();
+
+		}
+	}
+
+
 }
 
 

@@ -6,13 +6,13 @@ zzz
     <PreferenceCategory
         android:layout="@layout/layout_preference_category"
         android:title="@string/softeware_about">
-        <Preference
+        <com.deter.TaxManager.view.WifiMonitorPreference
             android:icon="@drawable/settings_version"
             android:key="software_version"
             android:layout="@layout/layout_preference"
             android:title="@string/settings_software_version"
             android:widgetLayout="@layout/preference_widget" >
-        </Preference>
+        </com.deter.TaxManager.view.WifiMonitorPreference>
         <com.deter.TaxManager.view.WifiMonitorPreference
             android:icon="@drawable/settings_upgrade"
             android:key="software_upgrade"

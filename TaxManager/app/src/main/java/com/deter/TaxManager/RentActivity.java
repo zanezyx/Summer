@@ -1,7 +1,9 @@
 package com.deter.TaxManager;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -33,7 +36,7 @@ public class RentActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);// 不能横屏
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		datePickerUtil = new DatePickerUtil(this);
 	}
 
@@ -99,14 +102,25 @@ public class RentActivity extends BaseActivity {
 
 	}
 
-	/**
-	 * 初始化界面
-	 */
 	public void init() {
 
 	}
 
-    
+    public void uploadRentContract(View view){
+		Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+		intent.setType("*/*");
+		intent.addCategory(Intent.CATEGORY_OPENABLE);
+		startActivityForResult(intent, 1);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (resultCode == Activity.RESULT_OK) {
+			Uri uri = data.getData();
+			String path = uri.getPath();
+			Toast.makeText(this,path,Toast.LENGTH_SHORT).show();
+		}
+	}
 }
 
 
