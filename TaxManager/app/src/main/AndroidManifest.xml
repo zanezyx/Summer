@@ -218,7 +218,10 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait">
         </activity>
-
+        <activity
+            android:name="com.deter.TaxManager.AddTreatmentBillActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
-
 </manifest>
