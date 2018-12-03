@@ -2,6 +2,7 @@ package com.deter.TaxManager.model;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 
@@ -32,10 +33,21 @@ public class DataManager {
 //    private double currLongtitude;
 //    private long currTaskId;
 
-
     private Context context;
-
     private static DataManager instance;
+    private BaseInfo mBaseInfo;
+    private ParentInfo mFatherInfo;
+    private ParentInfo mMontherInfo;
+    private ChildrenInfo mFirstChildInfo;
+    private ChildrenInfo mSecondChildInfo;
+
+    public static String CACHE_FILE_DIRECTORY = Environment.getExternalStorageDirectory().toString()+"/";
+    public final static String BASE_INFO_CACHE_FILE = "base_info.bin";
+    public final static String FATHER_INFO_CACHE_FILE = "father_info.bin";
+    public final static String MONTHER_INFO_CACHE_FILE = "monther_info.bin";
+    public final static String FIRST_CHILD_INFO_CACHE_FILE = "first_child_info.bin";
+    public final static String SECOND_CHILD_INFO_CACHE_FILE = "second_child_info.bin";
+
     public final static int SPECIAL_FLAG_WHITE_NAME = 0;
     public final static int SPECIAL_FLAG_BLACK_NAME = 1;
     public final int MSG_DB_DONE_BACK = 500;
@@ -45,6 +57,7 @@ public class DataManager {
     public static final int MSG_FOLLOW_ANALYSE_SUCCESSS = 301;
     public static final int MSG_FOLLOW_ANALYSE_NO_TASK = 302;
     public static final int MSG_FOLLOW_ANALYSE_NO_MAC = 303;
+
 
     private DataManager(Context context) {
 
@@ -64,17 +77,70 @@ public class DataManager {
         return instance;
     }
 
-    public void init()
+    public void initAllInfo()
     {
-        if(DtConstant.DEBUG_MODE)
-        {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    addDebugModeDeviceToDb();
-                }
-            }).start();
+        mBaseInfo = (BaseInfo) CacheManager.readObject(context,BASE_INFO_CACHE_FILE);
+        mFatherInfo = (ParentInfo) CacheManager.readObject(context,FATHER_INFO_CACHE_FILE);
+        mMontherInfo = (ParentInfo) CacheManager.readObject(context,MONTHER_INFO_CACHE_FILE);
+        mFirstChildInfo = (ChildrenInfo) CacheManager.readObject(context,FIRST_CHILD_INFO_CACHE_FILE);
+        mSecondChildInfo = (ChildrenInfo) CacheManager.readObject(context,SECOND_CHILD_INFO_CACHE_FILE);
+        Log.i("tax", "DataManager>>>initAllInfo "+BASE_INFO_CACHE_FILE);
+        if(mBaseInfo==null){
+            Log.i("tax", "DataManager>>>initAllInfo>>>mBaseInfo:null");
+        }else{
+            Log.i("tax", "DataManager>>>initAllInfo>>>mBaseInfo getname:"+mBaseInfo.getName());
         }
+    }
+
+    public void saveAllInfo()
+    {
+        Log.i("tax", "DataManager>>>saveAllInfo "+BASE_INFO_CACHE_FILE);
+        CacheManager.saveObject(context,mBaseInfo,BASE_INFO_CACHE_FILE);
+        CacheManager.saveObject(context,mFatherInfo,FATHER_INFO_CACHE_FILE);
+        CacheManager.saveObject(context,mMontherInfo,MONTHER_INFO_CACHE_FILE);
+        CacheManager.saveObject(context,mFirstChildInfo,FIRST_CHILD_INFO_CACHE_FILE);
+        CacheManager.saveObject(context,mSecondChildInfo,SECOND_CHILD_INFO_CACHE_FILE);
+    }
+
+
+    public BaseInfo getmBaseInfo() {
+        return mBaseInfo;
+    }
+
+    public void setmBaseInfo(BaseInfo mBaseInfo) {
+        this.mBaseInfo = mBaseInfo;
+    }
+
+    public ParentInfo getmFatherInfo() {
+        return mFatherInfo;
+    }
+
+    public void setmFatherInfo(ParentInfo mFatherInfo) {
+        this.mFatherInfo = mFatherInfo;
+    }
+
+    public ParentInfo getmMontherInfo() {
+        return mMontherInfo;
+    }
+
+    public void setmMontherInfo(ParentInfo mMontherInfo) {
+        this.mMontherInfo = mMontherInfo;
+    }
+
+    public ChildrenInfo getmFirstChildInfo() {
+        return mFirstChildInfo;
+    }
+
+    public void setmFirstChildInfo(ChildrenInfo mFirstChildInfo) {
+        this.mFirstChildInfo = mFirstChildInfo;
+    }
+
+    public ChildrenInfo getmSecondChildInfo() {
+        return mSecondChildInfo;
+    }
+
+    public void setmSecondChildInfo(ChildrenInfo mSecondChildInfo) {
+        this.mSecondChildInfo = mSecondChildInfo;
     }
 
 

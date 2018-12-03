@@ -13,6 +13,7 @@ public class BaseInfo implements Serializable {
     private String martyrId;
     private String marriageId;
     private boolean isOnlyChild;
+    private String city;
     private String address;
     private String phoneNumber;
 
@@ -94,5 +95,13 @@ public class BaseInfo implements Serializable {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }

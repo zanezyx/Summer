@@ -8,10 +8,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.CheckBox;
+import android.widget.EditText;
 
 import com.deter.TaxManager.DatePickerUtil;
+import com.deter.TaxManager.InfoFragment;
 import com.deter.TaxManager.R;
+import com.deter.TaxManager.model.BaseInfo;
+import com.deter.TaxManager.model.ChildrenInfo;
+import com.deter.TaxManager.model.DataManager;
+import com.deter.TaxManager.model.ParentInfo;
+
+import java.util.Date;
 
 /**
  * Created by xiaolu on 17-8-26.
@@ -27,7 +35,7 @@ public class MyInfoPagerAdapter extends PagerAdapter {
 
     private Activity context;
     private DatePickerUtil datePickerUtil;
-    private Button tvChooseBornDate;
+    private Button btChooseBornDate;
     private Button btFatherBornDate;
     private Button btMotherBornDate;
     private Button btChildren1BornDate;
@@ -35,6 +43,39 @@ public class MyInfoPagerAdapter extends PagerAdapter {
     private String strYear;
     private String strMonth;
     private String strDay;
+    private View mBaseInfoView;
+    private View mParentInfoView;
+    private View mChildrenInfoView;
+
+    //base info
+    private EditText etMyName;
+    private EditText etMyTaxId;
+    private EditText etMyCarrier;
+    private EditText etCjId;
+    private EditText etLsId;
+    private EditText etMyMarriageId;
+    private CheckBox ckOnlyOneChild;
+    private EditText etMyCity;
+    private EditText etMyAddress;
+    private EditText etMyPhoneNumber;
+
+    //parent info
+    private EditText etFaName;
+    private EditText etFaIdentity;
+    private EditText etFaCarrier;
+    private EditText etMoName;
+    private EditText etMoIdentity;
+    private EditText etMoCarrier;
+
+    //child info
+    private EditText etFirstChildName;
+    private EditText etFirstChildIdentity;
+    private EditText etFirstChildBornId;
+    private EditText etSecondChildName;
+    private EditText etSecondChildIdentity;
+    private EditText etSecondChildBornId;
+
+
 
     public MyInfoPagerAdapter(Activity context) {
         this.context = context;
@@ -67,26 +108,33 @@ public class MyInfoPagerAdapter extends PagerAdapter {
         View view = null;
         switch(position){
             case 0:
-                view = layoutInflater.inflate(R.layout.fragment_base_info, container, false);
-                initbaseInfoView(context, view);
+                mBaseInfoView = layoutInflater.inflate(R.layout.fragment_base_info, container, false);
+                initbaseInfoView(context);
+                view = mBaseInfoView;
                 break;
             case 1:
-                view = layoutInflater.inflate(R.layout.fragment_parent_info, container, false);
-                initParentsInfoView(context, view);
+                mParentInfoView = layoutInflater.inflate(R.layout.fragment_parent_info, container, false);
+                initParentsInfoView(context);
+                view = mParentInfoView;
                 break;
             case 2:
-                view = layoutInflater.inflate(R.layout.fragment_children_info, container, false);
-                initChildrenInfoView(context, view);
+                mChildrenInfoView = layoutInflater.inflate(R.layout.fragment_children_info, container, false);
+                initChildrenInfoView(context);
+                view = mChildrenInfoView;
                 break;
         }
         container.addView(view);
         return view;
     }
 
-    void initbaseInfoView(Context context, View view){
+    void initbaseInfoView(Context context){
 
-        tvChooseBornDate = (Button) view.findViewById(R.id.tvChooseBornDate);
-        tvChooseBornDate.setOnClickListener(new View.OnClickListener() {
+        if(mBaseInfoView==null){
+            return;
+        }
+        final BaseInfo baseInfo = DataManager.getInstance(context).getmBaseInfo();
+        btChooseBornDate = (Button) mBaseInfoView.findViewById(R.id.tvChooseBornDate);
+        btChooseBornDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i("tax", "MyInfoFragment>>>onViewCreated>>>onClick 1");
@@ -94,16 +142,49 @@ public class MyInfoPagerAdapter extends PagerAdapter {
                     @Override
                     public void onDateSelected(int year, int monthOfYear, int dayOfMonth) {
                         Log.i("tax", "MyInfoFragment>>>onViewCreated>>>onClick 2");
-                        tvChooseBornDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
+                        Date date = new Date(year,monthOfYear-1, dayOfMonth);
+                        baseInfo.setBornDate(date);
+                        btChooseBornDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
                     }
                 });
             }
         });
+
+        etMyName = (EditText)mBaseInfoView.findViewById(R.id.etMyName);
+        etMyTaxId = (EditText)mBaseInfoView.findViewById(R.id.etMyTaxId);
+        etMyCarrier = (EditText)mBaseInfoView.findViewById(R.id.etMyCarrier);
+        etCjId = (EditText)mBaseInfoView.findViewById(R.id.etCjId);
+        etLsId = (EditText)mBaseInfoView.findViewById(R.id.etLsId);
+        etMyMarriageId = (EditText)mBaseInfoView.findViewById(R.id.etMyMarrierId);
+        ckOnlyOneChild = (CheckBox) mBaseInfoView.findViewById(R.id.cbIsDszn);
+        etMyCity = (EditText)mBaseInfoView.findViewById(R.id.etMyCity);
+        etMyAddress = (EditText)mBaseInfoView.findViewById(R.id.etMyAddressDetail);
+        etMyPhoneNumber = (EditText)mBaseInfoView.findViewById(R.id.etMyPhone);
+
+        Log.i("tax", "MyInfoPagerAdapter>>>initbaseInfoView");
+        if(baseInfo!=null){
+            Log.i("tax", "MyInfoPagerAdapter>>>initbaseInfoView baseInfo.getName():"+baseInfo.getName());
+            Date date = baseInfo.getBornDate();
+            if(date!=null)
+                btChooseBornDate.setText(date.getYear()+strYear+date.getMonth()+strMonth+date.getDay()+strDay);
+            etMyName.setText(baseInfo.getName());
+            etMyTaxId.setText(baseInfo.getTaxpayerId());
+            etMyCarrier.setText(baseInfo.getCarrier());
+            etCjId.setText(baseInfo.getDeformityId());
+            etLsId.setText(baseInfo.getMartyrId());
+            etMyMarriageId.setText(baseInfo.getMarriageId());
+            ckOnlyOneChild.setChecked(baseInfo.isOnlyChild());
+            etMyCity.setText(baseInfo.getCity());
+            etMyAddress.setText(baseInfo.getAddress());
+            etMyPhoneNumber.setText(baseInfo.getPhoneNumber());
+        }
     }
 
-    void initParentsInfoView(Context context, View view){
-
-        btFatherBornDate = (Button) view.findViewById(R.id.btFatherBornDate);
+    void initParentsInfoView(Context context){
+        if(mParentInfoView==null){
+            return;
+        }
+        btFatherBornDate = (Button) mParentInfoView.findViewById(R.id.btFatherBornDate);
         btFatherBornDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,7 +197,7 @@ public class MyInfoPagerAdapter extends PagerAdapter {
             }
         });
 
-        btMotherBornDate = (Button) view.findViewById(R.id.btMotherBornDate);
+        btMotherBornDate = (Button) mParentInfoView.findViewById(R.id.btMotherBornDate);
         btMotherBornDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,11 +209,33 @@ public class MyInfoPagerAdapter extends PagerAdapter {
                 });
             }
         });
+        etFaName= (EditText)mParentInfoView.findViewById(R.id.etFaName);
+        etFaIdentity= (EditText)mParentInfoView.findViewById(R.id.etFaPersionId);
+        etFaCarrier= (EditText)mParentInfoView.findViewById(R.id.etFaCarrier);
+        etMoName= (EditText)mParentInfoView.findViewById(R.id.etMoName);
+        etMoIdentity= (EditText)mParentInfoView.findViewById(R.id.etMoPersionId);
+        etMoCarrier= (EditText)mParentInfoView.findViewById(R.id.etMoCarrier);
+
+        ParentInfo fatherInfo = DataManager.getInstance(context).getmFatherInfo();
+        if(fatherInfo!=null){
+            etFaName.setText(fatherInfo.getName());
+            etFaIdentity.setText(fatherInfo.getIdentity());
+            etFaCarrier.setText(fatherInfo.getCarrier());
+        }
+
+        ParentInfo montherInfo = DataManager.getInstance(context).getmMontherInfo();
+        if(montherInfo!=null){
+            etMoName.setText(montherInfo.getName());
+            etMoIdentity.setText(montherInfo.getIdentity());
+            etMoCarrier.setText(montherInfo.getCarrier());
+        }
     }
 
-    void initChildrenInfoView(Context context, View view){
-
-        btChildren1BornDate = (Button) view.findViewById(R.id.btChildren1BornDate);
+    void initChildrenInfoView(Context context){
+        if(mChildrenInfoView==null){
+            return;
+        }
+        btChildren1BornDate = (Button) mChildrenInfoView.findViewById(R.id.btChildren1BornDate);
         btChildren1BornDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,7 +248,7 @@ public class MyInfoPagerAdapter extends PagerAdapter {
             }
         });
 
-        btChildren2BornDate = (Button) view.findViewById(R.id.btChildren2BornDate);
+        btChildren2BornDate = (Button) mChildrenInfoView.findViewById(R.id.btChildren2BornDate);
         btChildren2BornDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -157,6 +260,25 @@ public class MyInfoPagerAdapter extends PagerAdapter {
                 });
             }
         });
+        etFirstChildName= (EditText)mChildrenInfoView.findViewById(R.id.etFirstChildName);
+        etFirstChildIdentity= (EditText)mChildrenInfoView.findViewById(R.id.etFirstChildPId);
+        etFirstChildBornId= (EditText)mChildrenInfoView.findViewById(R.id.etFirstChildBornId);
+        etSecondChildName= (EditText)mChildrenInfoView.findViewById(R.id.etSecondChildName);
+        etSecondChildIdentity= (EditText)mChildrenInfoView.findViewById(R.id.etSecondChildPId);
+        etSecondChildBornId= (EditText)mChildrenInfoView.findViewById(R.id.etSecondChildBornId);
+        ChildrenInfo firstChildInfo = DataManager.getInstance(context).getmFirstChildInfo();
+        if(firstChildInfo!=null){
+            etFirstChildName.setText(firstChildInfo.getName());
+            etFirstChildIdentity.setText(firstChildInfo.getIdentity());
+            etFirstChildBornId.setText(firstChildInfo.getBornId());
+        }
+
+        ChildrenInfo secondChildInfo = DataManager.getInstance(context).getmSecondChildInfo();
+        if(secondChildInfo!=null){
+            etSecondChildName.setText(secondChildInfo.getName());
+            etSecondChildIdentity.setText(secondChildInfo.getIdentity());
+            etSecondChildBornId.setText(secondChildInfo.getBornId());
+        }
     }
 
 
@@ -170,6 +292,54 @@ public class MyInfoPagerAdapter extends PagerAdapter {
         return context.getString(TAB_TITLE[position]);
     }
 
+    public void saveAllInfoToFile(){
+        Log.i("tax", "MyInfoPagerAdapter>>>enter saveAllInfoToFile");
+        BaseInfo baseInfo = new BaseInfo();
+        baseInfo.setName(etMyName.getText().toString());
+        baseInfo.setTaxpayerId(etMyTaxId.getText().toString());
+        baseInfo.setCarrier(etMyCarrier.getText().toString());
+        baseInfo.setDeformityId(etCjId.getText().toString());
+        baseInfo.setMartyrId(etLsId.getText().toString());
+        baseInfo.setMarriageId(etMyMarriageId.getText().toString());
+        baseInfo.setOnlyChild(ckOnlyOneChild.isChecked());
+        baseInfo.setCity(etMyCity.getText().toString());
+        baseInfo.setAddress(etMyAddress.getText().toString());
+        baseInfo.setPhoneNumber(etMyPhoneNumber.getText().toString());
+        DataManager.getInstance(context).setmBaseInfo(baseInfo);
+
+        ParentInfo fatherInfo = new ParentInfo();
+        fatherInfo.setName(etFaName.getText().toString());
+        fatherInfo.setIdentity(etFaIdentity.getText().toString());
+        fatherInfo.setCarrier(etFaCarrier.getText().toString());
+        DataManager.getInstance(context).setmFatherInfo(fatherInfo);
+
+        ParentInfo motherInfo = new ParentInfo();
+        motherInfo.setName(etMoName.getText().toString());
+        motherInfo.setIdentity(etMoIdentity.getText().toString());
+        motherInfo.setCarrier(etMoCarrier.getText().toString());
+        DataManager.getInstance(context).setmMontherInfo(motherInfo);
+
+
+        ChildrenInfo firstChildInfo = new ChildrenInfo();
+        firstChildInfo.setName(etFirstChildName.getText().toString());
+        firstChildInfo.setIdentity(etFirstChildIdentity.getText().toString());
+        firstChildInfo.setBornId(etFirstChildBornId.getText().toString());
+        DataManager.getInstance(context).setmFirstChildInfo(firstChildInfo);
+
+        ChildrenInfo secondChildInfo = new ChildrenInfo();
+        secondChildInfo.setName(etSecondChildName.getText().toString());
+        secondChildInfo.setIdentity(etSecondChildIdentity.getText().toString());
+        secondChildInfo.setBornId(etSecondChildBornId.getText().toString());
+        DataManager.getInstance(context).setmSecondChildInfo(secondChildInfo);
+        Log.i("tax", "MyInfoPagerAdapter>>>saveAllInfoToFile 1");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                DataManager.getInstance(context).saveAllInfo();
+            }
+        }).start();
+        Log.i("tax", "MyInfoPagerAdapter>>>saveAllInfoToFile");
+    }
 
 }
 

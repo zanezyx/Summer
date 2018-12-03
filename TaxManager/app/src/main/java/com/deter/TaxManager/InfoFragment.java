@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.deter.TaxManager.model.DataManager;
 import com.deter.TaxManager.view.MyInfoPagerAdapter;
 import com.deter.TaxManager.view.ViewPagerTabs;
 
@@ -33,10 +34,10 @@ import java.util.List;
  */
 public class InfoFragment extends Fragment{
 
-    private final static String TAG = "InfoFragment";
+    private final static String TAG = "tax";
 
     private ViewPager mViewPager;
-
+    private MyInfoPagerAdapter mMyInfoPagerAdapter;
     private Button button;
 
 
@@ -50,6 +51,7 @@ public class InfoFragment extends Fragment{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
     }
 
     @Override
@@ -57,15 +59,22 @@ public class InfoFragment extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         Log.d(TAG,"onCreateView");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                DataManager.getInstance(InfoFragment.this.getActivity()).initAllInfo();
+            }
+        }).start();
         View view = inflater.inflate(R.layout.fragment_my_info, container, false);
         ((TextView) view.findViewById(R.id.title)).setText(R.string.my_info);
         mViewPager = (ViewPager) view.findViewById(R.id.map_pager);
-        MyInfoPagerAdapter mapViewPagerAdapter = new MyInfoPagerAdapter(getActivity());
-        mViewPager.setAdapter(mapViewPagerAdapter);
+        mMyInfoPagerAdapter = new MyInfoPagerAdapter(getActivity());
+        mViewPager.setAdapter(mMyInfoPagerAdapter);
         ViewPagerTabs mViewPagerTabs = (ViewPagerTabs) view.findViewById(R.id.lists_pager_header);
         mViewPagerTabs.setViewPager(mViewPager);
         mViewPager.setOffscreenPageLimit(3);
         mViewPager.addOnPageChangeListener(mViewPagerTabs);
+
         return view;
     }
 
@@ -77,32 +86,37 @@ public class InfoFragment extends Fragment{
 
     @Override
     public void onResume() {
-        Log.d(TAG, "onResume");
+        Log.d(TAG, "InfoFragment>>>onResume");
         super.onResume();
     }
 
     @Override
     public void onPause() {
-        Log.d(TAG, "onPause");
+        Log.d(TAG, "InfoFragment>>>onPause");
         super.onPause();
 
     }
 
     @Override
     public void onStop() {
-        Log.d(TAG, "onStop");
+        Log.d(TAG, "InfoFragment>>>onStop");
         super.onStop();
+        if(mMyInfoPagerAdapter!=null){
+            mMyInfoPagerAdapter.saveAllInfoToFile();
+
+        }
     }
 
     @Override
     public void onDestroyView() {
-        Log.d(TAG, "onDestroyView");
+        Log.d(TAG, "InfoFragment>>>onDestroyView");
         super.onDestroyView();
+
     }
 
     @Override
     public void onDestroy() {
-        Log.d(TAG, "onDestroy");
+        Log.i(TAG, "InfoFragment>>>onDestroy");
         super.onDestroy();
 
     }

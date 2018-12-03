@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.init(this);
         instance=this;
-        DataManager.getInstance(this).init();
+        //DataManager.getInstance(this).init();
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mViewPager.setOffscreenPageLimit(3);
         wifiMonitorViewPagerAdapter = new WifiMonitorViewPagerAdapter(getFragmentManager());

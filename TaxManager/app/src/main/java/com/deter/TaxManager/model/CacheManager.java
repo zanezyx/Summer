@@ -2,6 +2,8 @@ package com.deter.TaxManager.model;
 
 import android.content.Context;
 
+import com.deter.TaxManager.utils.Log;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -29,8 +31,10 @@ public class CacheManager {
             oos = new ObjectOutputStream(fos);
             oos.writeObject(ser);
             oos.flush();
+            Log.i("tax", "CacheManager>>>saveObject>>>OK");
             return true;
         } catch ( Exception e ) {
+            Log.i("tax", "CacheManager>>>saveObject>>>1 e:"+e.toString());
             e.printStackTrace();
             return false;
         } finally {
@@ -58,18 +62,24 @@ public class CacheManager {
     public static Serializable readObject(Context context, String file) {
 //        if ( !isExistDataCache(context, file) )
 //            return null;
-
+        if(file==null)
+            return null;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         try {
             fis = context.openFileInput(file);
             ois = new ObjectInputStream(fis);
-            return (Serializable) ois.readObject();
+            Serializable serializable = (Serializable) ois.readObject();
+            Log.i("tax", "CacheManager>>>readObject>>>ok");
+            return serializable;
         } catch ( FileNotFoundException e ) {
+            Log.i("tax", "CacheManager>>>readObject>>>1 e:"+e.toString());
         } catch ( Exception e ) {
+            Log.i("tax", "CacheManager>>>readObject>>>2 e:"+e.toString());
             e.printStackTrace();
             // 反序列化失败 - 删除缓存文件
             if ( e instanceof InvalidClassException) {
+                Log.i("tax", "CacheManager>>>readObject>>>delete cache file");
                 File data = context.getFileStreamPath(file);
                 data.delete();
             }
