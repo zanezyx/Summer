@@ -15,6 +15,7 @@ import com.deter.TaxManager.DatePickerUtil;
 import com.deter.TaxManager.InfoFragment;
 import com.deter.TaxManager.R;
 import com.deter.TaxManager.model.BaseInfo;
+import com.deter.TaxManager.model.BornDate;
 import com.deter.TaxManager.model.ChildrenInfo;
 import com.deter.TaxManager.model.DataManager;
 import com.deter.TaxManager.model.ParentInfo;
@@ -46,6 +47,12 @@ public class MyInfoPagerAdapter extends PagerAdapter {
     private View mBaseInfoView;
     private View mParentInfoView;
     private View mChildrenInfoView;
+
+    private BornDate myBornDate;
+    private BornDate fatherBornDate;
+    private BornDate motherBornDate;
+    private BornDate firstChildBornDate;
+    private BornDate secondChildBornDate;
 
     //base info
     private EditText etMyName;
@@ -127,6 +134,9 @@ public class MyInfoPagerAdapter extends PagerAdapter {
         return view;
     }
 
+
+
+
     void initbaseInfoView(Context context){
 
         if(mBaseInfoView==null){
@@ -137,13 +147,12 @@ public class MyInfoPagerAdapter extends PagerAdapter {
         btChooseBornDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("tax", "MyInfoFragment>>>onViewCreated>>>onClick 1");
                 datePickerUtil.showDatePickDialog(new DatePickerUtil.OnDateSelectedListener() {
                     @Override
                     public void onDateSelected(int year, int monthOfYear, int dayOfMonth) {
-                        Log.i("tax", "MyInfoFragment>>>onViewCreated>>>onClick 2");
-                        Date date = new Date(year,monthOfYear-1, dayOfMonth);
-                        baseInfo.setBornDate(date);
+                        Log.i("tax", "MyInfoFragment>>>initbaseInfoView>>>" +
+                                "year:"+year+" monthOfYear:"+monthOfYear+" dayOfMonth:"+dayOfMonth);
+                        myBornDate = new BornDate(year,monthOfYear, dayOfMonth);
                         btChooseBornDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
                     }
                 });
@@ -164,9 +173,15 @@ public class MyInfoPagerAdapter extends PagerAdapter {
         Log.i("tax", "MyInfoPagerAdapter>>>initbaseInfoView");
         if(baseInfo!=null){
             Log.i("tax", "MyInfoPagerAdapter>>>initbaseInfoView baseInfo.getName():"+baseInfo.getName());
-            Date date = baseInfo.getBornDate();
-            if(date!=null)
+            BornDate date = baseInfo.getBornDate();
+            if(date!=null){
+                Log.i("tax", "MyInfoPagerAdapter>>>initbaseInfoView"
+                        +date.getYear()+strYear+date.getMonth()+strMonth+date.getDay()+strDay);
+                myBornDate = date;
                 btChooseBornDate.setText(date.getYear()+strYear+date.getMonth()+strMonth+date.getDay()+strDay);
+            }else{
+                Log.i("tax", "MyInfoPagerAdapter>>>initbaseInfoView>>>date null");
+            }
             etMyName.setText(baseInfo.getName());
             etMyTaxId.setText(baseInfo.getTaxpayerId());
             etMyCarrier.setText(baseInfo.getCarrier());
@@ -191,6 +206,7 @@ public class MyInfoPagerAdapter extends PagerAdapter {
                 datePickerUtil.showDatePickDialog(new DatePickerUtil.OnDateSelectedListener() {
                     @Override
                     public void onDateSelected(int year, int monthOfYear, int dayOfMonth) {
+                        fatherBornDate = new BornDate(year,monthOfYear, dayOfMonth);
                         btFatherBornDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
                     }
                 });
@@ -204,6 +220,7 @@ public class MyInfoPagerAdapter extends PagerAdapter {
                 datePickerUtil.showDatePickDialog(new DatePickerUtil.OnDateSelectedListener() {
                     @Override
                     public void onDateSelected(int year, int monthOfYear, int dayOfMonth) {
+                        motherBornDate = new BornDate(year,monthOfYear, dayOfMonth);
                         btMotherBornDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
                     }
                 });
@@ -218,16 +235,26 @@ public class MyInfoPagerAdapter extends PagerAdapter {
 
         ParentInfo fatherInfo = DataManager.getInstance(context).getmFatherInfo();
         if(fatherInfo!=null){
+            fatherBornDate = fatherInfo.getBornDate();
             etFaName.setText(fatherInfo.getName());
             etFaIdentity.setText(fatherInfo.getIdentity());
             etFaCarrier.setText(fatherInfo.getCarrier());
+            if(fatherBornDate!=null){
+                btFatherBornDate.setText(fatherBornDate.getYear()+strYear
+                        +fatherBornDate.getMonth()+strMonth+fatherBornDate.getDay()+strDay);
+            }
         }
 
         ParentInfo montherInfo = DataManager.getInstance(context).getmMontherInfo();
         if(montherInfo!=null){
+            motherBornDate = montherInfo.getBornDate();
             etMoName.setText(montherInfo.getName());
             etMoIdentity.setText(montherInfo.getIdentity());
             etMoCarrier.setText(montherInfo.getCarrier());
+            if(motherBornDate!=null){
+                btMotherBornDate.setText(motherBornDate.getYear()+strYear
+                        +motherBornDate.getMonth()+strMonth+motherBornDate.getDay()+strDay);
+            }
         }
     }
 
@@ -242,6 +269,7 @@ public class MyInfoPagerAdapter extends PagerAdapter {
                 datePickerUtil.showDatePickDialog(new DatePickerUtil.OnDateSelectedListener() {
                     @Override
                     public void onDateSelected(int year, int monthOfYear, int dayOfMonth) {
+                        firstChildBornDate = new BornDate(year,monthOfYear, dayOfMonth);
                         btChildren1BornDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
                     }
                 });
@@ -255,6 +283,7 @@ public class MyInfoPagerAdapter extends PagerAdapter {
                 datePickerUtil.showDatePickDialog(new DatePickerUtil.OnDateSelectedListener() {
                     @Override
                     public void onDateSelected(int year, int monthOfYear, int dayOfMonth) {
+                        secondChildBornDate = new BornDate(year,monthOfYear, dayOfMonth);
                         btChildren2BornDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
                     }
                 });
@@ -271,6 +300,11 @@ public class MyInfoPagerAdapter extends PagerAdapter {
             etFirstChildName.setText(firstChildInfo.getName());
             etFirstChildIdentity.setText(firstChildInfo.getIdentity());
             etFirstChildBornId.setText(firstChildInfo.getBornId());
+            firstChildBornDate = firstChildInfo.getBornDate();
+            if(firstChildBornDate!=null){
+                btChildren1BornDate.setText(firstChildBornDate.getYear()+strYear
+                        +firstChildBornDate.getMonth()+strMonth+firstChildBornDate.getDay()+strDay);
+            }
         }
 
         ChildrenInfo secondChildInfo = DataManager.getInstance(context).getmSecondChildInfo();
@@ -278,6 +312,12 @@ public class MyInfoPagerAdapter extends PagerAdapter {
             etSecondChildName.setText(secondChildInfo.getName());
             etSecondChildIdentity.setText(secondChildInfo.getIdentity());
             etSecondChildBornId.setText(secondChildInfo.getBornId());
+            secondChildBornDate = secondChildInfo.getBornDate();
+            secondChildBornDate = secondChildInfo.getBornDate();
+            if(secondChildBornDate!=null){
+                btChildren2BornDate.setText(secondChildBornDate.getYear()+strYear
+                        +secondChildBornDate.getMonth()+strMonth+secondChildBornDate.getDay()+strDay);
+            }
         }
     }
 
@@ -305,18 +345,24 @@ public class MyInfoPagerAdapter extends PagerAdapter {
         baseInfo.setCity(etMyCity.getText().toString());
         baseInfo.setAddress(etMyAddress.getText().toString());
         baseInfo.setPhoneNumber(etMyPhoneNumber.getText().toString());
+        baseInfo.setBornDate(myBornDate);
+        if(myBornDate!=null){
+            Log.i("tax", "saveAllInfoToFile>>>"+myBornDate.getYear()+" "+myBornDate.getMonth()+" "
+                    +myBornDate.getDay());
+        }
         DataManager.getInstance(context).setmBaseInfo(baseInfo);
-
         ParentInfo fatherInfo = new ParentInfo();
         fatherInfo.setName(etFaName.getText().toString());
         fatherInfo.setIdentity(etFaIdentity.getText().toString());
         fatherInfo.setCarrier(etFaCarrier.getText().toString());
+        fatherInfo.setBornDate(fatherBornDate);
         DataManager.getInstance(context).setmFatherInfo(fatherInfo);
 
         ParentInfo motherInfo = new ParentInfo();
         motherInfo.setName(etMoName.getText().toString());
         motherInfo.setIdentity(etMoIdentity.getText().toString());
         motherInfo.setCarrier(etMoCarrier.getText().toString());
+        motherInfo.setBornDate(motherBornDate);
         DataManager.getInstance(context).setmMontherInfo(motherInfo);
 
 
@@ -324,12 +370,14 @@ public class MyInfoPagerAdapter extends PagerAdapter {
         firstChildInfo.setName(etFirstChildName.getText().toString());
         firstChildInfo.setIdentity(etFirstChildIdentity.getText().toString());
         firstChildInfo.setBornId(etFirstChildBornId.getText().toString());
+        firstChildInfo.setBornDate(firstChildBornDate);
         DataManager.getInstance(context).setmFirstChildInfo(firstChildInfo);
 
         ChildrenInfo secondChildInfo = new ChildrenInfo();
         secondChildInfo.setName(etSecondChildName.getText().toString());
         secondChildInfo.setIdentity(etSecondChildIdentity.getText().toString());
         secondChildInfo.setBornId(etSecondChildBornId.getText().toString());
+        secondChildInfo.setBornDate(secondChildBornDate);
         DataManager.getInstance(context).setmSecondChildInfo(secondChildInfo);
         Log.i("tax", "MyInfoPagerAdapter>>>saveAllInfoToFile 1");
         new Thread(new Runnable() {

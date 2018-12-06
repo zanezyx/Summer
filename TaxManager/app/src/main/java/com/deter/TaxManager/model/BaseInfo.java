@@ -6,7 +6,7 @@ import java.util.Date;
 public class BaseInfo implements Serializable {
 
     private String name;
-    private Date bornDate;
+    private BornDate bornDate;
     private String taxpayerId;
     private String carrier;
     private String deformityId;
@@ -25,11 +25,11 @@ public class BaseInfo implements Serializable {
         this.name = name;
     }
 
-    public Date getBornDate() {
+    public BornDate getBornDate() {
         return bornDate;
     }
 
-    public void setBornDate(Date bornDate) {
+    public void setBornDate(BornDate bornDate) {
         this.bornDate = bornDate;
     }
 

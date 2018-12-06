@@ -8,7 +8,7 @@ public class ParentInfo implements Serializable {
     public final static int MONTHER = 0;
     public final static int FATHER = 1;
     private String name;
-    private Date bornDate;
+    private BornDate bornDate;
     private String identity;
     private String carrier;
     private int relationship;
@@ -30,11 +30,11 @@ public class ParentInfo implements Serializable {
         this.name = name;
     }
 
-    public Date getBornDate() {
+    public BornDate getBornDate() {
         return bornDate;
     }
 
-    public void setBornDate(Date bornDate) {
+    public void setBornDate(BornDate bornDate) {
         this.bornDate = bornDate;
     }
 
