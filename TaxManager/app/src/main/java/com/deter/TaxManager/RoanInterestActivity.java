@@ -5,12 +5,17 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.deter.TaxManager.model.DataManager;
+import com.deter.TaxManager.model.RaiseChildrenInfo;
+import com.deter.TaxManager.model.RoanInterestInfo;
 
 
 /**
@@ -21,12 +26,8 @@ import android.widget.Toast;
  */
 public class RoanInterestActivity extends BaseActivity {
 
-	private EditText etReveiverName, mobile, etAddressDetail;
-	private Button btnSubmit;
-	private TextView tvArea;
-	private TextView title;
+	private EditText etRoanInterest;
 
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,6 +47,13 @@ public class RoanInterestActivity extends BaseActivity {
 				finish();
 			}
 		});
+
+		etRoanInterest = (EditText) findViewById(R.id.etRoanInterest);
+		DataManager.getInstance(this).initRoanInterestInfo();
+		RoanInterestInfo info = DataManager.getInstance(this).getmRoanInterestInfo();
+		if(info!=null){
+			etRoanInterest.setText(""+info.getRoanInterest());
+		}
 	}
 
 	@Override
@@ -85,6 +93,29 @@ public class RoanInterestActivity extends BaseActivity {
 
         }
     }
+
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		saveRoanInterestInfoToFile();
+	}
+
+	public void saveRoanInterestInfoToFile(){
+		final RoanInterestInfo info = new RoanInterestInfo();
+		try {
+			info.setRoanInterest(Integer.parseInt(etRoanInterest.getText().toString()));
+		}catch (Exception e){
+			Log.i("tax", "RoanInterestActivity>>>saveRoanInterestInfoToFile e:"+e.toString());
+		}
+		Log.i("tax", "RoanInterestActivity>>>saveRoanInterestInfoToFile 1");
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				DataManager.getInstance(RoanInterestActivity.this).saveRoanInterestInfo(info);
+			}
+		}).start();
+	}
 
 }
 

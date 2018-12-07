@@ -18,6 +18,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.deter.TaxManager.R;
+import com.deter.TaxManager.model.BaseInfo;
+import com.deter.TaxManager.model.ChildrenInfo;
+import com.deter.TaxManager.model.DataManager;
+import com.deter.TaxManager.model.ParentInfo;
+import com.deter.TaxManager.model.SupportParentInfo;
 
 
 /**
@@ -28,10 +33,11 @@ import com.deter.TaxManager.R;
  */
 public class SupportParentsActivity extends BaseActivity {
 
-	private EditText etReveiverName, mobile, etAddressDetail;
-	private Button btnSubmit;
-	private TextView tvArea;
-	private TextView title;
+	private EditText etMyAlimony;
+	private EditText etOtherAlimony1;
+	private EditText etOtherAlimony2;
+
+
 
 	
 	@Override
@@ -39,6 +45,7 @@ public class SupportParentsActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 //		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
 	}
 
 	@Override
@@ -51,16 +58,29 @@ public class SupportParentsActivity extends BaseActivity {
 				finish();
 			}
 		});
+
+		etMyAlimony = (EditText) findViewById(R.id.etMyAlimony);
+		etOtherAlimony1 = (EditText) findViewById(R.id.etOtherAlimony1);
+		etOtherAlimony2 = (EditText) findViewById(R.id.etOtherAlimony2);
+		DataManager.getInstance(this).initSupportParentInfo();
+		SupportParentInfo info = DataManager.getInstance(this).getmSupportParentInfo();
+		if(info!=null){
+			etMyAlimony.setText(""+info.getMyAlimony());
+			etOtherAlimony1.setText(""+info.getOtherAlimony1());
+			etOtherAlimony2.setText(""+info.getOtherAlimony2());
+		}
 	}
 
 	@Override
 	public void initData() {
-		init();
-	}
-
-	public void init() {
 
 	}
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        saveSupportParentInfoToFile();
+    }
 
 	public void uploadSupportDoc(View view){
 
@@ -87,6 +107,27 @@ public class SupportParentsActivity extends BaseActivity {
 
 		}
 	}
+
+
+
+    public void saveSupportParentInfoToFile(){
+        final SupportParentInfo info = new SupportParentInfo();
+        try {
+            info.setMyAlimony(Integer.parseInt(etMyAlimony.getText().toString()));
+            info.setOtherAlimony1(Integer.parseInt(etOtherAlimony1.getText().toString()));
+            info.setOtherAlimony2(Integer.parseInt(etOtherAlimony2.getText().toString()));
+        }catch (Exception e){
+            Log.i("tax", "MyInfoPagerAdapter>>>saveSupportParentInfoToFile e:"+e.toString());
+        }
+        Log.i("tax", "MyInfoPagerAdapter>>>saveSupportParentInfoToFile 1");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                DataManager.getInstance(SupportParentsActivity.this).saveSupportParentInfo(info);
+            }
+        }).start();
+        Log.i("tax", "SupportParentsActivity>>>saveSupportParentInfoToFile");
+    }
 
 
 }

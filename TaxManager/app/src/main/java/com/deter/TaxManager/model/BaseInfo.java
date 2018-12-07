@@ -1,12 +1,11 @@
 package com.deter.TaxManager.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class BaseInfo implements Serializable {
 
     private String name;
-    private BornDate bornDate;
+    private TxDate txDate;
     private String taxpayerId;
     private String carrier;
     private String deformityId;
@@ -25,12 +24,12 @@ public class BaseInfo implements Serializable {
         this.name = name;
     }
 
-    public BornDate getBornDate() {
-        return bornDate;
+    public TxDate getTxDate() {
+        return txDate;
     }
 
-    public void setBornDate(BornDate bornDate) {
-        this.bornDate = bornDate;
+    public void setTxDate(TxDate txDate) {
+        this.txDate = txDate;
     }
 
     public String getTaxpayerId() {

@@ -2,13 +2,13 @@ package com.deter.TaxManager.model;
 
 import java.io.Serializable;
 
-public class BornDate implements Serializable {
+public class TxDate implements Serializable {
 
     private int year;
     private int month;
     private int day;
 
-    public BornDate(int year, int month, int day) {
+    public TxDate(int year, int month, int day) {
         this.year = year;
         this.month = month;
         this.day = day;

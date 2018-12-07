@@ -8,20 +8,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.deter.TaxManager.model.DataManager;
+import com.deter.TaxManager.model.InsuranceInfo;
+import com.deter.TaxManager.model.RoanInterestInfo;
 
-/**
- * 地址信息
- * 
- * @author zyx
- * 
- */
+
 public class InsuranceActivity extends BaseActivity {
 
-	private EditText etReveiverName, mobile, etAddressDetail;
+	private EditText etPayPerMonth;
 	private Button btStartDate;
 	private Button btEndDate;
-	private TextView tvArea;
-	private TextView title;
 	private DatePickerUtil datePickerUtil;
 	private String strYear;
 	private String strMonth;
@@ -74,6 +70,12 @@ public class InsuranceActivity extends BaseActivity {
 				});
 			}
 		});
+		etPayPerMonth = (EditText) findViewById(R.id.etPayPerMonth);
+		DataManager.getInstance(this).initInsuranceInfo();
+		InsuranceInfo info = DataManager.getInstance(this).getmInsuranceInfo();
+		if(info!=null){
+			etPayPerMonth.setText(""+info.getPayPerMonth());
+		}
 	}
 
 	@Override
@@ -88,7 +90,32 @@ public class InsuranceActivity extends BaseActivity {
 
 	}
 
-    
+
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		saveInsuranceInfoToFile();
+	}
+
+	public void saveInsuranceInfoToFile(){
+		final InsuranceInfo info = new InsuranceInfo();
+		try {
+			info.setPayPerMonth(Integer.parseInt(etPayPerMonth.getText().toString()));
+		}catch (Exception e){
+			Log.i("tax", "RoanInterestActivity>>>saveRoanInterestInfoToFile e:"+e.toString());
+		}
+		Log.i("tax", "RoanInterestActivity>>>saveRoanInterestInfoToFile 1");
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				DataManager.getInstance(InsuranceActivity.this).saveInsuranceInfo(info);
+			}
+		}).start();
+	}
+
+
+
 }
 
 

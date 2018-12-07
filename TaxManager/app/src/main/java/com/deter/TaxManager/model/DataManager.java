@@ -40,6 +40,15 @@ public class DataManager {
     private ParentInfo mMontherInfo;
     private ChildrenInfo mFirstChildInfo;
     private ChildrenInfo mSecondChildInfo;
+    private SupportParentInfo mSupportParentInfo;
+    private RaiseChildrenInfo mRaiseChildrenInfo;
+    private RoanInterestInfo mRoanInterestInfo;
+    private InsuranceInfo mInsuranceInfo;
+    private TreatmentInfo mTreatmentInfo;
+    private EducationInfo mEducationInfo;
+    private VocationInfo mVocationInfo;
+    private RentInfo mRentInfo;
+
 
     public static String CACHE_FILE_DIRECTORY = Environment.getExternalStorageDirectory().toString()+"/";
     public final static String BASE_INFO_CACHE_FILE = "base_info.bin";
@@ -47,6 +56,15 @@ public class DataManager {
     public final static String MONTHER_INFO_CACHE_FILE = "monther_info.bin";
     public final static String FIRST_CHILD_INFO_CACHE_FILE = "first_child_info.bin";
     public final static String SECOND_CHILD_INFO_CACHE_FILE = "second_child_info.bin";
+    public final static String SUPPORT_PARENT_INFO_CACHE_FILE = "support_parent_info.bin";
+    public final static String RAISE_PARENT_INFO_CACHE_FILE = "raise_children_info.bin";
+    public final static String ROAN_INTEREST_INFO_CACHE_FILE = "roan_interest_info.bin";
+    public final static String INSURANCE_INFO_CACHE_FILE = "insurance_info.bin";
+
+    public final static String TREATMENT_INFO_CACHE_FILE = "treatment_info.bin";
+    public final static String EDUCATION_INFO_CACHE_FILE = "education_info.bin";
+    public final static String VOCATION_INFO_CACHE_FILE = "vocation_info.bin";
+    public final static String RENT_INFO_CACHE_FILE = "rent_info.bin";
 
     public final static int SPECIAL_FLAG_WHITE_NAME = 0;
     public final static int SPECIAL_FLAG_BLACK_NAME = 1;
@@ -77,6 +95,7 @@ public class DataManager {
         return instance;
     }
 
+
     public void initAllInfo()
     {
         mBaseInfo = (BaseInfo) CacheManager.readObject(context,BASE_INFO_CACHE_FILE);
@@ -100,6 +119,97 @@ public class DataManager {
         CacheManager.saveObject(context,mMontherInfo,MONTHER_INFO_CACHE_FILE);
         CacheManager.saveObject(context,mFirstChildInfo,FIRST_CHILD_INFO_CACHE_FILE);
         CacheManager.saveObject(context,mSecondChildInfo,SECOND_CHILD_INFO_CACHE_FILE);
+    }
+
+    public void initSupportParentInfo()
+    {
+        mSupportParentInfo = (SupportParentInfo) CacheManager.readObject(context,SUPPORT_PARENT_INFO_CACHE_FILE);
+    }
+
+    public void saveSupportParentInfo(SupportParentInfo supportParentInfo)
+    {
+        mSupportParentInfo = supportParentInfo;
+        CacheManager.saveObject(context,supportParentInfo,SUPPORT_PARENT_INFO_CACHE_FILE);
+    }
+
+    public void initRaiseChildrenInfo()
+    {
+        mRaiseChildrenInfo = (RaiseChildrenInfo) CacheManager.readObject(context,RAISE_PARENT_INFO_CACHE_FILE);
+    }
+
+    public void saveRaiseChildrenInfo(RaiseChildrenInfo raiseChildrenInfo)
+    {
+        mRaiseChildrenInfo = raiseChildrenInfo;
+        CacheManager.saveObject(context,raiseChildrenInfo,RAISE_PARENT_INFO_CACHE_FILE);
+    }
+
+
+    public void initRoanInterestInfo()
+    {
+        mRoanInterestInfo = (RoanInterestInfo) CacheManager.readObject(context,ROAN_INTEREST_INFO_CACHE_FILE);
+    }
+
+    public void saveRoanInterestInfo(RoanInterestInfo roanInterestInfo)
+    {
+        mRoanInterestInfo = roanInterestInfo;
+        CacheManager.saveObject(context,roanInterestInfo,ROAN_INTEREST_INFO_CACHE_FILE);
+    }
+
+    public void initInsuranceInfo()
+    {
+        mInsuranceInfo = (InsuranceInfo) CacheManager.readObject(context,INSURANCE_INFO_CACHE_FILE);
+    }
+
+    public void saveInsuranceInfo(InsuranceInfo insuranceInfo)
+    {
+        mInsuranceInfo = insuranceInfo;
+        CacheManager.saveObject(context,insuranceInfo,INSURANCE_INFO_CACHE_FILE);
+    }
+
+
+    public void initTreatmentInfo()
+    {
+        mTreatmentInfo = (TreatmentInfo) CacheManager.readObject(context,TREATMENT_INFO_CACHE_FILE);
+    }
+
+    public void saveTreatmentInfo(TreatmentInfo treatmentInfo)
+    {
+        mTreatmentInfo = treatmentInfo;
+        CacheManager.saveObject(context,treatmentInfo,TREATMENT_INFO_CACHE_FILE);
+    }
+
+
+    public void initEducationInfo()
+    {
+        mEducationInfo = (EducationInfo) CacheManager.readObject(context,EDUCATION_INFO_CACHE_FILE);
+    }
+
+    public void saveEducationInfo(EducationInfo educationInfo)
+    {
+        mEducationInfo = educationInfo;
+        CacheManager.saveObject(context,educationInfo,EDUCATION_INFO_CACHE_FILE);
+    }
+
+    public void initVocationInfo()
+    {
+        mVocationInfo = (VocationInfo) CacheManager.readObject(context,VOCATION_INFO_CACHE_FILE);
+    }
+
+    public void saveVocationInfo(VocationInfo vocationInfo)
+    {
+        mVocationInfo= vocationInfo;
+        CacheManager.saveObject(context,vocationInfo,VOCATION_INFO_CACHE_FILE);
+    }
+
+    public void initRentInfo()
+    {
+        mRentInfo = (RentInfo) CacheManager.readObject(context,RENT_INFO_CACHE_FILE);
+    }
+
+    public void saveRentInfo(RentInfo rentInfo)
+    {
+        mRentInfo= rentInfo;
+        CacheManager.saveObject(context,rentInfo,RENT_INFO_CACHE_FILE);
     }
 
 
@@ -143,8 +253,71 @@ public class DataManager {
         this.mSecondChildInfo = mSecondChildInfo;
     }
 
+    public SupportParentInfo getmSupportParentInfo() {
+        return mSupportParentInfo;
+    }
 
-////////////////////Device db operation start//////////////////////
+    public void setmSupportParentInfo(SupportParentInfo mSupportParentInfo) {
+        this.mSupportParentInfo = mSupportParentInfo;
+    }
+
+    public RaiseChildrenInfo getmRaiseChildrenInfo() {
+        return mRaiseChildrenInfo;
+    }
+
+    public void setmRaiseChildrenInfo(RaiseChildrenInfo mRaiseChildrenInfo) {
+        this.mRaiseChildrenInfo = mRaiseChildrenInfo;
+    }
+
+    public RoanInterestInfo getmRoanInterestInfo() {
+        return mRoanInterestInfo;
+    }
+
+    public void setmRoanInterestInfo(RoanInterestInfo mRoanInterestInfo) {
+        this.mRoanInterestInfo = mRoanInterestInfo;
+    }
+
+    public InsuranceInfo getmInsuranceInfo() {
+        return mInsuranceInfo;
+    }
+
+    public void setmInsuranceInfo(InsuranceInfo mInsuranceInfo) {
+        this.mInsuranceInfo = mInsuranceInfo;
+    }
+
+    public TreatmentInfo getmTreatmentInfo() {
+        return mTreatmentInfo;
+    }
+
+    public void setmTreatmentInfo(TreatmentInfo mTreatmentInfo) {
+        this.mTreatmentInfo = mTreatmentInfo;
+    }
+
+    public EducationInfo getmEducationInfo() {
+        return mEducationInfo;
+    }
+
+    public void setmEducationInfo(EducationInfo mEducationInfo) {
+        this.mEducationInfo = mEducationInfo;
+    }
+
+    public VocationInfo getmVocationInfo() {
+        return mVocationInfo;
+    }
+
+    public void setmVocationInfo(VocationInfo mVocationInfo) {
+        this.mVocationInfo = mVocationInfo;
+    }
+
+    public RentInfo getmRentInfo() {
+        return mRentInfo;
+    }
+
+    public void setmRentInfo(RentInfo mRentInfo) {
+        this.mRentInfo = mRentInfo;
+    }
+
+    ////////////////////Device db operation start//////////////////////
 
     public List<Device> getAllDeviceFromDb()
     {

@@ -5,26 +5,24 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.deter.TaxManager.model.DataManager;
+import com.deter.TaxManager.model.RaiseChildrenInfo;
+import com.deter.TaxManager.model.SupportParentInfo;
 
-/**
- * 地址信息
- * 
- * @author zyx
- * 
- */
+
 public class RaiseChildrenActivity extends BaseActivity {
 
-	private EditText etReveiverName, mobile, etAddressDetail;
-	private Button btnSubmit;
-	private TextView tvArea;
-	private TextView title;
+	private EditText etMyAlimonyOfFirst;
+	private EditText etOtherAlimonyOfFirst;
+	private EditText etMyAlimonyOfSecond;
+	private EditText etOtherAlimonyOfSecond;
 
 	
 	@Override
@@ -45,6 +43,18 @@ public class RaiseChildrenActivity extends BaseActivity {
 				finish();
 			}
 		});
+		DataManager.getInstance(this).initRaiseChildrenInfo();
+		etMyAlimonyOfFirst = (EditText) findViewById(R.id.etAlimony);
+		etOtherAlimonyOfFirst = (EditText) findViewById(R.id.etAlimonyOthers);
+		etMyAlimonyOfSecond = (EditText) findViewById(R.id.etAlimonySecond);
+		etOtherAlimonyOfSecond = (EditText) findViewById(R.id.etAlimonyOthersSecond);
+		RaiseChildrenInfo info = DataManager.getInstance(this).getmRaiseChildrenInfo();
+		if(info!=null){
+			etMyAlimonyOfFirst.setText(""+info.getMyAlimonyOfFirst());
+			etOtherAlimonyOfFirst.setText(""+info.getOtherAlimonyOfFirst());
+			etMyAlimonyOfSecond.setText(""+info.getMyAlimonyOfSecond());
+			etOtherAlimonyOfSecond.setText(""+info.getOtherAlimonyOfSecond());
+		}
 	}
 
 	@Override
@@ -56,7 +66,33 @@ public class RaiseChildrenActivity extends BaseActivity {
 
 	}
 
-    public void uploadRaiseChildrenDoc1(View view){
+	@Override
+	protected void onStop() {
+		super.onStop();
+		saveRaiseChildrenInfoToFile();
+	}
+
+	public void saveRaiseChildrenInfoToFile(){
+		final RaiseChildrenInfo info = new RaiseChildrenInfo();
+		try {
+			info.setMyAlimonyOfFirst(Integer.parseInt(etMyAlimonyOfFirst.getText().toString()));
+			info.setOtherAlimonyOfFirst(Integer.parseInt(etOtherAlimonyOfFirst.getText().toString()));
+			info.setMyAlimonyOfSecond(Integer.parseInt(etMyAlimonyOfSecond.getText().toString()));
+			info.setOtherAlimonyOfSecond(Integer.parseInt(etOtherAlimonyOfSecond.getText().toString()));
+		}catch (Exception e){
+			Log.i("tax", "RaiseChildrenActivity>>>saveRaiseChildrenInfoToFile e:"+e.toString());
+		}
+		Log.i("tax", "RaiseChildrenActivity>>>saveRaiseChildrenInfoToFile 1");
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				DataManager.getInstance(RaiseChildrenActivity.this).saveRaiseChildrenInfo(info);
+			}
+		}).start();
+	}
+
+
+	public void uploadRaiseChildrenDoc1(View view){
 		Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 		intent.setType("*/*");
 		intent.addCategory(Intent.CATEGORY_OPENABLE);

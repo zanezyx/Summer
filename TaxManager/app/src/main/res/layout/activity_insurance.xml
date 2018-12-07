@@ -65,7 +65,7 @@
                     android:text="@string/yjzce"
                     android:textColor="#000000" />
                 <EditText
-                    android:id="@+id/etRentTime"
+                    android:id="@+id/etPayPerMonth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="8"

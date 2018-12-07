@@ -1,14 +1,13 @@
 package com.deter.TaxManager.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class ChildrenInfo implements Serializable {
 
     public final static int DAUGHTER = 0;
     public final static int SON = 1;
     private String name;
-    private BornDate bornDate;
+    private TxDate txDate;
     private String identity;
     private String bornId;
     private int relationship;
@@ -22,12 +21,12 @@ public class ChildrenInfo implements Serializable {
         this.name = name;
     }
 
-    public BornDate getBornDate() {
-        return bornDate;
+    public TxDate getTxDate() {
+        return txDate;
     }
 
-    public void setBornDate(BornDate bornDate) {
-        this.bornDate = bornDate;
+    public void setTxDate(TxDate txDate) {
+        this.txDate = txDate;
     }
 
     public String getIdentity() {

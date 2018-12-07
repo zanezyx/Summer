@@ -48,7 +48,7 @@
                     android:text="@string/Alimony"
                     android:textColor="#000000" />
                 <EditText
-                    android:id="@+id/etMyselfAlimony"
+                    android:id="@+id/etMyAlimony"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -78,7 +78,7 @@
                     android:text="@string/Alimony"
                     android:textColor="#000000" />
                 <EditText
-                    android:id="@+id/etBrotherAlimony"
+                    android:id="@+id/etOtherAlimony1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -108,7 +108,7 @@
                     android:text="@string/Alimony"
                     android:textColor="#000000" />
                 <EditText
-                    android:id="@+id/etSisterAlimony"
+                    android:id="@+id/etOtherAlimony2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"

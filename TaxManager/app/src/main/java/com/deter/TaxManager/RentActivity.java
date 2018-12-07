@@ -13,6 +13,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.deter.TaxManager.model.DataManager;
+import com.deter.TaxManager.model.InsuranceInfo;
+import com.deter.TaxManager.model.RentInfo;
+
 
 /**
  * 地址信息
@@ -22,12 +26,11 @@ import android.widget.Toast;
  */
 public class RentActivity extends BaseActivity {
 
-	private EditText etReveiverName, mobile, etAddressDetail;
+	private EditText etAddress;
+	private EditText etPayPerMonth;
 	private Button btBarqDate;
 	private Button btRentStartDate;
 	private Button btRentEndDate;
-	private TextView tvArea;
-	private TextView title;
 	private DatePickerUtil datePickerUtil;
 	private String strYear;
 	private String strMonth;
@@ -95,6 +98,14 @@ public class RentActivity extends BaseActivity {
 				});
 			}
 		});
+		etAddress = (EditText) findViewById(R.id.etRentAddress);
+		etPayPerMonth = (EditText) findViewById(R.id.etRent);
+		DataManager.getInstance(this).initRentInfo();
+		RentInfo info = DataManager.getInstance(this).getmRentInfo();
+		if(info!=null){
+			etAddress.setText(""+info.getPayPerMonth());
+			etPayPerMonth.setText(""+info.getPayPerMonth());
+		}
 	}
 
 	@Override
@@ -102,9 +113,6 @@ public class RentActivity extends BaseActivity {
 
 	}
 
-	public void init() {
-
-	}
 
     public void uploadRentContract(View view){
 		Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -120,6 +128,29 @@ public class RentActivity extends BaseActivity {
 			String path = uri.getPath();
 			Toast.makeText(this,path,Toast.LENGTH_SHORT).show();
 		}
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		saveRentInfoToFile();
+	}
+
+	public void saveRentInfoToFile(){
+		final RentInfo info = new RentInfo();
+		try {
+			info.setAddress(etAddress.getText().toString());
+			info.setPayPerMonth(Integer.parseInt(etPayPerMonth.getText().toString()));
+		}catch (Exception e){
+			Log.i("tax", "RoanInterestActivity>>>saveRoanInterestInfoToFile e:"+e.toString());
+		}
+		Log.i("tax", "RoanInterestActivity>>>saveRoanInterestInfoToFile 1");
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				DataManager.getInstance(RentActivity.this).saveRentInfo(info);
+			}
+		}).start();
 	}
 }
 

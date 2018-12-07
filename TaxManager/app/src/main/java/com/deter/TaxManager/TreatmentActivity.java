@@ -13,18 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-/**
- * 地址信息
- * 
- * @author zyx
- * 
- */
 public class TreatmentActivity extends BaseActivity {
 
 	private EditText etReveiverName, mobile, etAddressDetail;
-	private Button btnSubmit;
-	private TextView tvArea;
-	private TextView title;
 
 	
 	@Override
