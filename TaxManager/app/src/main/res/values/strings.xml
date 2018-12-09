@@ -445,5 +445,34 @@
         <item>月度</item>
         <item>年度</item>
     </string-array>
-
+    <string name="title_activity_register">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in_register"><b>Sign in</b> or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_forgot_password">Recover lost password</string>
+    <string name="login_progress_signing_in">正在努力登陆中。。。。&#8230;</string>
+    <string name="error_invalid_email">邮箱地址错误</string>
+    <string name="error_invalid_password">密码长度错误</string>
+    <string name="error_incorrect_password">密码错误</string>
+    <string name="error_field_required">输入项为必须项！</string>
+    <string name="login_success">登录成功</string>
+    <string name="login_failed">登录失败</string>
+    <string name="input_right_phone">请输入正确的手机号码</string>
+    <string name="easy_register">快速注册</string>
+    <string name="login">登录</string>
+    <string name="user_count">账号</string>
+    <string name="input_phone">请输入手机号码</string>
+    <string name="password">密码</string>
+    <string name="input_password">请输入登录密码</string>
+    <string name="confirm_password">请确认登录密码</string>
+    <string name="validate">验证</string>
+    <string name="input_validate_code">请输入您收到的验证码</string>
+    <string name="register">注册</string>
+    <string name="forget_password">忘记密码</string>
+    <string name="get_validate_code">获取验证码</string>
+    <string name="set_new_pwd">请设置新密码</string>
+    <string name="confirm_new_pwd">确认新密码</string>
+    <string name="start_set">确认修改</string>
+    <string name="auto_login">自动登录</string>
 </resources>

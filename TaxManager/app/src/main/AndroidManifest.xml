@@ -37,7 +37,7 @@
             android:value="Z2Fa6VM5XQdH757HSUikxyIUI2nNpyHF" />
 
         <activity
-            android:name="com.deter.TaxManager.MainActivity"
+            android:name="com.deter.TaxManager.LoginActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
@@ -46,6 +46,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.deter.TaxManager.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.deter.TaxManager.RegisterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.deter.TaxManager.RetrivePasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity
             android:name="com.deter.TaxManager.activity.DeviceDbActivity"
             android:label="@string/title_activity_around_detail"
