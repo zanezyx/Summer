@@ -78,17 +78,18 @@ public class InsuranceActivity extends BaseActivity {
 			if(info.getPayPerMonth()!=0){
 				etPayPerMonth.setText(""+info.getPayPerMonth());
 			}
+			if(info.getStartDate()!=null){
+				TxDate txDate = info.getStartDate();
+				btStartDate.setText(txDate.getYear()+strYear
+						+txDate.getMonth()+strMonth+txDate.getDay()+strDay);
+			}
+			if(info.getEndDate()!=null){
+				TxDate txDate = info.getEndDate();
+				btEndDate.setText(txDate.getYear()+strYear
+						+txDate.getMonth()+strMonth+txDate.getDay()+strDay);
+			}
 		}
-		if(info.getStartDate()!=null){
-			TxDate txDate = info.getStartDate();
-			btStartDate.setText(txDate.getYear()+strYear
-					+txDate.getMonth()+strMonth+txDate.getDay()+strDay);
-		}
-		if(info.getEndDate()!=null){
-			TxDate txDate = info.getEndDate();
-			btEndDate.setText(txDate.getYear()+strYear
-					+txDate.getMonth()+strMonth+txDate.getDay()+strDay);
-		}
+
 	}
 
 	@Override

@@ -110,23 +110,24 @@ public class RentActivity extends BaseActivity {
 			if(info.getPayPerMonth()!=0){
 				etPayPerMonth.setText(""+info.getPayPerMonth());
 			}
-		}
-		if(info.getStartDate()!=null){
-			TxDate txDate = info.getStartDate();
-			btRentStartDate.setText(txDate.getYear()+strYear
-					+txDate.getMonth()+strMonth+txDate.getDay()+strDay);
+			if(info.getStartDate()!=null){
+				TxDate txDate = info.getStartDate();
+				btRentStartDate.setText(txDate.getYear()+strYear
+						+txDate.getMonth()+strMonth+txDate.getDay()+strDay);
+			}
+
+			if(info.getEndDate()!=null){
+				TxDate txDate = info.getEndDate();
+				btRentEndDate.setText(txDate.getYear()+strYear
+						+txDate.getMonth()+strMonth+txDate.getDay()+strDay);
+			}
+			if(info.getBackupDate()!=null){
+				TxDate txDate = info.getBackupDate();
+				btBarqDate.setText(txDate.getYear()+strYear
+						+txDate.getMonth()+strMonth+txDate.getDay()+strDay);
+			}
 		}
 
-		if(info.getEndDate()!=null){
-			TxDate txDate = info.getEndDate();
-			btRentEndDate.setText(txDate.getYear()+strYear
-					+txDate.getMonth()+strMonth+txDate.getDay()+strDay);
-		}
-		if(info.getBackupDate()!=null){
-			TxDate txDate = info.getBackupDate();
-			btBarqDate.setText(txDate.getYear()+strYear
-					+txDate.getMonth()+strMonth+txDate.getDay()+strDay);
-		}
 	}
 
 	@Override
