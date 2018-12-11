@@ -34,7 +34,7 @@ public class InsuranceActivity extends BaseActivity {
 	@Override
 	public void initView() {
 		setContentView(R.layout.activity_insurance);
-		setTitleText(R.string.fzba);
+		setTitleText(R.string.syjkbx);
 		setBackListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
