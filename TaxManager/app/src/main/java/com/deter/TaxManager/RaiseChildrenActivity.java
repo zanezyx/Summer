@@ -50,10 +50,18 @@ public class RaiseChildrenActivity extends BaseActivity {
 		etOtherAlimonyOfSecond = (EditText) findViewById(R.id.etAlimonyOthersSecond);
 		RaiseChildrenInfo info = DataManager.getInstance(this).getmRaiseChildrenInfo();
 		if(info!=null){
-			etMyAlimonyOfFirst.setText(""+info.getMyAlimonyOfFirst());
-			etOtherAlimonyOfFirst.setText(""+info.getOtherAlimonyOfFirst());
-			etMyAlimonyOfSecond.setText(""+info.getMyAlimonyOfSecond());
-			etOtherAlimonyOfSecond.setText(""+info.getOtherAlimonyOfSecond());
+			if(info.getMyAlimonyOfFirst()!=0){
+				etMyAlimonyOfFirst.setText(""+info.getMyAlimonyOfFirst());
+			}
+			if(info.getOtherAlimonyOfFirst()!=0){
+				etOtherAlimonyOfFirst.setText(""+info.getOtherAlimonyOfFirst());
+			}
+			if(info.getMyAlimonyOfSecond()!=0){
+				etMyAlimonyOfSecond.setText(""+info.getMyAlimonyOfSecond());
+			}
+			if(info.getOtherAlimonyOfSecond()!=0){
+				etOtherAlimonyOfSecond.setText(""+info.getOtherAlimonyOfSecond());
+			}
 		}
 	}
 

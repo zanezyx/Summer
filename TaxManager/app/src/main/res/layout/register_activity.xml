@@ -4,6 +4,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#F7F7F7"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:orientation="vertical" >
 
     <RelativeLayout
@@ -150,7 +152,6 @@
         android:layout_height="68dp"
         android:layout_marginTop="1dp"
         android:gravity="center_vertical"
-        android:visibility="gone"
         android:background="#FFFFFF" >
         <TextView
             android:id="@+id/tvValideCode"
@@ -164,6 +165,7 @@
             android:id="@+id/validecode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#FFFFFF"
             android:layout_marginLeft="10dp"
             android:textCursorDrawable="@null"
             android:hint="@string/input_validate_code"

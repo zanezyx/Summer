@@ -48,7 +48,7 @@ public class DataManager {
     private EducationInfo mEducationInfo;
     private VocationInfo mVocationInfo;
     private RentInfo mRentInfo;
-
+    private SalaryInfo mSalaryInfo;
 
     public static String CACHE_FILE_DIRECTORY = Environment.getExternalStorageDirectory().toString()+"/";
     public final static String BASE_INFO_CACHE_FILE = "base_info.bin";
@@ -65,6 +65,7 @@ public class DataManager {
     public final static String EDUCATION_INFO_CACHE_FILE = "education_info.bin";
     public final static String VOCATION_INFO_CACHE_FILE = "vocation_info.bin";
     public final static String RENT_INFO_CACHE_FILE = "rent_info.bin";
+    public final static String SALARY_INFO_CACHE_FILE = "salary_info.bin";
 
     public final static int SPECIAL_FLAG_WHITE_NAME = 0;
     public final static int SPECIAL_FLAG_BLACK_NAME = 1;
@@ -213,6 +214,17 @@ public class DataManager {
     }
 
 
+    public void initSalaryInfo()
+    {
+        mSalaryInfo = (SalaryInfo) CacheManager.readObject(context,SALARY_INFO_CACHE_FILE);
+    }
+
+    public void saveSalaryInfo(SalaryInfo salaryInfo)
+    {
+        mSalaryInfo= salaryInfo;
+        CacheManager.saveObject(context,salaryInfo,SALARY_INFO_CACHE_FILE);
+    }
+
     public BaseInfo getmBaseInfo() {
         return mBaseInfo;
     }
@@ -315,6 +327,14 @@ public class DataManager {
 
     public void setmRentInfo(RentInfo mRentInfo) {
         this.mRentInfo = mRentInfo;
+    }
+
+    public SalaryInfo getmSalaryInfo() {
+        return mSalaryInfo;
+    }
+
+    public void setmSalaryInfo(SalaryInfo mSalaryInfo) {
+        this.mSalaryInfo = mSalaryInfo;
     }
 
     ////////////////////Device db operation start//////////////////////

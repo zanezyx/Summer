@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.deter.TaxManager.model.DataManager;
 import com.deter.TaxManager.model.InsuranceInfo;
 import com.deter.TaxManager.model.RoanInterestInfo;
+import com.deter.TaxManager.model.TxDate;
 
 
 public class InsuranceActivity extends BaseActivity {
@@ -74,7 +75,19 @@ public class InsuranceActivity extends BaseActivity {
 		DataManager.getInstance(this).initInsuranceInfo();
 		InsuranceInfo info = DataManager.getInstance(this).getmInsuranceInfo();
 		if(info!=null){
-			etPayPerMonth.setText(""+info.getPayPerMonth());
+			if(info.getPayPerMonth()!=0){
+				etPayPerMonth.setText(""+info.getPayPerMonth());
+			}
+		}
+		if(info.getStartDate()!=null){
+			TxDate txDate = info.getStartDate();
+			btStartDate.setText(txDate.getYear()+strYear
+					+txDate.getMonth()+strMonth+txDate.getDay()+strDay);
+		}
+		if(info.getEndDate()!=null){
+			TxDate txDate = info.getEndDate();
+			btEndDate.setText(txDate.getYear()+strYear
+					+txDate.getMonth()+strMonth+txDate.getDay()+strDay);
 		}
 	}
 

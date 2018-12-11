@@ -475,4 +475,6 @@
     <string name="confirm_new_pwd">确认新密码</string>
     <string name="start_set">确认修改</string>
     <string name="auto_login">自动登录</string>
+    <string name="password_different">密码输入不一致</string>
+    <string name="register_success">注册成功</string>
 </resources>
