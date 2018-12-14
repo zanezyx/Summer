@@ -40,7 +40,7 @@ public class AroundButton extends LinearLayout {
                 attrs, R.styleable.AroundButton);
         int iconRes = a.getResourceId(R.styleable.AroundButton_aroundicon, R.drawable
                 .drawable_around_ap);
-        int titleRes = a.getResourceId(R.styleable.AroundButton_arounditle, R.string.around_ap);
+        int titleRes = R.string.Alimony;//a.getResourceId(R.styleable.AroundButtonarounditle, R.string.Alimony);
         a.recycle();
 
         setGravity(Gravity.CENTER_VERTICAL);

@@ -15,14 +15,8 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
 import com.deter.TaxManager.APPConstans;
-import com.deter.TaxManager.BackgroundService;
 import com.deter.TaxManager.R;
 import com.deter.TaxManager.model.DataManager;
-import com.deter.TaxManager.model.Device;
-import com.deter.TaxManager.model.Identity;
-import com.deter.TaxManager.model.SSID;
-import com.deter.TaxManager.model.SpecialDevice;
-import com.deter.TaxManager.model.TopAP;
 import com.deter.TaxManager.network.DtConstant;
 
 import java.io.File;
@@ -116,19 +110,6 @@ public class APPUtils {
 
     }
 
-
-    public static List<Object> getUniqList(List<Object> list) {
-        Set<Object> newList = new TreeSet<>(new Comparator<Object>() {
-            @Override
-            public int compare(Object device1, Object device2) {
-                return ((Device) device1).getMac().compareToIgnoreCase(((Device) device2).getMac());
-            }
-        });
-        newList.addAll(list);
-        List<Object> list1 = new ArrayList<>();
-        list1.addAll(newList);
-        return list1;
-    }
 
 
     public static HashMap<Integer, Float> rssiDistanceMap = null;
@@ -313,19 +294,6 @@ public class APPUtils {
         return usbTethered;
     }
 
-    public static boolean hasVirtualId(List<Identity> identityList) {
-        if (identityList == null || identityList.size() == 0) {
-            return false;
-        }
-        boolean hasVirtualId = false;
-        for (Identity identity : identityList) {
-            if (VIRTUAL_ID_TAGS.contains(identity.getTag())) {
-                hasVirtualId = true;
-                break;
-            }
-        }
-        return hasVirtualId;
-    }
 
     public static boolean isSpecialDirectionScanEnable(Context context) {
         return getValueFromSharePreference(context, "orienteer_scan", true);
@@ -430,104 +398,11 @@ public class APPUtils {
      */
     public static boolean isOnLineInBlackList(Context context,List<Object> deviceList) {
 
-        try {
-            if (null == deviceList || deviceList.isEmpty()) {
-                return false;
-            }
-
-            List<Device> scanDevices = new ArrayList<>();
-            for (Object object : deviceList) {
-                if (object instanceof Device) {
-                    Device device = (Device) object;
-                    scanDevices.add(device);
-                }
-            }
-
-            List<SpecialDevice> localBlackList = DataManager.getInstance(context).getBlackListFromDb();
-            if (null == localBlackList || localBlackList.isEmpty()) {
-                return false;
-            }
-
-            List<SpecialDevice> onlineBlackDevices = findOnlineDevice(scanDevices, localBlackList);
-            List<SpecialDevice> lastBlackDevices = BackgroundService.getLastOnlineBlackList();
-
-            if (!onlineBlackDevices.isEmpty()) {
-
-                if (lastBlackDevices.isEmpty()) {
-                    lastBlackDevices.addAll(onlineBlackDevices);
-                    return true;
-                }
-
-                Iterator<SpecialDevice> lastDeviceIterator = lastBlackDevices.iterator();
-
-                boolean isSame = true;
-                for (SpecialDevice onlineDevice : onlineBlackDevices) {
-                    String mac = onlineDevice.getMac();
-                    boolean ishaveItem = false;
-                    while (lastDeviceIterator.hasNext()) {
-                        SpecialDevice lastDevice = lastDeviceIterator.next();
-                        if (mac.equals(lastDevice.getMac())) {
-                            ishaveItem = true;
-                            lastDeviceIterator.remove();
-                            break;
-                        }
-                    }
-
-                    lastDeviceIterator = lastBlackDevices.iterator();
-                    if (!ishaveItem) {
-                        isSame = false;
-                        break;
-                    }
-                }
-
-                lastBlackDevices.clear();
-                lastBlackDevices.addAll(onlineBlackDevices);
-
-                if (!isSame) {
-                    return true;
-                }
-            } else {
-                lastBlackDevices.clear();
-            }
-
-        } catch (Exception e) {
-            com.deter.TaxManager.utils.Log.i("APPUtils", "Exception >>>> current isOnLineInBlackList " + e.toString());
-            e.printStackTrace();
-            return false;
-        }
 
         return false;
     }
 
 
-    /**
-     * Check out existing online blacklist terminals
-     * @param scanDevices
-     * @param localBlackList
-     * @return
-     */
-    public static List<SpecialDevice> findOnlineDevice(List<Device> scanDevices, List<SpecialDevice> localBlackList) {
-        List<SpecialDevice> onLineDevice = new ArrayList<>();
-        Iterator<Device> deviceIterator = scanDevices.iterator();
-
-        for (SpecialDevice localDevice : localBlackList) {
-            while (deviceIterator.hasNext()) {
-                Device device = deviceIterator.next();
-                if (null == localDevice || null == device) {
-                    break;
-                }
-
-                if (localDevice.getMac().equals(device.getMac())) {
-                    onLineDevice.add(localDevice);
-                    deviceIterator.remove();
-                    break;
-                }
-            }
-            deviceIterator = scanDevices.iterator();
-        }
-
-        return onLineDevice;
-    }
 
     public static synchronized MediaPlayer getMediaPlayer() {
         if (null == mMediaPlayer) {
@@ -593,100 +468,6 @@ public class APPUtils {
         return false;
     }
 
-
-    /**
-     * Determine if the SSID exists in a password library
-     * @param configSSID
-     * @param dataManager
-     * @return
-     */
-    public static boolean ssidIsExistInSSIDLibrary(SSID configSSID, DataManager dataManager) {
-        boolean isExist = false;
-        List<SSID> findList;
-        if (null == configSSID.getPassword()) {
-            findList = dataManager.getSsidFromDbBySsid(configSSID.getSsid());
-            if (null == findList || findList.isEmpty()) {
-                return false;
-            }
-            for (SSID findSSID : findList) {
-                if (null == findSSID) {
-                    continue;
-                }
-
-                if (null == findSSID.getSsid() || null == configSSID.getSsid()) {
-                    break;
-                }
-
-                if (findSSID.getSsid().equals(configSSID.getSsid())) {
-                    if (null != findSSID.getPassword() && null != configSSID.getPassword()) {
-                        if (findSSID.getPassword().equals(configSSID.getPassword())) {
-                            isExist = true;
-                            break;
-                        }
-                    } else if (null == findSSID.getPassword() && null == configSSID.getPassword()) {
-                        isExist = true;
-                        break;
-                    }
-                }
-            }
-        } else {
-            List<SSID> findSize = dataManager.getSsidFromDbBySsidAndPassword(configSSID.getSsid(), configSSID.getPassword());
-            if (null != findSize && findSize.size() > 0) {
-                isExist = true;
-            }
-        }
-
-        return isExist;
-    }
-
-
-    /**
-     * Determine whether top exists in the TopApList
-     * @param addTopAp
-     * @param dataManager
-     * @return
-     */
-    public static boolean topApIsExistInTopListLibrary(TopAP addTopAp,DataManager dataManager) {
-        boolean isExist = false;
-
-        List<TopAP> findList;
-
-        if (null == addTopAp.getPassword()) {
-            findList = dataManager.getTopApFromDbBySsid(addTopAp.getSsid());//find out if it exists
-            if (null == findList || findList.isEmpty()) {
-                return false;
-            }
-            for (TopAP findTopAp : findList) {
-                if (null == findTopAp) {
-                    continue;
-                }
-
-                if (null == findTopAp.getSsid() || null == addTopAp.getSsid()) {
-                    break;
-                }
-
-                if (findTopAp.getSsid().equals(addTopAp.getSsid())) {
-                    if (null != findTopAp.getPassword() && null != addTopAp.getPassword()) {
-                        if (findTopAp.getPassword().equals(addTopAp.getPassword())) {
-                            isExist = true;
-                            break;
-                        }
-                    } else if (null == findTopAp.getPassword() && null == addTopAp.getPassword()) {
-                        isExist = true;
-                        break;
-                    }
-                }
-            }
-        }else{
-            List<TopAP> topAPList = dataManager.getTopApFromDbBySsidAndPassword(addTopAp.getSsid(), addTopAp.getPassword());
-            if (null != topAPList && topAPList.size() > 0) {
-                return true;
-            }
-        }
-
-
-        return isExist;
-    }
 
 
 }

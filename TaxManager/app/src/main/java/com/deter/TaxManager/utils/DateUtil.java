@@ -449,15 +449,15 @@ public class DateUtil {
         int temp = Integer.parseInt(sdf.format(today)) - Integer.parseInt(sdf.format(otherDay));
 
         switch (temp) {
-            case 0:
-                result = context.getResources().getString(R.string.today_str);
-                break;
-            case 1:
-                result = context.getResources().getString(R.string.yester_day);
-                break;
-            case 2:
-                result = context.getResources().getString(R.string.before_yesterday);
-                break;
+//            case 0:
+//                result = context.getResources().getString(R.string.today_str);
+//                break;
+//            case 1:
+//                result = context.getResources().getString(R.string.yester_day);
+//                break;
+//            case 2:
+//                result = context.getResources().getString(R.string.before_yesterday);
+//                break;
 
             default:
                 // result = temp + "天前 ";

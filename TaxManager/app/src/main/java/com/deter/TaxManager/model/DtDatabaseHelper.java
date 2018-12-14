@@ -49,51 +49,38 @@ public class DtDatabaseHelper  extends OrmLiteSqliteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase, ConnectionSource connectionSource) {
         Log.i(DtConstant.TAG, ">>>DB onCreate>>>start");
         mSqLiteDatabase = sqLiteDatabase;
-        try {
-            TableUtils.createTable(connectionSource, Device.class);
-            TableUtils.createTable(connectionSource, Identity.class);
-            TableUtils.createTable(connectionSource, Location.class);
-            TableUtils.createTable(connectionSource, SSID.class);
-            TableUtils.createTable(connectionSource, Station.class);
-            TableUtils.createTable(connectionSource, URL.class);
-            TableUtils.createTable(connectionSource, SpecialDevice.class);
-            TableUtils.createTable(connectionSource, DndMac.class);
-            TableUtils.createTable(connectionSource, Task.class);
-            TableUtils.createTable(connectionSource, TopAP.class);
-            TableUtils.createTable(connectionSource, StrikeAnalysis.class);
-            TableUtils.createTable(connectionSource, AnalysisTask.class);
-            TableUtils.createTable(connectionSource, AnalysisMac.class);
-            TableUtils.createTable(connectionSource, FollowAnalysis.class);
-            TableUtils.createTable(connectionSource, FollowAnalysisMac.class);
-        } catch (SQLException e) {
-            Log.i(DtConstant.TAG, ">>>DB onCreate>>>exception:"+e.toString());
-            e.printStackTrace();
-        }
+//        try {
+//            //TableUtils.createTable(connectionSource, Device.class);
+//
+//        } catch (SQLException e) {
+//            Log.i(DtConstant.TAG, ">>>DB onCreate>>>exception:"+e.toString());
+//            e.printStackTrace();
+//        }
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, ConnectionSource connectionSource, int i, int i1) {
         Log.i(DtConstant.TAG, ">>>DB onUpgrade>>>");
         Log.i(DtConstant.TAG, ">>>DB onUpgrade>>>start i:"+i+" i1:"+i1);
-        if(i<30){
-            dropTables(sqLiteDatabase, connectionSource);
-            Log.i(DtConstant.TAG, ">>>DB onUpgrade>>> <30 OK");
-            return;
-        }
-        if(i<33){
-            try {
-                TableUtils.createTable(connectionSource, FollowAnalysis.class);
-                TableUtils.createTable(connectionSource, FollowAnalysisMac.class);
-                sqLiteDatabase.execSQL("ALTER TABLE 't_strike_nalysis' RENAME TO 't_strike_analysis'");
-                Log.i(DtConstant.TAG, ">>>DB onUpgrade>>> <33 OK");
-            } catch (SQLException e) {
-                Log.i(DtConstant.TAG, ">>>DB onCreate>>>exception:"+e.toString());
-                e.printStackTrace();
-            } catch (Exception e) {
-                Log.i(DtConstant.TAG, ">>>DB onCreate>>>exception 111:"+e.toString());
-                e.printStackTrace();
-            }
-        }
+//        if(i<30){
+//            dropTables(sqLiteDatabase, connectionSource);
+//            Log.i(DtConstant.TAG, ">>>DB onUpgrade>>> <30 OK");
+//            return;
+//        }
+//        if(i<33){
+//            try {
+//                TableUtils.createTable(connectionSource, FollowAnalysis.class);
+//                TableUtils.createTable(connectionSource, FollowAnalysisMac.class);
+//                sqLiteDatabase.execSQL("ALTER TABLE 't_strike_nalysis' RENAME TO 't_strike_analysis'");
+//                Log.i(DtConstant.TAG, ">>>DB onUpgrade>>> <33 OK");
+//            } catch (SQLException e) {
+//                Log.i(DtConstant.TAG, ">>>DB onCreate>>>exception:"+e.toString());
+//                e.printStackTrace();
+//            } catch (Exception e) {
+//                Log.i(DtConstant.TAG, ">>>DB onCreate>>>exception 111:"+e.toString());
+//                e.printStackTrace();
+//            }
+//        }
 
     }
 
@@ -111,28 +98,13 @@ public class DtDatabaseHelper  extends OrmLiteSqliteOpenHelper {
     void dropTables(SQLiteDatabase sqLiteDatabase, ConnectionSource connectionSource)
     {
         Log.i(DtConstant.TAG, ">>>DB checkDatabase>>>start");
-        try {
-            TableUtils.dropTable(connectionSource,Device.class,true);
-            TableUtils.dropTable(connectionSource,Identity.class,true);
-            TableUtils.dropTable(connectionSource,Location.class,true);
-            TableUtils.dropTable(connectionSource,SSID.class,true);
-            TableUtils.dropTable(connectionSource,Station.class,true);
-            TableUtils.dropTable(connectionSource,URL.class,true);
-            TableUtils.dropTable(connectionSource,DndMac.class,true);
-            TableUtils.dropTable(connectionSource,SpecialDevice.class,true);
-            TableUtils.dropTable(connectionSource,Task.class,true);
-            TableUtils.dropTable(connectionSource,TopAP.class,true);
-            TableUtils.dropTable(connectionSource,StrikeAnalysis.class,true);
-            TableUtils.dropTable(connectionSource,AnalysisTask.class,true);
-            TableUtils.dropTable(connectionSource,AnalysisMac.class,true);
-            TableUtils.dropTable(connectionSource,FollowAnalysis.class,true);
-            TableUtils.dropTable(connectionSource,FollowAnalysisMac.class,true);
-
-            onCreate(sqLiteDatabase,connectionSource);
-        } catch (SQLException e) {
-            Log.i(DtConstant.TAG, ">>>DB checkDatabase>>>exception:"+e.toString());
-            e.printStackTrace();
-        }
+//        try {
+//            TableUtils.dropTable(connectionSource,Device.class,true);
+//            onCreate(sqLiteDatabase,connectionSource);
+//        } catch (SQLException e) {
+//            Log.i(DtConstant.TAG, ">>>DB checkDatabase>>>exception:"+e.toString());
+//            e.printStackTrace();
+//        }
     }
 
     void dropTables()
@@ -156,17 +128,6 @@ public class DtDatabaseHelper  extends OrmLiteSqliteOpenHelper {
         }catch (Exception e){
             Log.i(DtConstant.TAG, ">>>DB rawQuery>>>exception:"+e.toString());
         }
-
-//        Cursor c = mSqLiteDatabase.rawQuery("SELECT mac, role, task_id FROM t_device WHERE mac IN (SELECT mac FROM t_special_device )", new String[]{});
-//        while (c.moveToNext()) {
-//            //long _id = c.getLong(c.getColumnIndex("id"));
-//            String address = c.getString(c.getColumnIndex("mac"));
-//            String role = c.getString(c.getColumnIndex("role"));
-//            String taskId = c.getString(c.getColumnIndex("task_id"));
-//            //long startTime = c.getLong(c.getColumnIndex("start_time"));
-//            //Log.i("DtDatabaseHelper", "id=>" + _id + ", address=>" + address + ", startTime=>" + startTime);
-//            Log.i("test","DtDatabaseHelper address=>" + address+" role=>"+role +" taskId=>"+taskId);
-//        }
         return c;
     }
 
@@ -177,17 +138,6 @@ public class DtDatabaseHelper  extends OrmLiteSqliteOpenHelper {
             mSqLiteDatabase = this.getWritableDatabase();
         }
         mSqLiteDatabase.execSQL(sql);
-        //Cursor c = mSqLiteDatabase.rawQuery("SELECT mac FROM t_device WHERE task_id IN (SELECT id FROM t_task )", new String[]{});
-//        Cursor c = mSqLiteDatabase.rawQuery("SELECT mac, role, task_id FROM t_device WHERE mac IN (SELECT mac FROM t_special_device )", new String[]{});
-//        while (c.moveToNext()) {
-//            //long _id = c.getLong(c.getColumnIndex("id"));
-//            String address = c.getString(c.getColumnIndex("mac"));
-//            String role = c.getString(c.getColumnIndex("role"));
-//            String taskId = c.getString(c.getColumnIndex("task_id"));
-//            //long startTime = c.getLong(c.getColumnIndex("start_time"));
-//            //Log.i("DtDatabaseHelper", "id=>" + _id + ", address=>" + address + ", startTime=>" + startTime);
-//            Log.i("test","DtDatabaseHelper address=>" + address+" role=>"+role +" taskId=>"+taskId);
-//        }
     }
 
 

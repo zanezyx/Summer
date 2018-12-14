@@ -190,46 +190,46 @@ public class DialogUtils {
     @NonNull
     private static Dialog showConfirmDialog(Activity acvtivity, String promptStr, View.OnClickListener cancelListener, View.OnClickListener confirmListener) {
         Dialog dialog = new Dialog(acvtivity, R.style.Theme_dialog);
-
-        View view = LayoutInflater.from(acvtivity).inflate(R.layout.dialog_reminder_message_confirm_or_cancel_layout, null);
-
-        TextView promptTv = (TextView) view.findViewById(R.id.prompt_contents_tv);
-        if (null != promptStr) {
-            promptTv.setText(promptStr);
-        }
-
-        Button mCancelBtn = (Button) view.findViewById(R.id.btn_reminder_cancel);
-        Button mComfirmBtn = (Button) view.findViewById(R.id.btn_reminder_comfirm);
-
-        if (null == cancelListener) {
-            mCancelBtn.setVisibility(View.GONE);
-            view.findViewById(R.id.split_line_view).setVisibility(View.GONE);
-            mComfirmBtn.setBackground(acvtivity.getApplicationContext().getDrawable(R.drawable.dialog_reminder_message_confirm_btn_bottom_bg));
-        }
-
-        if (null != cancelListener) {
-            mCancelBtn.setOnClickListener(cancelListener);
-        }
-        mComfirmBtn.setOnClickListener(confirmListener);
-
-        //mReminderDialog = new Dialog(mContext, R.style.Theme_dialog);
-        dialog.setContentView(view);
-
-        WindowManager manager = acvtivity.getWindowManager();
-        Display display = manager.getDefaultDisplay();
-        Window window = dialog.getWindow();
-        WindowManager.LayoutParams params = window.getAttributes();
-
-        window.setGravity(Gravity.CENTER);
-
-        params.width = (int) (display.getWidth() * 0.8);
-        // params.height=(int) (display.getHeight()*0.4);
-
-        dialog.onWindowAttributesChanged(params);
-
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setCancelable(true);
-        dialog.show();
+//
+//        View view = LayoutInflater.from(acvtivity).inflate(R.layout.dialog_reminder_message_confirm_or_cancel_layout, null);
+//
+//        TextView promptTv = (TextView) view.findViewById(R.id.prompt_contents_tv);
+//        if (null != promptStr) {
+//            promptTv.setText(promptStr);
+//        }
+//
+//        Button mCancelBtn = (Button) view.findViewById(R.id.btn_reminder_cancel);
+//        Button mComfirmBtn = (Button) view.findViewById(R.id.btn_reminder_comfirm);
+//
+//        if (null == cancelListener) {
+//            mCancelBtn.setVisibility(View.GONE);
+//            view.findViewById(R.id.split_line_view).setVisibility(View.GONE);
+//            mComfirmBtn.setBackground(acvtivity.getApplicationContext().getDrawable(R.drawable.dialog_reminder_message_confirm_btn_bottom_bg));
+//        }
+//
+//        if (null != cancelListener) {
+//            mCancelBtn.setOnClickListener(cancelListener);
+//        }
+//        mComfirmBtn.setOnClickListener(confirmListener);
+//
+//        //mReminderDialog = new Dialog(mContext, R.style.Theme_dialog);
+//        dialog.setContentView(view);
+//
+//        WindowManager manager = acvtivity.getWindowManager();
+//        Display display = manager.getDefaultDisplay();
+//        Window window = dialog.getWindow();
+//        WindowManager.LayoutParams params = window.getAttributes();
+//
+//        window.setGravity(Gravity.CENTER);
+//
+//        params.width = (int) (display.getWidth() * 0.8);
+//        // params.height=(int) (display.getHeight()*0.4);
+//
+//        dialog.onWindowAttributesChanged(params);
+//
+//        dialog.setCanceledOnTouchOutside(false);
+//        dialog.setCancelable(true);
+//        dialog.show();
         return dialog;
     }
 
@@ -237,43 +237,43 @@ public class DialogUtils {
     @NonNull
     public static Dialog showConfirmDialog(Activity acvtivity, int type, View.OnClickListener confirmListener) {
         Dialog dialog = new Dialog(acvtivity, R.style.Theme_dialog);
-        View view = LayoutInflater.from(acvtivity).inflate(R.layout.dialog_reminder_synchronize_export_data_layout, null);
-
-        LinearLayout synchronizeDataPartView = (LinearLayout) view.findViewById(R.id.synchronize_data_part_view);
-        LinearLayout exportDataPartView = (LinearLayout) view.findViewById(R.id.export_data_part_view);
-        TextView reminderTitleTv = (TextView) view.findViewById(R.id.reminder_title_tv);
-
-        if (0 == type) {
-            reminderTitleTv.setText(R.string.synchronize_data_success);
-            exportDataPartView.setVisibility(View.GONE);
-            synchronizeDataPartView.setVisibility(View.VISIBLE);
-        } else {
-            reminderTitleTv.setText(R.string.ssid_opr_status_export_succeed);
-            synchronizeDataPartView.setVisibility(View.GONE);
-            exportDataPartView.setVisibility(View.VISIBLE);
-        }
-
-        Button mComfirmBtn = (Button) view.findViewById(R.id.btn_reminder_comfirm);
-        mComfirmBtn.setOnClickListener(confirmListener);
-
-        //mReminderDialog = new Dialog(mContext, R.style.Theme_dialog);
-        dialog.setContentView(view);
-
-        WindowManager manager = acvtivity.getWindowManager();
-        Display display = manager.getDefaultDisplay();
-        Window window = dialog.getWindow();
-        WindowManager.LayoutParams params = window.getAttributes();
-
-        window.setGravity(Gravity.CENTER);
-
-        params.width = (int) (display.getWidth() * 0.8);
-        // params.height=(int) (display.getHeight()*0.4);
-
-        dialog.onWindowAttributesChanged(params);
-
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setCancelable(true);
-        dialog.show();
+//        View view = LayoutInflater.from(acvtivity).inflate(R.layout.dialog_reminder_synchronize_export_data_layout, null);
+//
+//        LinearLayout synchronizeDataPartView = (LinearLayout) view.findViewById(R.id.synchronize_data_part_view);
+//        LinearLayout exportDataPartView = (LinearLayout) view.findViewById(R.id.export_data_part_view);
+//        TextView reminderTitleTv = (TextView) view.findViewById(R.id.reminder_title_tv);
+//
+//        if (0 == type) {
+//            reminderTitleTv.setText(R.string.synchronize_data_success);
+//            exportDataPartView.setVisibility(View.GONE);
+//            synchronizeDataPartView.setVisibility(View.VISIBLE);
+//        } else {
+//            reminderTitleTv.setText(R.string.ssid_opr_status_export_succeed);
+//            synchronizeDataPartView.setVisibility(View.GONE);
+//            exportDataPartView.setVisibility(View.VISIBLE);
+//        }
+//
+//        Button mComfirmBtn = (Button) view.findViewById(R.id.btn_reminder_comfirm);
+//        mComfirmBtn.setOnClickListener(confirmListener);
+//
+//        //mReminderDialog = new Dialog(mContext, R.style.Theme_dialog);
+//        dialog.setContentView(view);
+//
+//        WindowManager manager = acvtivity.getWindowManager();
+//        Display display = manager.getDefaultDisplay();
+//        Window window = dialog.getWindow();
+//        WindowManager.LayoutParams params = window.getAttributes();
+//
+//        window.setGravity(Gravity.CENTER);
+//
+//        params.width = (int) (display.getWidth() * 0.8);
+//        // params.height=(int) (display.getHeight()*0.4);
+//
+//        dialog.onWindowAttributesChanged(params);
+//
+//        dialog.setCanceledOnTouchOutside(false);
+//        dialog.setCancelable(true);
+//        dialog.show();
         return dialog;
     }
 
