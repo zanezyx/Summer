@@ -52,7 +52,9 @@ public class RoanInterestActivity extends BaseActivity {
 		DataManager.getInstance(this).initRoanInterestInfo();
 		RoanInterestInfo info = DataManager.getInstance(this).getmRoanInterestInfo();
 		if(info!=null){
-			etRoanInterest.setText(""+info.getRoanInterest());
+			if(info.getRoanInterest()!=0){
+				etRoanInterest.setText(""+info.getRoanInterest());
+			}
 		}
 	}
 

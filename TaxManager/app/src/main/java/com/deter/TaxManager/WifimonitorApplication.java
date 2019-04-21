@@ -3,7 +3,6 @@ package com.deter.TaxManager;
 import android.app.Application;
 
 import com.deter.TaxManager.network.DtConstant;
-import com.deter.TaxManager.network.TcpMsgService;
 import com.deter.TaxManager.utils.APPUtils;
 import com.deter.TaxManager.utils.Log;
 
@@ -51,7 +50,7 @@ public class WifimonitorApplication extends Application {
             }
             Log.d(TAG,"handleException-------------handleException");
             //BackgroundService.exitThread();
-            TcpMsgService.exitThread();
+            //TcpMsgService.exitThread();
             return false;
         }
 

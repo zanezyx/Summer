@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.deter.TaxManager.utils.ToastUtils;
+
 
 /**
  * 注册界面
@@ -136,7 +138,12 @@ public class RegisterActivity extends BaseActivity {
 
 	void startRegister(final String mobile, final String password)
 	{
-		try {
+		ToastUtils.showLong(mContext, RegisterActivity.this.getResources().getText(R.string.register_success));
+		finish();
+		Intent intent = new Intent();
+		intent.setClass(RegisterActivity.this, LoginActivity.class);
+		startActivity(intent);
+//		try {
 //			StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
 //					.detectDiskReads().detectDiskWrites().detectNetwork()
 //					.penaltyLog().build());
@@ -191,8 +198,8 @@ public class RegisterActivity extends BaseActivity {
 //				public void onCancel() {
 //				}
 //			});
-		} catch (Exception e) {
-		}
+//		} catch (Exception e) {
+//		}
 	}
 	
 	
@@ -210,29 +217,30 @@ public class RegisterActivity extends BaseActivity {
 				String password  = etPassword.getText().toString();
 				String password1  = etPasswordAgain.getText().toString();
 
-//				if (mobile.getText() == null
-//						|| "".equals(mobile.getText().toString())) {
-//					AppUtil.showInfoShort(mContext, "请输入手机号码");
-//				}else if(password==null || password.equals(""))
-//				{
-//					AppUtil.showInfoShort(mContext, "请输入密码");
-//				}else if(password1==null || password1.equals(""))
-//				{
-//					AppUtil.showInfoShort(mContext, "请再次输入密码");
-//				}else if(!password.equals(password1))
-//				{
-//					AppUtil.showInfoShort(mContext, "密码输入不一致");
-//				}else if(!AppUtil.isMobileNO(mobile.getText().toString())){
+				if (mobile.getText() == null
+						|| "".equals(mobile.getText().toString())) {
+					ToastUtils.showLong(mContext, RegisterActivity.this.getResources().getText(R.string.input_phone));
+				}else if(password==null || password.equals(""))
+				{
+					ToastUtils.showLong(mContext, RegisterActivity.this.getResources().getText(R.string.input_password));
+				}else if(password1==null || password1.equals(""))
+				{
+					ToastUtils.showLong(mContext, RegisterActivity.this.getResources().getText(R.string.confirm_password));
+				}else if(!password.equals(password1))
+				{
+					ToastUtils.showLong(mContext, RegisterActivity.this.getResources().getText(R.string.password_different));
+				}
+//				else if(!AppUtil.isMobileNO(mobile.getText().toString())){
 //					AppUtil.showInfoShort(mContext, "请输入正确的手机号码");
-//				}else {
-//					mobile_v = String.valueOf(mobile.getText());
-////						validecode_v = String.valueOf(valideCode.getText());
-//					System.out.println("mobile_v =" + mobile_v);
-////						System.out.println("validecode_v =" + validecode_v);
-//					sMobile = mobile.getText().toString();
-//					sPassword = password;
-//					startRegister(sMobile, password);
 //				}
+				else {
+					mobile_v = String.valueOf(mobile.getText());
+//						validecode_v = String.valueOf(valideCode.getText());
+					System.out.println("mobile_v =" + mobile_v);
+					sMobile = mobile.getText().toString();
+					sPassword = password;
+					startRegister(sMobile, password);
+				}
 
 			}
 		}

@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.deter.TaxManager.model.DataManager;
 import com.deter.TaxManager.model.InsuranceInfo;
 import com.deter.TaxManager.model.RentInfo;
+import com.deter.TaxManager.model.TxDate;
 
 
 /**
@@ -78,7 +79,7 @@ public class RentActivity extends BaseActivity {
 					@Override
 					public void onDateSelected(int year, int monthOfYear, int dayOfMonth) {
 						Log.i("tax", "RentActivity>>>initView>>>onClick");
-						btBarqDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
+						btRentStartDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
 					}
 				});
 			}
@@ -93,7 +94,7 @@ public class RentActivity extends BaseActivity {
 					@Override
 					public void onDateSelected(int year, int monthOfYear, int dayOfMonth) {
 						Log.i("tax", "RentActivity>>>initView>>>onClick");
-						btBarqDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
+						btRentEndDate.setText(year+strYear+monthOfYear+strMonth+dayOfMonth+strDay);
 					}
 				});
 			}
@@ -103,9 +104,30 @@ public class RentActivity extends BaseActivity {
 		DataManager.getInstance(this).initRentInfo();
 		RentInfo info = DataManager.getInstance(this).getmRentInfo();
 		if(info!=null){
-			etAddress.setText(""+info.getPayPerMonth());
-			etPayPerMonth.setText(""+info.getPayPerMonth());
+			if(info.getAddress()!=null){
+				etAddress.setText(""+info.getAddress());
+			}
+			if(info.getPayPerMonth()!=0){
+				etPayPerMonth.setText(""+info.getPayPerMonth());
+			}
+			if(info.getStartDate()!=null){
+				TxDate txDate = info.getStartDate();
+				btRentStartDate.setText(txDate.getYear()+strYear
+						+txDate.getMonth()+strMonth+txDate.getDay()+strDay);
+			}
+
+			if(info.getEndDate()!=null){
+				TxDate txDate = info.getEndDate();
+				btRentEndDate.setText(txDate.getYear()+strYear
+						+txDate.getMonth()+strMonth+txDate.getDay()+strDay);
+			}
+			if(info.getBackupDate()!=null){
+				TxDate txDate = info.getBackupDate();
+				btBarqDate.setText(txDate.getYear()+strYear
+						+txDate.getMonth()+strMonth+txDate.getDay()+strDay);
+			}
 		}
+
 	}
 
 	@Override

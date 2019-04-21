@@ -65,9 +65,15 @@ public class SupportParentsActivity extends BaseActivity {
 		DataManager.getInstance(this).initSupportParentInfo();
 		SupportParentInfo info = DataManager.getInstance(this).getmSupportParentInfo();
 		if(info!=null){
-			etMyAlimony.setText(""+info.getMyAlimony());
-			etOtherAlimony1.setText(""+info.getOtherAlimony1());
-			etOtherAlimony2.setText(""+info.getOtherAlimony2());
+			if(info.getMyAlimony()!=0){
+				etMyAlimony.setText(""+info.getMyAlimony());
+			}
+			if(info.getOtherAlimony1()!=0){
+				etOtherAlimony1.setText(""+info.getOtherAlimony1());
+			}
+			if(info.getOtherAlimony2()!=0) {
+				etOtherAlimony2.setText("" + info.getOtherAlimony2());
+			}
 		}
 	}
 

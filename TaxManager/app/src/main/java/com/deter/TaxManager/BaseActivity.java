@@ -25,18 +25,18 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     public void initTitle() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        if (null != toolbar) {
-            setSupportActionBar(toolbar);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowTitleEnabled(false);
-            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    finish();
-                }
-            });
-        }
+//        toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        if (null != toolbar) {
+//            setSupportActionBar(toolbar);
+//            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//            getSupportActionBar().setDisplayShowTitleEnabled(false);
+//            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    finish();
+//                }
+//            });
+//        }
     }
 
     public abstract void initView();

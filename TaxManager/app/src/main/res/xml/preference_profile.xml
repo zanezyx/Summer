@@ -5,7 +5,7 @@
 zzz
     <PreferenceCategory
         android:layout="@layout/layout_preference_category"
-        android:title="@string/softeware_about">
+        android:title="@string/settings_software_version">
         <com.deter.TaxManager.view.WifiMonitorPreference
             android:icon="@drawable/settings_version"
             android:key="software_version"
