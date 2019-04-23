@@ -1,25 +1,35 @@
-<!doctype html>
-<html>
-<meta name="viewport" content="width=device-width,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">  
-<body>
-<div>
-<img src="WechatIMG8.jpeg" style='width:100%' alt=""/>
-</div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     <style>
+        .container{
+             background-color: #868686;
+             width: 100%;
+             height: 300px;
+             margin-top: 50px;
+         }
+         .radios{
+             position: absolute;
+             bottom: 50px;
+			 margin:0 auto
+         }
+     </style>
+</head>
+
+<body background="background1.png" style="width:1080px" alt="">
+<p><img src="logo.png" width="260" height="146" /></p>
 <div>
 <p align="left" style="color:#FC0;font-size:36px" >
-<br></br>
-<br></br>
-<br></br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该二维码已被扫描过0次，最后一次扫描时间：
-<br></br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2019-04-02 19:36:55
-<br>&nbsp;</br>
-<br>&nbsp;</br>
+该二维码已被扫描过3次，最后一次扫描时间：
+<br>
+2019-04-02 19:36:55
 </p>
 </div>
-<div style="margin:  1020px 0px 0px 500px" >
-<input type="radio" name="radio"  checked="true" value="1" style="color:#F90" font-size:30px ><font color="#F90" size:30px>相符</font></input>
-<input type="radio" name="radio" value="2" font-size:30px style="color:#F90"><font color="#F90" size:30px >不相符</font></input>
-</div>
+
+<div>
+<p align="left" style="color:#FC0;font-size:36px" >
+如需帮助请拨打：800-820-3376（座机）、400-820-3367（手机）进行咨询。长按下方二维码关注贝亲公众号，有机会获取现金红包哦！
+</p>
 </body>
 </html>
